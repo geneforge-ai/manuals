@@ -251,6 +251,7 @@ python3 -m internal.cli build --client <CLIENT_ID> --template <TEMPLATE>
 ├── wizard/                    # Streamlit приложение за онбординг
 ├── restore-geneclone.sh       # Скрипт за възстановяване с една команда
 ├── FINAL_REPORT.md            # Пълна одитна пътека
+├── license.key                # Лиценз, обвързан с машината (необходим при първо стартиране)
 └── checksum.sha256            # Проверка на интегритета
 ```
 
@@ -259,8 +260,18 @@ python3 -m internal.cli build --client <CLIENT_ID> --template <TEMPLATE>
 - [ ] **Потвърждава получаването** чрез имейл или портал.
 - [ ] Съхранява сигурно файла `.geneclone` и `FINAL_REPORT.md`.
 
+### Активиране на Лиценза (включено в доставката)
+Вашият пакет включва файл `license.key`, обвързан със System UUID на вашата машина. При първото стартиране съветникът го проверява автоматично.
+
+**Ако трябва да заявите или нулирате лиценза:**
+1. Изпълнете `collect-uuid.sh` на вашия DGX Spark.
+2. Изпратете UUID по имейл на **info@geneforge.eu**.
+3. Получете вашия `license.key` в рамките на 24 часа.
+
+> **Съвет:** Ако преинсталирате операционната система, UUID може да се промени. Едно безплатно нулиране на лиценза годишно е включено в повечето договори.
+
 ### Доставяем Резултат
-- Файл `.geneclone` + `FINAL_REPORT.md`.
+- Файл `.geneclone` + `FINAL_REPORT.md` + `license.key`.
 - Deploy Guide ([GENEFORGE_DEPLOY_GUIDE_BG.md](GENEFORGE_DEPLOY_GUIDE_BG.md)).
 
 ---

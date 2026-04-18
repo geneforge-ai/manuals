@@ -155,7 +155,30 @@ Typical dependencies:
 - `pandas`
 - `numpy`
 
-### Step 5 — Launch the Onboarding Wizard
+### Step 5 — License Activation (First Run)
+
+Your GeneForge package is protected by a **machine-bound license**. Before launching the wizard, ensure `license.key` is present in the wizard directory.
+
+**If you already received `license.key`:**
+```bash
+cp license.key ~/my-clone/wizard/
+```
+
+**If you need to request a license:**
+1. Run the UUID collector on your DGX Spark:
+   ```bash
+   bash collect-uuid.sh
+   ```
+2. Email the output to **info@geneforge.eu** with subject:
+   `[Your Company] – System UUID for license activation`
+3. GeneForge will reply with your `license.key` within 24 hours.
+
+**If you reinstall your OS:**
+The System UUID may change. Contact GeneForge support for a **free license reset** (one per year included in most contracts).
+
+---
+
+### Step 6 — Launch the Onboarding Wizard
 
 ```bash
 cd ~/my-clone/wizard

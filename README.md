@@ -93,6 +93,21 @@ Understand the Council architecture, then dive into hardware-specific optimizati
 
 ---
 
+## 🔑 License Activation
+
+GeneForge packages include a **machine-bound license** (`license.key`) for commercial protection while keeping the `.geneclone` package fully portable.
+
+**Client-side:**
+- Run [`scripts/collect-uuid.sh`](scripts/collect-uuid.sh) to get your System UUID
+- Email it to `info@geneforge.eu` to receive your `license.key`
+
+**GeneForge-side:**
+- Use [`scripts/generate-license.py`](scripts/generate-license.py) to sign and generate `license.key` files
+
+See [GENEFORGE_DEPLOY_GUIDE.md](GENEFORGE_DEPLOY_GUIDE.md) for full activation steps.
+
+---
+
 ## 📦 Related Repositories
 
 - [GeneForge Core](https://github.com/geneforge-ai) — Organization landing page

@@ -149,7 +149,30 @@ Dipendenze tipiche:
 - `pandas`
 - `numpy`
 
-### Fase 5 — Avvio della Wizard di Onboarding
+### Fase 5 — Attivazione Licenza (Primo Avvio)
+
+Il tuo pacchetto GeneForge è protetto da una **licenza vincolata alla macchina**. Prima di avviare il wizard, assicurati che il file `license.key` sia presente nella directory del wizard.
+
+**Se hai già ricevuto `license.key`:**
+```bash
+cp license.key ~/my-clone/wizard/
+```
+
+**Se devi richiedere una licenza:**
+1. Esegui il collettore UUID sul tuo DGX Spark:
+   ```bash
+   bash collect-uuid.sh
+   ```
+2. Invia l'output via email a **info@geneforge.eu** con oggetto:
+   `[Nome Azienda] – System UUID per attivazione licenza`
+3. GeneForge ti risponderà con il tuo `license.key` entro 24 ore.
+
+**Se reinstalli il sistema operativo:**
+L'UUID di sistema potrebbe cambiare. Contatta il supporto GeneForge per un **reset gratuito della licenza** (uno all'anno incluso nella maggior parte dei contratti).
+
+---
+
+### Fase 6 — Avvio della Wizard di Onboarding
 
 ```bash
 cd ~/my-clone/wizard

@@ -251,6 +251,7 @@ python3 -m internal.cli build --client <CLIENT_ID> --template <TEMPLATE>
 ├── wizard/                    # App Streamlit di onboarding
 ├── restore-geneclone.sh       # Script di restore one-command
 ├── FINAL_REPORT.md            # Traccia di audit completa
+├── license.key                # Licenza vincolata alla macchina (richiesta al primo avvio)
 └── checksum.sha256            # Verifica integrità
 ```
 
@@ -259,8 +260,18 @@ python3 -m internal.cli build --client <CLIENT_ID> --template <TEMPLATE>
 - [ ] **Conferma ricezione** via email o portale.
 - [ ] Archivia in modo sicuro il file `.geneclone` e il `FINAL_REPORT.md`.
 
+### Attivazione Licenza (inclusa nella consegna)
+Il tuo pacchetto include un file `license.key` vincolato all'UUID di sistema della tua macchina. Al primo avvio, il wizard lo verifica automaticamente.
+
+**Se devi richiedere o resettare la licenza:**
+1. Esegui `collect-uuid.sh` sul tuo DGX Spark.
+2. Invia l'UUID via email a **info@geneforge.eu**.
+3. Ricevi il tuo `license.key` entro 24 ore.
+
+> **Suggerimento:** Se reinstalli il sistema operativo, l'UUID potrebbe cambiare. Un reset gratuito della licenza all'anno è incluso nella maggior parte dei contratti.
+
 ### Deliverable
-- File `.geneclone` + `FINAL_REPORT.md`.
+- File `.geneclone` + `FINAL_REPORT.md` + `license.key`.
 - Deploy Guide ([GENEFORGE_DEPLOY_GUIDE_IT.md](GENEFORGE_DEPLOY_GUIDE_IT.md)).
 
 ---

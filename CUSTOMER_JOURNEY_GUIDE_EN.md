@@ -219,6 +219,7 @@ python3 -m internal.cli build --client <CLIENT_ID> --template <TEMPLATE>
 ├── wizard/                    # Onboarding Streamlit app
 ├── restore-geneclone.sh       # One-command restore script
 ├── FINAL_REPORT.md            # Complete audit trail
+├── license.key                # Machine-bound license (required on first run)
 └── checksum.sha256            # Integrity verification
 ```
 
