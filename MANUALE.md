@@ -1,4 +1,4 @@
-# GeneForge Internal Personalization Engine — Manuale d'Uso
+# GeneForge AI Labs — Internal Engine Manual
 
 ## 🏆 Golden Rules (Regole d'Oro)
 

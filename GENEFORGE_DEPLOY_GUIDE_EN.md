@@ -1,4 +1,4 @@
-# GeneForge Deploy Guide — `.geneclone` Package
+# GeneForge AI Labs — Deploy Guide — `.geneclone` Package
 
 This guide covers how to receive, extract, deploy, and run a **GeneForge Custom Clone** packaged as a `.geneclone` artifact.
 

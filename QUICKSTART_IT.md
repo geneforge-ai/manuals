@@ -1,4 +1,4 @@
-# GeneForge — Quick Start
+# GeneForge AI Labs — Quick Start
 
 > **Avvia un clone di test in 5 minuti.**  
 > Per il manuale completo, vedi [MANUALE_IT.md](MANUALE_IT.md).

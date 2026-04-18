@@ -1,4 +1,4 @@
-# GeneForge Internal Personalization Engine — Manuale operativo
+# GeneForge AI Labs — Manuale Motore Interno
 
 ## 🏆 Regole d'oro
 

@@ -1,4 +1,4 @@
-# GeneForge Customer Journey Guide
+# GeneForge AI Labs — Customer Journey Guide
 ## English Version
 ## From Contract Signature to Custom `.geneclone` Delivery
 

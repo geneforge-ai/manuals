@@ -1,4 +1,4 @@
-# GeneForge Internal Engine — Quick Start
+# GeneForge AI Labs — Quick Start
 
 > **Get a test clone running in 5 minutes.**  
 > For the full manual, see [MANUALE.md](MANUALE.md).

@@ -1,4 +1,4 @@
-# Guida al Percorso Cliente GeneForge
+# GeneForge AI Labs — Guida al Percorso Cliente
 ## Dalla Firma del Contratto alla Consegna del `.geneclone` Personalizzato
 
 Questa guida ti accompagna **dal primo all'ultimo giorno** del tuo percorso con GeneForge — dalla firma del contratto alla consegna e all'avvio del tuo clone AI personalizzato.
@@ -21,6 +21,22 @@ Questa guida ti accompagna **dal primo all'ultimo giorno** del tuo percorso con 
 | **6** | Pacchetto creato e inviato a te | Basso | 8–9 |
 | **7** | Tu installi e avvii il clone | Medio | 9–10 |
 | **8** | Monitoraggio e supporto continuo | Basso | Continuo |
+
+---
+
+## Cronologia Compatta
+
+| Step | Fase | Azione GeneForge | La tua azione | Durata |
+|------|------|------------------|---------------|--------|
+| 0 | Contratto | Assegna team, sceglie template | Indica un contatto, firma DPA | Giorno 0 |
+| 1 | Kickoff | Conduce riunione kickoff | Raccoglie e carica documenti | Giorni 1–2 |
+| 2 | Intake | Sanitizza e ingoia documenti | Approva report di sanitizzazione | Giorni 2–3 |
+| 3 | Consiglio | Il Consiglio AI progetta il clone | Partecipa a call di review 30 min | Giorni 3–5 |
+| 4 | Build | Personalizza prompt e UI | Valida terminologia e UI | Giorni 5–7 |
+| 5 | Revisione | Consiglio Pre-Consegna | Partecipa a call di approvazione 15 min | Giorni 7–8 |
+| 6 | Package | Crea artefatto `.geneclone` | Verifica checksum e conferma | Giorni 8–9 |
+| 7 | Avvio | Supporto remoto | Esegue wizard e va live | Giorni 9–10 |
+| 8 | Monitoraggio | Telemetria e drift detection | Sondaggi di soddisfazione | Continuo |
 
 ---
 
@@ -73,15 +89,15 @@ graph LR
 ### Documenti che il Cliente Deve Fornire
 La qualità del clone dipende dalla ricchezza degli input. Richiediamo:
 
-| Documento | Scopo | Priorità |
-|-----------|-------|----------|
-| **Panoramica Aziendale** | Mission, vision, valori, priorità strategiche | 🔴 Critico |
-| **Mappa Processi** | Processi core e flussi di lavoro | 🔴 Critico |
-| **Struttura Team** | Organigramma, ruoli, gerarchia decisionale | 🟡 Importante |
-| **Snapshot Finanziario** | Modello di ricavo, obiettivi di crescita, vincoli di budget | 🟡 Importante |
-| **Artefatti Cultura** | Email interne, documenti sui valori, esempi di comunicazione | 🟢 Utile |
-| **Requisiti Compliance** | GDPR, HIPAA, SOX o regolamenti settore-specifici | 🔴 Critico (se regolamentato) |
-| **Linee Guida Brand** | Logo, tono di voce, identità visiva | 🟡 Importante |
+| Documento | Scopo | Priorità | Formato Consigliato |
+|-----------|-------|----------|---------------------|
+| **Panoramica Aziendale** | Mission, vision, valori, priorità strategiche | 🔴 Critico | PDF, Word o Markdown (2–10 pagine) |
+| **Mappa Processi** | Processi core e flussi di lavoro | 🔴 Critico | Diagramma BPMN, flowchart PNG o elenco Markdown |
+| **Struttura Team** | Organigramma, ruoli, gerarchia decisionale | 🟡 Importante | Organigramma PDF, slide PowerPoint o spreadsheet |
+| **Snapshot Finanziario** | Modello di ricavo, obiettivi di crescita, vincoli di budget | 🟡 Importante | Report PDF o Excel (solo dati riassuntivi) |
+| **Artefatti Cultura** | Email interne, documenti sui valori, esempi di comunicazione | 🟢 Utile | Scansioni PDF, email esportate o documenti Word |
+| **Requisiti Compliance** | GDPR, HIPAA, SOX o regolamenti settore-specifici | 🔴 Critico (se regolamentato) | Certificati PDF, documenti policy o report di audit |
+| **Linee Guida Brand** | Logo, tono di voce, identità visiva | 🟡 Importante | Brand book PDF, ZIP con asset o link a style guide |
 
 > **Suggerimento:** Anche documenti parziali o in bozza sono preziosi. Il Consiglio di Agenti segnalerà le lacune invece di allucinare.
 

@@ -1,4 +1,4 @@
-# GeneForge Internal Personalization Engine — Ръководство за експлоатация
+# GeneForge AI Labs — Ръководство за Вътрешен Двигател
 
 ## 🏆 Златни правила
 

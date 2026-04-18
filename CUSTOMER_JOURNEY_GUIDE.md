@@ -1,4 +1,4 @@
-# GeneForge Customer Journey Guide
+# GeneForge AI Labs — Customer Journey Guide
 ## From Contract Signature to Custom `.geneclone` Delivery
 
 This guide walks you through the **entire process** of receiving your custom AI clone — from the moment you sign the contract to the day your `.geneclone` package is delivered and running.
@@ -21,6 +21,22 @@ This guide walks you through the **entire process** of receiving your custom AI 
 | **6** | Package created and sent to you | Low | 8–9 |
 | **7** | You install and launch the clone | Medium | 9–10 |
 | **8** | Ongoing monitoring and support | Low | Forever |
+
+---
+
+## Compact Timeline
+
+| Step | Phase | GeneForge Action | Your Action | Duration |
+|------|-------|------------------|-------------|----------|
+| 0 | Contract | Assign team, pick template | Name a contact, sign DPA | Day 0 |
+| 1 | Kickoff | Run kickoff meeting | Gather & upload documents | Days 1–2 |
+| 2 | Intake | Sanitize & ingest docs | Approve sanitization report | Days 2–3 |
+| 3 | Council | AI Council designs clone | Attend 30-min review call | Days 3–5 |
+| 4 | Build | Personalize prompts & UI | Validate terminology & UI | Days 5–7 |
+| 5 | Review | Pre-Delivery Council | Attend 15-min sign-off call | Days 7–8 |
+| 6 | Package | Build `.geneclone` artifact | Verify checksum & acknowledge | Days 8–9 |
+| 7 | Launch | Remote support | Run wizard & go live | Days 9–10 |
+| 8 | Monitor | Telemetry & drift checks | Satisfaction surveys | Ongoing |
 
 ---
 
@@ -73,15 +89,15 @@ graph LR
 ### Documents the Client Must Provide
 The quality of the clone depends on the richness of the input. We ask for:
 
-| Document | Purpose | Priority |
-|----------|---------|----------|
-| **Company Overview** | Mission, vision, values, strategic priorities | 🔴 Critical |
-| **Process Map** | Core business processes and workflows | 🔴 Critical |
-| **Team Structure** | Org chart, roles, decision-making hierarchy | 🟡 Important |
-| **Financial Snapshot** | Revenue model, growth objectives, budget constraints | 🟡 Important |
-| **Culture Artifacts** | Internal emails, values documents, communication examples | 🟢 Nice to have |
-| **Compliance Requirements** | GDPR, HIPAA, SOX, or industry-specific regulations | 🔴 Critical (if regulated) |
-| **Brand Guidelines** | Logo, tone of voice, visual identity | 🟡 Important |
+| Document | Purpose | Priority | Suggested Format |
+|----------|---------|----------|------------------|
+| **Company Overview** | Mission, vision, values, strategic priorities | 🔴 Critical | PDF, Word, or Markdown (2–10 pages) |
+| **Process Map** | Core business processes and workflows | 🔴 Critical | BPMN diagram, flowchart PNG, or Markdown list |
+| **Team Structure** | Org chart, roles, decision-making hierarchy | 🟡 Important | PDF org chart, PowerPoint slide, or spreadsheet |
+| **Financial Snapshot** | Revenue model, growth objectives, budget constraints | 🟡 Important | PDF report or Excel (high-level only) |
+| **Culture Artifacts** | Internal emails, values documents, communication examples | 🟢 Nice to have | PDF scans, exported emails, or Word docs |
+| **Compliance Requirements** | GDPR, HIPAA, SOX, or industry-specific regulations | 🔴 Critical (if regulated) | PDF certificates, policy docs, or audit reports |
+| **Brand Guidelines** | Logo, tone of voice, visual identity | 🟡 Important | PDF brand book, ZIP with assets, or link to style guide |
 
 > **Tip:** Even partial or draft documents are valuable. The Council of Agents will flag gaps rather than hallucinate.
 

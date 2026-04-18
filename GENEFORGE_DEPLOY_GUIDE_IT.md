@@ -1,6 +1,20 @@
-# Guida al Deploy di GeneForge — Pacchetto `.geneclone`
+# GeneForge AI Labs — Guida al Deploy — Pacchetto `.geneclone`
 
 Questa guida descrive come ricevere, estrarre, distribuire ed eseguire un **GeneForge Custom Clone** confezionato come artefatto `.geneclone`.
+
+---
+
+## 🔐 Verifica Rapida dell'Integrità
+
+Prima di estrarre qualsiasi cosa, verifica che il pacchetto sia integro:
+
+```bash
+sha256sum -c checksum.sha256
+```
+
+**Atteso:** `GeneForge-Custom-*.geneclone: OK`
+
+**Se vedi `FAILED`:** 🛑 Non estrarre. Contatta immediatamente il supporto GeneForge. Vedi [Fase 3](#fase-3--verifica-dellintegrità-del-pacchetto-) per i dettagli.
 
 ---
 

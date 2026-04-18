@@ -1,4 +1,4 @@
-# GeneForge Manuals
+# GeneForge AI Labs — Manuals
 
 > **The official documentation hub for GeneForge AI Clones.**  
 > Build, personalize, deploy, and run autonomous AI agents tailored to your organization.
@@ -59,6 +59,10 @@ Internal CLI, Council orchestration, Corporate Memory, and thermal guardrails.
 ### 🎛️ CUDA developer optimizing for DGX Spark
 → Start here: **[CUDA_DEVELOPMENT_GUIDE.md](CUDA_DEVELOPMENT_GUIDE.md)**  
 Compute capability, unified memory, NVCC flags, and thermal guardrails.
+
+### 🔬 AI researcher or ML engineer
+→ Start here: **[MANUALE.md](MANUALE.md)** + **[CUDA_DEVELOPMENT_GUIDE.md](CUDA_DEVELOPMENT_GUIDE.md)**  
+Understand the Council architecture, then dive into hardware-specific optimizations.
 
 ---
 
