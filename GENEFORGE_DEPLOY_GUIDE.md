@@ -66,17 +66,26 @@ A `.geneclone` is a standard ZIP file. Extract it with any of these methods:
 
 > **✅ Recommended: Option B — Restore script** (handles directory structure and permissions automatically).
 
-**Option A — Unzip (manual)**
+**Option A — Restore script (recommended ⭐)**
+```bash
+cd ~/geneforge-deploy
+bash restore-geneclone.sh ~/my-clone
+```
+
+The restore script automatically:
+- Creates the target directory structure
+- Copies agents, config, and wizard files
+- Sets executable permissions on `.sh` files
+- Checks for a Python virtual environment
+- Verifies critical files are present
+
+**Option B — Unzip (manual)**
 ```bash
 cd ~/geneforge-deploy
 unzip GeneForge-Custom-*-v1.0.geneclone -d my-clone/
 ```
 
-**Option B — Restore script (recommended ⭐)**
-```bash
-cd ~/geneforge-deploy
-bash restore-geneclone.sh ~/my-clone
-```
+> ⚠️ Manual unzip skips permission checks. You may need to run `chmod +x` on scripts afterwards.
 
 The restore script:
 - Creates the target directory structure
@@ -84,21 +93,33 @@ The restore script:
 - Sets executable permissions on `.sh` files
 - Checks for a Python virtual environment
 
-### Step 3 — Verify Package Integrity
+### Step 3 — Verify Package Integrity ✅
 
-Before installing, verify the package was not corrupted during transfer:
+**Always verify before installing.** This ensures the package was not corrupted or tampered with during transfer.
 
 ```bash
 cd ~/geneforge-deploy
 sha256sum -c checksum.sha256
 ```
 
-Expected output:
+**Expected output:**
 ```
 GeneForge-Custom-*-v1.0.geneclone: OK
 ```
 
-> ⚠️ If the checksum fails, **do not proceed**. Contact GeneForge support immediately — the package may be corrupted or tampered with.
+**If you see `FAILED`:**
+```
+GeneForge-Custom-*-v1.0.geneclone: FAILED
+sha256sum: WARNING: 1 computed checksum did NOT match
+```
+
+> 🛑 **Do not proceed.** The package may be corrupted, incomplete, or tampered with. Contact GeneForge support immediately with your client ID and delivery date.
+
+**What the checksum protects against:**
+- Partial downloads or network interruptions
+- File corruption during transfer
+- Unauthorized modifications
+- Bit-rot on storage media
 
 ### Step 4 — Install Dependencies
 
@@ -251,6 +272,10 @@ bash ~/my-clone/wizard/launch_onboarding.sh
 | `Permission denied` on `.sh` | Scripts not executable | `chmod +x restore-geneclone.sh` |
 | Slow performance | No GPU / CPU only | Expected on non-GPU systems; reduce agent concurrency |
 | Agent prompts not loading | Missing `agents/` directory | Re-extract package; verify directory structure |
+| Checksum verification fails | Corrupted or tampered package | 🛑 Do not install. Contact GeneForge support immediately |
+| `restore-geneclone.sh: not found` | Script not extracted | Re-extract with Option A (restore script) |
+| Wizard shows blank page after login | Browser cache issue | Hard-refresh: `Ctrl+Shift+R` or try incognito mode |
+| High CPU usage after launch | Too many agents active | Edit `config/nim_config.yaml`: set `max_concurrent_agents: 2` |
 
 ### Extended Troubleshooting
 
@@ -286,6 +311,22 @@ bash ~/my-clone/wizard/launch_onboarding.sh
 #### "I lost my original .geneclone file"
 - **Cause:** Accidental deletion.
 - **Fix:** Contact GeneForge support with your **client ID** and **delivery date**. We keep encrypted backups for 90 days.
+
+#### "Checksum verification fails every time I re-download"
+- **Cause:** CDN cache serving stale file, or antivirus quarantining part of the archive.
+- **Fix:**
+  1. Disable antivirus temporarily and re-download.
+  2. Try a different browser or use `wget` / `curl` directly:
+     ```bash
+     wget https://your-delivery-url/GeneForge-Custom-*.geneclone
+     wget https://your-delivery-url/checksum.sha256
+     sha256sum -c checksum.sha256
+     ```
+  3. If still failing, request a fresh upload from GeneForge support.
+
+#### "The wizard starts but I can't upload files"
+- **Cause:** Browser permissions or Firefox Snap sandbox.
+- **Fix:** Use Chrome/Chromium. If on DGX Spark with Firefox Snap, see [firefox-snap-upload-fix](https://github.com/geneforge-ai/firefox-snap-upload-fix).
 
 | Problem | Cause | Solution |
 |---------|-------|----------|

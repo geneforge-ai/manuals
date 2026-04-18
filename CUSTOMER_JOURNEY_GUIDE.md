@@ -1,10 +1,28 @@
 # GeneForge Customer Journey Guide
 ## From Contract Signature to Custom `.geneclone` Delivery
 
-This guide outlines the **collaborative steps** between the GeneForge team and the client to transform a base template into a fully personalized AI clone.
+This guide walks you through the **entire process** of receiving your custom AI clone — from the moment you sign the contract to the day your `.geneclone` package is delivered and running.
 
-> **Audience:** Project Managers, Customer Success, and client stakeholders.  
-> **Timeline:** Typically 5–10 business days from kickoff to delivery, depending on client responsiveness and template complexity.
+> **Who is this for?** You, if you are the client sponsor, project manager, or CIO overseeing the GeneForge engagement.  
+> **How long does it take?** Usually **5–10 business days**, depending on how quickly you can share documents and approve decisions.
+
+---
+
+## At a Glance
+
+| Phase | What happens | Your effort | Days |
+|-------|--------------|-------------|------|
+| **0** | Contract signed, team assigned | Low | Day 0 |
+| **1** | Kickoff meeting + document collection | **High** | 1–2 |
+| **2** | Documents processed into AI memory | Low | 2–3 |
+| **3** | AI Council designs your clone | Medium | 3–5 |
+| **4** | Clone is built and customized | Medium | 5–7 |
+| **5** | Final review before delivery | Medium | 7–8 |
+| **6** | Package created and sent to you | Low | 8–9 |
+| **7** | You install and launch the clone | Medium | 9–10 |
+| **8** | Ongoing monitoring and support | Low | Forever |
+
+---
 
 ## Visual Timeline
 
@@ -269,35 +287,39 @@ python3 -m internal.cli build --client <CLIENT_ID> --template <TEMPLATE>
 
 ---
 
-## When Things Go Wrong — No-Go & Recovery Scenarios
+## 🚨 When Things Go Wrong — No-Go & Recovery Scenarios
 
-### Scenario A: Client cannot provide documents on time
-**Impact:** Delay in Phase 2 (Memory Bootstrap).  
-**Recovery:**
-1. GeneForge proceeds with a **lightweight dossier** (public info + interview).
-2. Client provides documents within 5 business days; Council is re-run.
-3. If documents never arrive, project pauses until **milestone payment** is clarified.
+> **Bad news happens. Good news: we have a plan for every scenario.**
+>
+> Below are the four most common bumps in the road, what they mean for your timeline, and exactly how we fix them together.
 
-### Scenario B: Client rejects the Architecture Council recommendation
-**Impact:** Return to Phase 3 (revised Council).  
-**Recovery:**
-1. Client submits written feedback with specific constraints.
-2. GeneForge runs a **second light-round Council** within 24h.
-3. If still unresolved, a **human escalation call** is scheduled with the CTO.
+### Scenario A: You can't provide documents on time
+**What it means:** Phase 2 (Memory Bootstrap) is delayed.  
+**How we fix it:**
+1. We proceed with a **lightweight dossier** using public info + a short interview.
+2. You send documents within 5 business days; we re-run the Council.
+3. If documents never arrive, the project pauses until the next **milestone payment** is clarified.
 
-### Scenario C: Pre-Delivery Review returns "No-Go"
-**Impact:** Delay in delivery (return to Phase 4).  
-**Recovery:**
-1. GeneForge provides a **remediation plan** with exact items to fix.
-2. Fixes are applied and a **mini Pre-Delivery Review** is re-run.
-3. Typical delay: 24–48 hours for minor items; 3–5 days for major rework.
+### Scenario B: You disagree with the AI Council's recommendation
+**What it means:** We return to Phase 3 for a revised Council.  
+**How we fix it:**
+1. You send us written feedback with your specific concerns.
+2. We run a **second light-round Council** within 24 hours.
+3. If we still don't align, a **human escalation call** is scheduled with our CTO.
 
-### Scenario D: Deployment fails on client infrastructure
-**Impact:** Clone does not launch after extraction.  
-**Recovery:**
-1. Client opens a **support ticket** with error logs.
-2. GeneForge provides remote troubleshooting (screen share).
-3. If infrastructure is incompatible, a **refund or re-architecture** clause applies per contract.
+### Scenario C: Pre-Delivery Review says "No-Go"
+**What it means:** Delivery is delayed while we fix outstanding issues.  
+**How we fix it:**
+1. We send you a **remediation plan** listing exactly what needs fixing.
+2. We apply the fixes and run a **mini Pre-Delivery Review**.
+3. Typical delay: **24–48 hours** for minor items; **3–5 days** for major rework.
+
+### Scenario D: The clone won't start on your servers
+**What it means:** The clone does not launch after you extract it.  
+**How we fix it:**
+1. You open a **support ticket** and share the error logs.
+2. We provide remote troubleshooting via screen share.
+3. If your infrastructure is incompatible, a **refund or re-architecture** clause applies per contract.
 
 ### Escalation Path
 ```

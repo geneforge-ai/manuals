@@ -1,10 +1,28 @@
 # Guida al Percorso Cliente GeneForge
 ## Dalla Firma del Contratto alla Consegna del `.geneclone` Personalizzato
 
-Questa guida illustra i **passaggi collaborativi** tra il team GeneForge e il cliente per trasformare un template di base in un clone AI pienamente personalizzato.
+Questa guida ti accompagna **dal primo all'ultimo giorno** del tuo percorso con GeneForge — dalla firma del contratto alla consegna e all'avvio del tuo clone AI personalizzato.
 
-> **Destinatari:** Project Manager, Customer Success e stakeholder del cliente.  
-> **Tempistiche:** Tipicamente 5–10 giorni lavorativi dall'avvio alla consegna, in base alla reattività del cliente e alla complessità del template.
+> **A chi è rivolta?** A te, se sei il sponsor del progetto, il project manager o il CIO che segue l'implementazione GeneForge.  
+> **Quanto dura?** Solitamente **5–10 giorni lavorativi**, a seconda di quanto rapidamente condividi i documenti e approvi le decisioni.
+
+---
+
+## A Colpo d'Occhio
+
+| Fase | Cosa succede | Il tuo impegno | Giorni |
+|------|--------------|----------------|--------|
+| **0** | Firma contratto, team assegnato | Basso | Giorno 0 |
+| **1** | Riunione kickoff + raccolta documenti | **Alto** | 1–2 |
+| **2** | Documenti processati in memoria AI | Basso | 2–3 |
+| **3** | Il Consiglio AI progetta il tuo clone | Medio | 3–5 |
+| **4** | Il clone viene costruito e personalizzato | Medio | 5–7 |
+| **5** | Revisione finale prima della consegna | Medio | 7–8 |
+| **6** | Pacchetto creato e inviato a te | Basso | 8–9 |
+| **7** | Tu installi e avvii il clone | Medio | 9–10 |
+| **8** | Monitoraggio e supporto continuo | Basso | Continuo |
+
+---
 
 ## Cronologia Visiva
 
@@ -268,35 +286,39 @@ python3 -m internal.cli build --client <CLIENT_ID> --template <TEMPLATE>
 
 ---
 
-## Quando le Cose Vanno Male — Scenari No-Go & Recovery
+## 🚨 Quando le Cose Vanno Male — Scenari No-Go & Recovery
 
-### Scenario A: Il cliente non riesce a fornire i documenti in tempo
-**Impatto:** Ritardo nella Fase 2 (Bootstrap Memoria).  
-**Recovery:**
-1. GeneForge procede con un **dossier leggero** (info pubbliche + intervista).
-2. Il cliente fornisce i documenti entro 5 giorni lavorativi; il Consiglio viene rieseguito.
-3. Se i documenti non arrivano mai, il progetto si mette in pausa fino a quando il **pagamento milestone** non è chiarito.
+> **Le cose possono andare storte. La buona notizia: abbiamo un piano per ogni scenario.**
+>
+> Ecco i quattro intoppi più comuni, cosa significano per la tua tempistica e come li risolviamo insieme.
 
-### Scenario B: Il cliente rifiuta la raccomandazione del Consiglio di Architettura
-**Impatto:** Ritorno alla Fase 3 (Consiglio rivisto).  
-**Recovery:**
-1. Il cliente invia feedback scritto con vincoli specifici.
-2. GeneForge esegue un **secondo Consiglio light-round** entro 24h.
-3. Se ancora irrisolto, viene programmata una **call di escalation umana** con il CTO.
+### Scenario A: Non riesci a fornire i documenti in tempo
+**Cosa significa:** Ritardo nella Fase 2 (Bootstrap Memoria).  
+**Come lo risolviamo:**
+1. Procediamo con un **dossier leggero** usando informazioni pubbliche + una breve intervista.
+2. Tu invii i documenti entro 5 giorni lavorativi; rieseguiamo il Consiglio.
+3. Se i documenti non arrivano mai, il progetto si mette in pausa fino al prossimo **pagamento milestone**.
 
-### Scenario C: La Revisione Pre-Consegna restituisce "No-Go"
-**Impatto:** Ritardo nella consegna (ritorno alla Fase 4).  
-**Recovery:**
-1. GeneForge fornisce un **piano di remediation** con gli elementi esatti da correggere.
-2. Le correzioni vengono applicate e una **mini Revisione Pre-Consegna** viene rieseguita.
-3. Ritardo tipico: 24–48 ore per elementi minori; 3–5 giorni per rework maggiore.
+### Scenario B: Non sei d'accordo con la raccomandazione del Consiglio AI
+**Cosa significa:** Torniamo alla Fase 3 per un Consiglio rivisto.  
+**Come lo risolviamo:**
+1. Tu ci invii feedback scritto con i tuoi specifici dubbi.
+2. Eseguiamo un **secondo Consiglio light-round** entro 24 ore.
+3. Se ancora non siamo allineati, programmiamo una **call di escalation umana** con il nostro CTO.
 
-### Scenario D: Il deploy fallisce sull'infrastruttura del cliente
-**Impatto:** Il clone non si avvia dopo l'estrazione.  
-**Recovery:**
-1. Il cliente apre un **ticket di supporto** con i log di errore.
-2. GeneForge fornisce troubleshooting remoto (condivisione schermo).
-3. Se l'infrastruttura è incompatibile, si applica una clausola di **rimborso o ri-architettura** secondo contratto.
+### Scenario C: La Revisione Pre-Consegna dice "No-Go"
+**Cosa significa:** La consegna viene ritardata mentre correggiamo i problemi rimanenti.  
+**Come lo risolviamo:**
+1. Ti inviamo un **piano di remediation** che elenca esattamente cosa correggere.
+2. Applichiamo le correzioni e rieseguiamo una **mini Revisione Pre-Consegna**.
+3. Ritardo tipico: **24–48 ore** per elementi minori; **3–5 giorni** per rework maggiore.
+
+### Scenario D: Il clone non si avvia sui tuoi server
+**Cosa significa:** Il clone non si avvia dopo che lo hai estratto.  
+**Come lo risolviamo:**
+1. Tu apri un **ticket di supporto** e condividi i log di errore.
+2. Forniamo troubleshooting remoto via condivisione schermo.
+3. Se la tua infrastruttura è incompatibile, si applica una clausola di **rimborso o ri-architettura** secondo contratto.
 
 ### Percorso di Escalation
 ```

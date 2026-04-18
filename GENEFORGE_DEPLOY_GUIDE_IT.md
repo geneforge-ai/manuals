@@ -66,39 +66,54 @@ Un `.geneclone` è un file ZIP standard. Estrarlo con uno dei seguenti metodi:
 
 > **✅ Consigliato: Opzione B — Script di ripristino** (gestisce automaticamente la struttura delle directory e i permessi).
 
-**Opzione A — Unzip (manuale)**
-```bash
-cd ~/geneforge-deploy
-unzip GeneForge-Custom-*-v1.0.geneclone -d my-clone/
-```
-
-**Opzione B — Script di ripristino (consigliato ⭐)**
+**Opzione A — Script di ripristino (consigliato ⭐)**
 ```bash
 cd ~/geneforge-deploy
 bash restore-geneclone.sh ~/my-clone
 ```
 
-Lo script di ripristino:
-- Crea la struttura della directory di destinazione
-- Copia i file degli agent, di configurazione e della wizard
-- Imposta i permessi di esecuzione sui file `.sh`
-- Verifica la presenza di un ambiente virtuale Python
+Lo script di ripristino esegue automaticamente:
+- Creazione della struttura delle directory di destinazione
+- Copia degli agent, dei file di configurazione e della wizard
+- Impostazione dei permessi di esecuzione sui file `.sh`
+- Verifica della presenza di un ambiente virtuale Python
+- Verifica che i file critici siano presenti
 
-### Fase 3 — Verifica dell'Integrità del Pacchetto
+**Opzione B — Unzip (manuale)**
+```bash
+cd ~/geneforge-deploy
+unzip GeneForge-Custom-*-v1.0.geneclone -d my-clone/
+```
 
-Prima dell'installazione, verificare che il pacchetto non sia stato danneggiato durante il trasferimento:
+> ⚠️ Lo unzip manuale salta i controlli sui permessi. Potrebbe essere necessario eseguire `chmod +x` sugli script in seguito.
+
+### Fase 3 — Verifica dell'Integrità del Pacchetto ✅
+
+**Verifica sempre prima di installare.** Questo garantisce che il pacchetto non sia stato danneggiato o manomesso durante il trasferimento.
 
 ```bash
 cd ~/geneforge-deploy
 sha256sum -c checksum.sha256
 ```
 
-Output atteso:
+**Output atteso:**
 ```
 GeneForge-Custom-*-v1.0.geneclone: OK
 ```
 
-> ⚠️ Se il checksum non corrisponde, **non procedere**. Contattare immediatamente il supporto GeneForge — il pacchetto potrebbe essere danneggiato o manomesso.
+**Se vedi `FAILED`:**
+```
+GeneForge-Custom-*-v1.0.geneclone: FAILED
+sha256sum: WARNING: 1 computed checksum did NOT match
+```
+
+> 🛑 **Non procedere.** Il pacchetto potrebbe essere danneggiato, incompleto o manomesso. Contatta immediatamente il supporto GeneForge con il tuo client ID e la data di consegna.
+
+**Cosa protegge il checksum:**
+- Download parziali o interruzioni di rete
+- Corruzione del file durante il trasferimento
+- Modifiche non autorizzate
+- Degradazione del supporto di archiviazione
 
 ### Fase 4 — Installazione delle Dipendenze
 
@@ -251,6 +266,10 @@ bash ~/my-clone/wizard/launch_onboarding.sh
 | `Permission denied` su `.sh` | Script non eseguibili | `chmod +x restore-geneclone.sh` |
 | Prestazioni lente | Nessuna GPU / solo CPU | Comportamento atteso su sistemi senza GPU; ridurre la concorrenza degli agent |
 | I prompt degli agent non vengono caricati | Directory `agents/` mancante | Estrarre nuovamente il pacchetto; verificare la struttura delle directory |
+| Verifica checksum fallita | Pacchetto corrotto o manomesso | 🛑 Non installare. Contatta immediatamente il supporto GeneForge |
+| `restore-geneclone.sh: not found` | Script non estratto | Riestrai con Opzione A (script di ripristino) |
+| Wizard pagina bianca dopo login | Cache del browser | Hard-refresh: `Ctrl+Shift+R` o prova modalità incognito |
+| Alto uso CPU dopo l'avvio | Troppi agenti attivi | Modifica `config/nim_config.yaml`: imposta `max_concurrent_agents: 2` |
 
 ### Troubleshooting Esteso
 
@@ -286,6 +305,22 @@ bash ~/my-clone/wizard/launch_onboarding.sh
 #### "Ho perso il file .geneclone originale"
 - **Causa:** Cancellazione accidentale.
 - **Correzione:** Contattare il supporto GeneForge fornendo **client ID** e **data di consegna**. Manteniamo backup crittografati per 90 giorni.
+
+#### "La verifica checksum fallisce ogni volta che riscarico"
+- **Causa:** Cache CDN che serve file vecchio, o antivirus che mette in quarantena parte dell'archivio.
+- **Correzione:**
+  1. Disabilita temporaneamente l'antivirus e riscarica.
+  2. Prova un browser diverso o usa `wget` / `curl` direttamente:
+     ```bash
+     wget https://your-delivery-url/GeneForge-Custom-*.geneclone
+     wget https://your-delivery-url/checksum.sha256
+     sha256sum -c checksum.sha256
+     ```
+  3. Se continua a fallire, richiedi un nuovo upload dal supporto GeneForge.
+
+#### "Il wizard si avvia ma non riesco a caricare file"
+- **Causa:** Permessi del browser o sandbox di Firefox Snap.
+- **Correzione:** Usa Chrome/Chromium. Se su DGX Spark con Firefox Snap, vedi [firefox-snap-upload-fix](https://github.com/geneforge-ai/firefox-snap-upload-fix).
 
 | Problema | Causa | Soluzione |
 |---------|-------|----------|

@@ -1,21 +1,21 @@
-# GeneForge Internal Engine — Quick Start
+# GeneForge — Quick Start
 
 > **Avvia un clone di test in 5 minuti.**  
-> Per il manuale completo, vedi [MANUALE.md](MANUALE.md).
+> Per il manuale completo, vedi [MANUALE_IT.md](MANUALE_IT.md).
 
 ---
 
-## ⚡ Requisiti
-- DGX Spark attivo, Ollama in esecuzione con `nematron-30b:latest`
-- Virtual environment attivato: `source ~/quigley_training/venv/bin/activate`
+## ⚡ Prerequisiti
+- DGX Spark (o qualsiasi Linux) con Ollama in esecuzione con `nemotron-30b:latest`
+- Ambiente virtuale attivato: `source ~/quigley_training/venv/bin/activate`
 
 ---
 
-## Comando unico (test/demo)
+## Comando Unico (test/demo)
 
 ```bash
 cd /home/aintel/GeneForge-Mother-Clone-v1.0
-python3 -m internal.cli test-run --client <NOME_CLIENTE> --template <TEMPLATE>
+python3 -m internal.cli test-run --client <CLIENTE> --template <TEMPLATE>
 ```
 
 **Esempio:**
@@ -23,33 +23,22 @@ python3 -m internal.cli test-run --client <NOME_CLIENTE> --template <TEMPLATE>
 python3 -m internal.cli test-run --client acme-corp --template AI_ML_PLATFORM
 ```
 
-Esegue tutto: Intake → Architecture Council → Personalization → Pre-Delivery Council → Packaging → Report.
+Esegue l'intera pipeline: Intake → Architecture Council → Personalization → Pre-Delivery Council → Packaging → Report.
 
 ---
 
-## Flusso manuale (controllo totale)
+## Passaggi Manuali (se hai bisogno di controllo)
 
-### 1. Inizializza il cliente
 ```bash
+# 1. Inizializza cliente
 python3 -m internal.cli init-client --id acme-corp --template AI_ML_PLATFORM
-```
 
-### 2. Carica i documenti nella cartella docs
-```bash
-mkdir -p internal/clients/acme-corp/docs
-# copia i tuoi file .md / .pdf / .yaml qui
-```
+# 2. Aggiungi documenti in internal/clients/acme-corp/docs/
+# 3. Registrali in memoria
+python3 -m internal.cli add-doc --client acme-corp \
+  --filename company_overview.md --summary "Mission e valori"
 
-### 3. Carica i documenti in memoria
-```bash
-python3 -m internal.cli add-doc \
-  --client acme-corp \
-  --filename company_overview.md \
-  --summary "Mission e valori azienda"
-```
-
-### 4. Esegui la pipeline completa
-```bash
+# 4. Esegui pipeline completa
 python3 -m internal.cli test-run --client acme-corp --template AI_ML_PLATFORM
 ```
 
@@ -57,22 +46,21 @@ python3 -m internal.cli test-run --client acme-corp --template AI_ML_PLATFORM
 
 ## Output
 
-Dopo l'esecuzione, trovi in:
 ```
 internal/clients/acme-corp/output/
 ├── GeneForge-Custom-AcmeCorp-v1.0.geneclone   # Pacchetto finale
-└── FINAL_REPORT.md                              # Report riassuntivo
+└── FINAL_REPORT.md                              # Report di audit
 ```
 
 ---
 
-## Configurazione rapida
+## Configurazione Rapida
 
 Modifica `internal/config/internal_config.yaml` per regolare:
 - `temperature` / `ceo_temperature` — qualità vs creatività
 - `timeout_per_agent` — se Nemotron è lento
 - `cooldown_seconds` — pausa tra agenti
-- `batch_size` — agenti eseguiti in parallelo
+- `batch_size` — agenti in parallelo
 
 ---
 
@@ -81,11 +69,11 @@ Modifica `internal/config/internal_config.yaml` per regolare:
 | Problema | Soluzione |
 |----------|-----------|
 | `CEO Meta format drift detected` | Normale — l'enforcer corregge automaticamente |
-| Timeout | Aumenta `timeout_per_agent` nel config YAML |
+| Timeout | Aumenta `timeout_per_agent` nel config |
 | Temp > 80°C | Il motore si mette in pausa automaticamente |
 | `ImportError` | `source ~/quigley_training/venv/bin/activate` |
-| L'upload dei file non funziona su Firefox | Firefox Snap blocca l'accesso al filesystem → usa Chrome o vedi [firefox-snap-upload-fix](https://github.com/geneforge-ai/firefox-snap-upload-fix) |
+| Upload Firefox fallito | Usa Chrome o vedi [firefox-snap-upload-fix](https://github.com/geneforge-ai/firefox-snap-upload-fix) |
 
 ---
 
-Per il manuale completo vedi `internal/MANUALE.md`.
+Per il manuale completo vedi [MANUALE_IT.md](MANUALE_IT.md).
