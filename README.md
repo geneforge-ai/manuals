@@ -16,6 +16,19 @@
 
 ---
 
+## 🌍 Translations
+
+All core documents are available in **English**, **Italian (Italiano)**, and **Bulgarian (Български)**.
+
+| Document | 🇬🇧 English | 🇮🇹 Italiano | 🇧🇬 Български |
+|----------|-----------|------------|--------------|
+| **Quickstart** | [QUICKSTART_EN.md](QUICKSTART_EN.md) | [QUICKSTART_IT.md](QUICKSTART_IT.md) | [QUICKSTART_BG.md](QUICKSTART_BG.md) |
+| **Customer Journey** | [CUSTOMER_JOURNEY_GUIDE_EN.md](CUSTOMER_JOURNEY_GUIDE_EN.md) | [CUSTOMER_JOURNEY_GUIDE_IT.md](CUSTOMER_JOURNEY_GUIDE_IT.md) | [CUSTOMER_JOURNEY_GUIDE_BG.md](CUSTOMER_JOURNEY_GUIDE_BG.md) |
+| **Deploy Guide** | [GENEFORGE_DEPLOY_GUIDE_EN.md](GENEFORGE_DEPLOY_GUIDE_EN.md) | [GENEFORGE_DEPLOY_GUIDE_IT.md](GENEFORGE_DEPLOY_GUIDE_IT.md) | [GENEFORGE_DEPLOY_GUIDE_BG.md](GENEFORGE_DEPLOY_GUIDE_BG.md) |
+| **Manuale / Manual** | [MANUALE_EN.md](MANUALE_EN.md) | [MANUALE_IT.md](MANUALE_IT.md) | [MANUALE_BG.md](MANUALE_BG.md) |
+
+---
+
 ## 🎯 Quick Navigation
 
 ### I'm a client who just signed the contract
