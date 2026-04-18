@@ -49,26 +49,24 @@ done
 UUID=""
 METHOD=""
 
-# Method 1: sysfs (no sudo required on most systems)
-if [[ -r /sys/class/dmi/id/product_uuid ]]; then
+# Method 1: systemd machine-id (recommended — no sudo, stable per OS install)
+if [[ -r /etc/machine-id ]]; then
+    UUID="$(cat /etc/machine-id | tr -d '[:space:]')"
+    METHOD="machine-id"
+fi
+
+# Method 2: sysfs DMI product_uuid (optional, may require root)
+if [[ -z "${UUID}" ]] && [[ -r /sys/class/dmi/id/product_uuid ]]; then
     UUID="$(cat /sys/class/dmi/id/product_uuid | tr -d '[:space:]')"
     METHOD="sysfs"
 fi
 
-# Method 2: dmidecode (requires sudo on most systems)
+# Method 3: dmidecode (requires sudo, used only if above methods fail)
 if [[ -z "${UUID}" ]] && command -v dmidecode &>/dev/null; then
     UUID="$(sudo dmidecode -s system-uuid 2>/dev/null | tr -d '[:space:]' || true)"
     if [[ -n "${UUID}" ]]; then
         METHOD="dmidecode"
     fi
-fi
-
-# Method 3: systemd machine-id (fallback, not DMI but stable per install)
-if [[ -z "${UUID}" ]] && [[ -r /etc/machine-id ]]; then
-    UUID="$(cat /etc/machine-id | tr -d '[:space:]')"
-    METHOD="machine-id"
-    echo "⚠️  Warning: DMI UUID not available. Using machine-id fallback." >&2
-    echo "   Please contact GeneForge support if activation fails." >&2
 fi
 
 # Validate UUID format (basic check)

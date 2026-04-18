@@ -165,10 +165,11 @@ cp license.key ~/my-clone/wizard/
 ```
 
 **If you need to request a license:**
-1. Run the UUID collector on your DGX Spark:
+1. Run the UUID collector on your DGX Spark (no sudo required):
    ```bash
    bash collect-uuid.sh
    ```
+   > This reads `/etc/machine-id` by default. If your system uses DMI UUID, the script will detect it automatically.
 2. Email the output to **info@geneforge.eu** with subject:
    `[Your Company] – System UUID for license activation`
 3. GeneForge will reply with your `license.key` within 24 hours.
