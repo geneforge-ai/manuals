@@ -1,6 +1,11 @@
 # GeneForge Internal Engine — Quick Start
 
-## Requisiti
+> **Get a test clone running in 5 minutes.**  
+> For the full manual, see [MANUALE.md](MANUALE.md).
+
+---
+
+## ⚡ Requisiti
 - DGX Spark attivo, Ollama in esecuzione con `nematron-30b:latest`
 - Virtual environment attivato: `source ~/quigley_training/venv/bin/activate`
 

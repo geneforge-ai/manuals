@@ -64,26 +64,43 @@ cp /path/to/GeneForge-Custom-*-v1.0.geneclone ~/geneforge-deploy/
 
 A `.geneclone` is a standard ZIP file. Extract it with any of these methods:
 
-**Option A — Unzip (universal)**
+> **✅ Recommended: Option B — Restore script** (handles directory structure and permissions automatically).
+
+**Option A — Unzip (manual)**
 ```bash
 cd ~/geneforge-deploy
 unzip GeneForge-Custom-*-v1.0.geneclone -d my-clone/
 ```
 
-**Option B — Restore script (recommended)**
+**Option B — Restore script (recommended ⭐)**
 ```bash
 cd ~/geneforge-deploy
-# First, extract the script
-cd GeneForge-Custom-*-v1.0.geneclone
 bash restore-geneclone.sh ~/my-clone
 ```
 
 The restore script:
 - Creates the target directory structure
 - Copies agents, config, and wizard files
+- Sets executable permissions on `.sh` files
 - Checks for a Python virtual environment
 
-### Step 3 — Install Dependencies
+### Step 3 — Verify Package Integrity
+
+Before installing, verify the package was not corrupted during transfer:
+
+```bash
+cd ~/geneforge-deploy
+sha256sum -c checksum.sha256
+```
+
+Expected output:
+```
+GeneForge-Custom-*-v1.0.geneclone: OK
+```
+
+> ⚠️ If the checksum fails, **do not proceed**. Contact GeneForge support immediately — the package may be corrupted or tampered with.
+
+### Step 4 — Install Dependencies
 
 ```bash
 cd ~/my-clone/wizard
@@ -103,7 +120,7 @@ Typical dependencies:
 - `pandas`
 - `numpy`
 
-### Step 4 — Launch the Onboarding Wizard
+### Step 5 — Launch the Onboarding Wizard
 
 ```bash
 cd ~/my-clone/wizard
@@ -126,7 +143,7 @@ If deploying on a remote server, access it via:
 http://<server-ip>:8501
 ```
 
-### Step 5 — Complete Onboarding
+### Step 6 — Complete Onboarding
 
 Open the wizard in your browser and follow the guided steps:
 1. **Health Check** — Verify system compatibility
@@ -235,6 +252,51 @@ bash ~/my-clone/wizard/launch_onboarding.sh
 | Slow performance | No GPU / CPU only | Expected on non-GPU systems; reduce agent concurrency |
 | Agent prompts not loading | Missing `agents/` directory | Re-extract package; verify directory structure |
 
+### Extended Troubleshooting
+
+#### "The restore script fails with 'directory not found'"
+- **Cause:** You ran `restore-geneclone.sh` from inside the zip without extracting first.
+- **Fix:** Extract the `.geneclone` first, then run the script from the extracted folder:
+  ```bash
+  unzip GeneForge-Custom-*-v1.0.geneclone -d temp/
+  bash temp/restore-geneclone.sh ~/my-clone
+  ```
+
+#### "Streamlit starts but the page is blank"
+- **Cause:** Firewall blocking port 8501, or browser cache issue.
+- **Fix:**
+  ```bash
+  # Try a different port
+  streamlit run app_onboarding.py --server.port 8502
+  # Or access via IP instead of localhost
+  streamlit run app_onboarding.py --server.address $(hostname -I | awk '{print $1}')
+  ```
+
+#### "I see '404: Not Found' for static assets"
+- **Cause:** The `agents/` or `config/` folder is missing from the extraction.
+- **Fix:** Re-extract using the restore script (Option B) instead of manual unzip.
+
+#### "The clone responds slowly or times out"
+- **Cause:** Running on CPU-only machine with default settings.
+- **Fix:** Reduce the number of concurrent agents in `config/nim_config.yaml`:
+  ```yaml
+  max_concurrent_agents: 2  # instead of 4
+  ```
+
+#### "I lost my original .geneclone file"
+- **Cause:** Accidental deletion.
+- **Fix:** Contact GeneForge support with your **client ID** and **delivery date**. We keep encrypted backups for 90 days.
+
+| Problem | Cause | Solution |
+|---------|-------|----------|
+| `unzip: cannot find` | File extension hidden | Rename: `mv file.geneclone file.zip` then unzip |
+| `ModuleNotFoundError: streamlit` | Dependencies not installed | Run `pip install -r requirements.txt` |
+| `Address already in use` | Port 8501 occupied | Change port: `--server.port 8502` |
+| Wizard loads but shows errors | Firefox Snap blocking | Use Chrome/Chromium |
+| `Permission denied` on `.sh` | Scripts not executable | `chmod +x restore-geneclone.sh` |
+| Slow performance | No GPU / CPU only | Expected on non-GPU systems; reduce agent concurrency |
+| Agent prompts not loading | Missing `agents/` directory | Re-extract package; verify directory structure |
+
 ---
 
 ## 9. Security Notes
@@ -267,5 +329,6 @@ pkill -f streamlit
 
 *For the full internal engine manual, see [MANUALE.md](MANUALE.md).*  
 *For CUDA-specific development notes, see [CUDA_DEVELOPMENT_GUIDE.md](CUDA_DEVELOPMENT_GUIDE.md).*  
+*For the business journey, see [CUSTOMER_JOURNEY_GUIDE.md](CUSTOMER_JOURNEY_GUIDE.md).*  
 *Platform: GeneForge AI Clone Deployment*  
 *Last updated: 2026-04-16*

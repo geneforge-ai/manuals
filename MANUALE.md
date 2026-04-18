@@ -1,5 +1,20 @@
 # GeneForge Internal Personalization Engine — Manuale d'Uso
 
+## 🏆 Golden Rules (Regole d'Oro)
+
+> Segui queste regole sempre. Violare anche una sola può compromettere la qualità del clone o causare freeze del sistema.
+
+1. **🔥 Thermal First** — Se la GPU supera i 78°C, rallenta o ferma l'esecuzione. Il throttling è reale.
+2. **🧠 Nessun CEO Meta senza Council** — Il CEO Meta non decide mai da solo. Deve sempre attivare il Council of Agents.
+3. **📄 Documenta prima di clonare** — Il clone personalizzato non parte senza documentazione approvata e QA sign-off.
+4. **🔴 Red Team è obbligatorio** — Ogni deliverable deve passare lo stress-test del Red Team (Compliance + QA GATE).
+5. **🤖 Non inventare ruoli** — Gli agenti non devono mai simulare o inventare ruoli falsi. Rispondi solo con il ruolo assegnato.
+6. **💾 Corporate Memory è sacra** — Ogni decisione, documento e checkpoint viene salvato. Non bypassare la memoria.
+7. **🌡️ 45°C è il tuo amico** — Se il Council gira a ~41–45°C, stai nel range ottimale. Se sale oltre 50°C, intervenire.
+8. **📦 .geneclone è portabile** — Non legare mai il pacchetto a un hardware specifico. Deve girare su qualsiasi Linux.
+
+---
+
 ## 1. Cos'è il motore interno
 
 Il **GeneForge Internal Personalization Engine** è il sistema che trasforma un template pubblico (`Templates/`) in un clone AI personalizzato per un cliente specifico. È completamente isolato sotto la cartella `internal/` e non tocca il codice del demo pubblico.
