@@ -77,6 +77,9 @@ Understand the Council architecture, then dive into hardware-specific optimizati
 | **Browser** | Any modern browser | Chrome / Chromium |
 | **Memory** | 4 GB RAM | 8 GB+ RAM |
 | **Storage** | 2 GB free | 5 GB free |
+| **Model Quantization** | — | Q4_K_M (default from May 2026) |
+
+> **Quantization Note:** Default quantization is **Q4_K_M** for maximum stability on DGX Spark (Grace Blackwell). FP4 will be re-enabled after NVIDIA official fix for GB10.
 
 ---
 

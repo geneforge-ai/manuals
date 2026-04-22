@@ -56,6 +56,9 @@ GeneForge-Custom-<CompanyName>-v1.0.geneclone
 | **OS** | DGX OS 7.x / Ubuntu 24.04 |
 | **Browser** | Chrome, Chromium o Firefox (non-Snap) |
 | **Ambiente Python** | `venv` o `conda` |
+| **Quantizzazione Modello** | Q4_K_M (default da maggio 2026) |
+
+> **Nota sulla Quantizzazione:** La quantizzazione di default è stata cambiata a **Q4_K_M** per garantire massima stabilità su DGX Spark (Grace Blackwell). FP4 verrà riabilitato dopo il fix ufficiale NVIDIA per GB10.
 
 ---
 

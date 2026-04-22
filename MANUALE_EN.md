@@ -36,6 +36,7 @@ Main components:
 - **Virtual env**: `~/quigley_training/venv` (pre-configured on the system)
 - **LLM backend**: Local Ollama at `http://localhost:11434`
 - **Recommended model**: `nemotron-30b:latest`
+- **Default quantization**: `Q4_K_M` (from May 2026) — ensures maximum stability on DGX Spark. FP4 will be re-enabled after NVIDIA official fix for GB10.
 
 Activate the environment before using the CLI:
 ```bash
