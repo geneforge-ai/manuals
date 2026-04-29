@@ -22,6 +22,7 @@ This repository contains all user-facing documentation — from 5-minute quickst
 | 3 | **[GENEFORGE_DEPLOY_GUIDE.md](GENEFORGE_DEPLOY_GUIDE.md)** | Client IT / DevOps teams | Extract, verify, install, and launch a `.geneclone` package | 6 min |
 | 4 | **[MANUALE.md](MANUALE.md)** | GeneForge engineering team | Internal engine: CLI, Council of Agents, Corporate Memory, thermal guardrails | 15 min |
 | 5 | **[CUDA_DEVELOPMENT_GUIDE.md](CUDA_DEVELOPMENT_GUIDE.md)** | CUDA/AI developers | DGX Spark optimization, NVCC flags, unified memory, thermal management | 10 min |
+| 6 | **[STUDIO_LEGALE_AI_MANUALE_IT.md](STUDIO_LEGALE_AI_MANUALE_IT.md)** | Avvocati, studi legali | Gestione pratiche, generazione documenti giuridici, ricerca legale avanzata | 20 min |
 
 ---
 
@@ -59,6 +60,10 @@ Internal CLI, Council orchestration, Corporate Memory, and thermal guardrails.
 ### 🎛️ CUDA developer optimizing for DGX Spark
 → Start here: **[CUDA_DEVELOPMENT_GUIDE.md](CUDA_DEVELOPMENT_GUIDE.md)**  
 Compute capability, unified memory, NVCC flags, and thermal guardrails.
+
+### ⚖️ Lawyer using Studio Legale AI
+→ Start here: **[STUDIO_LEGALE_AI_MANUALE_IT.md](STUDIO_LEGALE_AI_MANUALE_IT.md)**  
+Gestione clienti, generazione di atti giuridici, ricerca multi-motore, calendario scadenze, esportazione DOCX/PDF e invio email.
 
 ### 🔬 AI researcher or ML engineer
 → Start here: **[MANUALE.md](MANUALE.md)** + **[CUDA_DEVELOPMENT_GUIDE.md](CUDA_DEVELOPMENT_GUIDE.md)**  
@@ -124,5 +129,5 @@ All documents in this repository are released under the **MIT License** unless o
 
 ---
 
-*Last updated: 2026-04-16*  
-*Version: 1.2 — Multilingual documentation suite*
+*Last updated: 2026-04-29*  
+*Version: 1.3 — Studio Legale AI manual added*
