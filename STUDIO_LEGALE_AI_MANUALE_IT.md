@@ -703,7 +703,7 @@ Il documento 2026/001 è salvato automaticamente in `database/documents/` e visi
 Per segnalazioni, richieste di funzionalità o assistenza:
 
 - **Repository GitHub:** https://github.com/geneforge-ai/studio-legale-ai
-- **Email:** support@geneforge-ai.it
+- **Email:** marco.saba@geneforge.eu
 - **Documentazione aggiornata:** https://github.com/geneforge-ai/manuals
 
 ---
