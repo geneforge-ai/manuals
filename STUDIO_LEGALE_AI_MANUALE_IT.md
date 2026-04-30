@@ -811,7 +811,7 @@ Se il sistema di agenti non è disponibile (es. file YAML corrotti), l'applicazi
 
 ### Modello di business
 
-Studio Legale AI è offerto in modalità **on-premise**: il sistema viene installato fisicamente nello studio su hardware NVIDIA DGX SPARK. I dati non escono mai dall'ufficio.
+Studio Legale AI è offerto in modalità **on-premise**: il sistema viene installato fisicamente nello studio su hardware NVIDIA DGX SPARK (acquistato separatamente). I dati non escono mai dall'ufficio.
 
 ### Pacchetti disponibili
 
@@ -846,9 +846,9 @@ Studio Legale AI è offerto in modalità **on-premise**: il sistema viene instal
 - Account Manager dedicato (4h SLA)
 - Cluster HA (2 DGX SPARK)
 
-### Hardware incluso
+### Hardware prerequisito
 
-L'hardware NVIDIA DGX SPARK è incluso nel canone in comodato d'uso. Specifiche:
+L'hardware NVIDIA DGX SPARK è un prerequisito. Il cliente lo acquista dai distributori NVIDIA autorizzati, con i quali GeneForge ha accordi di cooperazione. Specifiche:
 - GPU NVIDIA GB10 Grace Blackwell Superchip
 - 128 GB unified memory
 - 4 TB NVMe SSD
