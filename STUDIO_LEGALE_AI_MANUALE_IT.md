@@ -865,9 +865,9 @@ L'hardware NVIDIA DGX SPARK è incluso nel canone in comodato d'uso. Specifiche:
 
 ### Contatti commerciali
 
-- **Demo:** commerciale@geneforge.ai
-- **Supporto tecnico:** supporto@geneforge.ai
-- **Telefono:** +39 02 1234 5678
+- **Demo:** info@geneforge.eu
+- **Supporto tecnico:** info@geneforge.eu
+- **Telefono:** +39 370 353 8535
 
 ---
 
