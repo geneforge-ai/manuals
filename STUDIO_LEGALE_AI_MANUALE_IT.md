@@ -18,10 +18,11 @@ Tutto gira su server locali. Nessun dato dei clienti lascia mai il tuo computer.
 ### A cosa serve
 
 - **Organizzare clienti e pratiche** in un unico sistema
-- **Generare documenti giuridici** in pochi minuti anziché ore
-- **Cercare norme, giurisprudenza e dottrina** senza cambiare sito
-- **Tracciare scadenze, udienze e termini** processuali
+- **Generare documenti giuridici** con agenti AI specializzati
+- **Cercare norme, giurisprudenza e dottrina** con ricercatori AI dedicati
+- **Tracciare scadenze, udienze e termini** con promemoria automatici
 - **Esportare e inviare documenti** in PDF, DOCX o via email
+- **Verificare citazioni** della Cassazione con un clic
 
 ### Vantaggi principali
 
@@ -55,7 +56,7 @@ Non serve password. L’applicazione è pronta all’uso.
 
 ### Panoramica della home page
 
-La **Dashboard** è la prima pagina che vedi dopo l’accesso. Ti dà un quadro immediato della situazione dello studio.
+La **Dashboard** è la prima pagina che vedi dopo l’accesso. Ti dà un quadro immediato della situazione dello studio ed è anche il punto di contatto con l’**Avvocato Generico**, l’agente AI per domande rapide.
 
 ### Cosa mostra
 
@@ -72,12 +73,12 @@ In alto trovi una riga di **contatori colorati**:
 
 Sulla sinistra (o in alto, a seconda dello schermo) trovi il menu principale:
 
-1. **Dashboard** — Panoramica
+1. **Dashboard** — Panoramica + chat con l'Avvocato Generico
 2. **Clienti** — Anagrafica
 3. **Pratiche** — Gestione casi
-4. **Documenti** — Generazione e archivio
-5. **Ricerca** — Ricerca giuridica
-6. **Calendario** — Scadenze
+4. **Documenti** — Generazione con Documentalista e Segretaria
+5. **Ricerca** — Ricerca con Ricercatore Giuridico e Cassazione
+6. **Calendario** — Scadenze e promemoria
 7. **Impostazioni** — Configurazione
 
 > 💡 **Suggerimento:** Clicca sempre su **Dashboard** quando vuoi tornare alla home.
@@ -227,6 +228,19 @@ Usa i filtri sopra la tabella:
 
 ## 5. Generazione Documenti
 
+### Gli agenti del modulo Documenti
+
+Quando generi un documento, non parli con un "generico AI". Parli con agenti specializzati:
+
+| Agente | Ruolo | Quando usarlo |
+|--------|-------|---------------|
+| **Documentalista Legale** | Genera atti giuridici formali | Memorie, contratti, ricorsi, pareri |
+| **Segretaria Legale** | Documenti amministrativi | Note di trasmissione, promemoria, solleciti |
+
+Il sistema **sceglie automaticamente** l'agente giusto in base al tipo di documento.
+
+---
+
 ### I 11 tipi di documento disponibili
 
 Studio Legale AI può generare i seguenti documenti giuridici:
@@ -252,8 +266,23 @@ Studio Legale AI può generare i seguenti documenti giuridici:
 3. Compila i campi richiesti (variano in base al tipo)
 4. Seleziona il **Cliente** e la **Pratica** (facoltativo ma consigliato)
 5. Clicca su **"⚡ Genera Documento"**
-6. Attendi 30–60 secondi
+6. Il sistema **seleziona automaticamente l'agente**:
+   - Se scegli "Nota di trasmissione" → interviene la **Segretaria Legale** (veloce, ~10s)
+   - Se scegli qualsiasi altro atto → interviene il **Documentalista Legale** (~30-60s)
 7. Il documento apparirà nell’editor
+
+### 🏛️ Verifica citazioni della Cassazione
+
+Dopo aver generato un documento che cita sentenze, puoi verificarne l'esistenza:
+
+1. Clicca su **"🏛️ Verifica Cassazione"**
+2. Il **Ricercatore Cassazione** estrae ogni citazione "Cass., Sez. X, n. ..."
+3. Cerca su Internet se la sentenza esiste
+4. Ti mostra un report: ✅ verificata, ⚠️ non verificata, ❌ probabilmente inventata
+
+> ⚠️ **Attenzione:** la verifica automatica è accurata all'~85%. Per documenti importanti, verifica sempre sulla banca dati ufficiale.
+
+---
 
 ### Esempio: generare una Lettera di messa in mora
 
@@ -386,9 +415,22 @@ Dopo la generazione:
 
 ## 7. Ricerca Legale Avanzata
 
+### Gli agenti del modulo Ricerca
+
+La sezione **Ricerca** è gestita da due agenti specializzati:
+
+| Agente | Modello | Temperatura | Specializzazione |
+|--------|---------|-------------|------------------|
+| **Ricercatore Giuridico** | Nemotron-70B | 0.3 | Normativa, giurisprudenza, dottrina |
+| **Ricercatore Cassazione** | Nemotron-70B | 0.1 | Solo Corte di Cassazione — zero tolleranza per errori |
+
+Il **Ricercatore Cassazione** è il più "rigoroso" del sistema. La sua temperatura è 0.1 (la minima possibile) perché non può permettersi di inventare sentenze. Se non è certo di una pronuncia, dichiara esplicitamente: *"Non verificato"*.
+
+---
+
 ### I 6 motori di ricerca
 
-La sezione **Ricerca** consente di cercare contemporaneamente su più fonti giuridiche:
+Oltre agli agenti AI, puoi cercare contemporaneamente su più fonti giuridiche:
 
 | Motore | Cosa cerca | Fonte |
 |--------|-----------|-------|
@@ -451,20 +493,35 @@ Dopo aver selezionato le fonti:
 Quando generi una ricerca, l’AI cerca di inserire sentenze della Cassazione.
 
 Per evitare **citazioni inventate** (allucinazioni):
-- L’applicazione estrae ogni citazione "Cassazione, Sez. X, n. ..."
+- L’agente **Ricercatore Cassazione** estrae ogni citazione "Cassazione, Sez. X, n. ..."
 - Cerca su Internet se la sentenza esiste davvero
 - Segna con ✅ le verificate e ⚠️ le non verificate
 
-> ⚠️ **Attenzione:** la verifica automatica è accurata all’~80%. Per documenti importanti, verifica sempre manualmente le citazioni sulla banca dati ufficiale.
+> ⚠️ **Attenzione:** la verifica automatica è accurata all’~85%. Per documenti importanti, verifica sempre manualmente le citazioni sulla banca dati ufficiale.
 
 ---
 
 ## 8. Calendario Scadenze
 
+### Promemoria automatici con la Segretaria Legale
+
+Ogni scadenza nel calendario ha un pulsante **"📋"** che attiva la **Segretaria Legale**.
+
+La Segretaria può generare:
+- **Promemoria** — Ricorda cosa fare e quanti giorni mancano
+- **Sollecito** — Tono più deciso per scadenze già passate o imminenti
+
+Il tono è automaticamente graduato:
+- Se mancano > 7 giorni → educato e professionale
+- Se mancano 3-7 giorni → fermo ma cortese
+- Se la scadenza è passata → deciso, con azioni concrete richieste
+
+---
+
 ### Aggiungere udienze e termini
 
 1. Vai su **Calendario** nel menu
-2. Clicca su **"➕ Nuova Scadenza"**
+2. Clicca su **"➕ Nuova Scadenza"
 3. Compila:
 
 | Campo | Esempio |
@@ -530,14 +587,20 @@ Per inviare email con allegati, devi configurare l’account SMTP:
 
 > 🔐 **Sicurezza:** le credenziali sono salvate solo sul tuo computer, nel file `database/settings.json`.
 
-### Modello documento
+### Configurazione degli agenti AI
 
-Nelle impostazioni puoi anche configurare:
-- **Modello AI primario** — Default: Nemotron-70B
-- **Modello AI secondario** — Default: Qwen-72B
-- **Temperatura** — Più bassa = più preciso, più alta = più creativo
+Nelle impostazioni puoi anche visualizzare la configurazione degli agenti:
+- **Avvocato Generico** — Modello: auto (router), Temp: 0.5
+- **Analista Contrattuale** — Modello: Nemotron, Temp: 0.2
+- **Ricercatore Giuridico** — Modello: Nemotron, Temp: 0.3
+- **Ricercatore Cassazione** — Modello: Nemotron, Temp: 0.1
+- **Documentalista Legale** — Modello: Nemotron, Temp: 0.2
+- **Segretaria Legale** — Modello: Qwen, Temp: 0.3
+- **Parerista** — Modello: Nemotron, Temp: 0.2
 
-Per la produzione di atti giuridici, lascia la temperatura su **0.3–0.5**.
+Ogni agente ha una **temperatura** ottimizzata per il suo compito. Non è consigliabile modificarle senza motivo.
+
+Per la produzione di atti giuridici, il sistema usa temperature basse (0.1–0.3) per massimizzare la precisione.
 
 ---
 
@@ -599,13 +662,13 @@ Il documento 2026/001 è salvato automaticamente in `database/documents/` e visi
 ### Domande frequenti
 
 **D: I dati dei clienti finiscono su Internet?**
-> R: **No.** I modelli AI (Nemotron e Qwen) girano sul tuo server locale. Nessun dato lascia il computer, eccetto le ricerche sui motori giuridici (Normattiva, EUR-Lex, ecc.) che sono pubbliche.
+> R: **No.** Gli agenti AI girano sul tuo server locale. Nessun dato lascia il computer, eccetto le ricerche avanzate (Nemotron API) dove viene trasmesso *solo il testo della query*, mai dati delle pratiche. Le ricerche sui motori giuridici (Normattiva, EUR-Lex, ecc.) sono pubbliche.
 
 **D: Posso usare il software senza connessione?**
 > R: Sì per la gestione clienti, pratiche, documenti e calendario. **No** per la ricerca giuridica e la verifica citazioni, che richiedono Internet.
 
 **D: I documenti generati dall’AI hanno valore legale?**
-> R: Sono **bozze professionali** ma devono sempre essere **revisionati e sottoscritti** dall’avvocato prima dell’uso processuale.
+> R: Sono **bozze professionali** generate da agenti AI specializzati, ma devono sempre essere **revisionati e sottoscritti** dall’avvocato prima dell’uso processuale. L’agente è uno strumento, non un sostituto del professionista.
 
 **D: Come faccio il backup?**
 > R: Copia la cartella `database/` su un disco esterno o cloud personale. Contiene tutto: clienti, pratiche, documenti, impostazioni.
@@ -614,7 +677,10 @@ Il documento 2026/001 è salvato automaticamente in `database/documents/` e visi
 > R: Sì. Scaricalo in DOCX, modificalo in Word/LibreOffice, e caricalo nuovamente se necessario. Oppure rigeneralo dalla pagina Documenti.
 
 **D: Quanti documenti posso generare?**
-> R: Nessun limite. Il protocollo è progressivo annuale (2026/001, 2026/002, ...).
+> R: Nel pacchetto **Base**: fino a 50/mese. **Professional**: fino a 200/mese. **Enterprise**: illimitati.
+
+**D: Cos'è la temperatura di un agente?**
+> R: È un parametro che regola la "creatività" dell'AI. I nostri agenti legali usano temperature molto basse (0.1–0.3) per essere precisi e conservativi. L'Avvocato Generico, che risponde a domande rapide, ha temperatura 0.5 per essere più conversazionale.
 
 **D: Posso usare un altro modello AI?**
 > R: Sì, se è compatibile con l’API OpenAI. Modifica l’endpoint in Impostazioni.
@@ -647,3 +713,167 @@ Per segnalazioni, richieste di funzionalità o assistenza:
 *© 2026 — Tutti i diritti riservati*
 
 *Manuale redatto per l’Avv. Marco della Luna e lo Studio Legale AI*
+
+
+---
+
+## 12. Gli Agenti AI di Studio Legale AI
+
+### Panoramica
+
+Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **7 agenti AI specializzati**, ciascuno con una propria identità, competenze e regole di comportamento. Il sistema sceglie automaticamente l'agente giusto per ogni compito.
+
+### I 7 agenti
+
+#### ⚖️ 1. Avvocato Generico
+- **Ruolo:** Primo punto di contatto per domande legali rapide
+- **Modello:** Auto (router sceglie il più veloce)
+- **Temperatura:** 0.5
+- **Quando usarlo:** Dashboard, domande di diritto generale, rimandi normativi
+- **Regole critiche:**
+  - Non inventa sentenze
+  - Indica norme abrogate
+  - Sempre disclaimer "verificare con professionista"
+
+#### 📜 2. Analista Contrattuale
+- **Ruolo:** Analisi approfondita di contratti
+- **Modello:** Nemotron-70B
+- **Temperatura:** 0.2
+- **Quando usarlo:** Pagina Contratti — verifica di accordi commerciali
+- **Output:** Executive Summary → Rischi → Mancanze → Modifiche suggerite
+- **Regole critiche:**
+  - Non inventa clausole
+  - Distingue rischio cliente vs controparte
+  - Indica grado di rischio (alto/medio/basso)
+
+#### 🔍 3. Ricercatore Giuridico
+- **Ruolo:** Ricerche multi-motore su normativa e giurisprudenza
+- **Modello:** Nemotron-70B
+- **Temperatura:** 0.3
+- **Quando usarlo:** Pagina Ricerca — tema generico
+- **Output:** Normativa vigente + giurisprudenza + dottrina
+- **Regole critiche:**
+  - Cita fonti precise
+  - Distingue vigente / abrogata / in riforma
+  - Indica data di pubblicazione delle fonti
+
+#### 🏛️ 4. Ricercatore Cassazione
+- **Ruolo:** Giurisprudenza della Corte di Cassazione
+- **Modello:** Nemotron-70B
+- **Temperatura:** 0.1 (la più bassa del sistema)
+- **Quando usarlo:** Quando la tesi dipende criticamente dalla Cassazione
+- **Output:** Orientamenti maggioritari/minoritari, grado consolidamento
+- **Regole critiche:**
+  - Se non certo → dichiara "non verificato"
+  - Distingue Sezioni Unite / Semplici
+  - Indica grado: consolidato / emergente / superato
+
+#### 📄 5. Documentalista Legale
+- **Ruolo:** Generazione di 11 tipi di atto giuridico
+- **Modello:** Nemotron-70B
+- **Temperatura:** 0.2
+- **Quando usarlo:** Pagina Documenti — tutti gli atti tranne Nota di trasmissione
+- **Output:** Documento strutturato con intestazione, protocollo, firma
+- **Regole critiche:**
+  - Non inventa dati cliente/protocollo
+  - Cita norma specifica per tipo di atto
+  - Formato pronto per la firma
+
+#### 📋 6. Segretaria Legale
+- **Ruolo:** Documenti amministrativi e promemoria
+- **Modello:** Qwen-72B
+- **Temperatura:** 0.3
+- **Quando usarlo:** Note di trasmissione, promemoria scadenze, solleciti
+- **Output:** Documento amministrativo professionale
+- **Regole critiche:**
+  - Calcola giorni rimanenti/trascorsi automaticamente
+  - Tono graduato in base all'urgenza
+  - **Blacklist:** NON fornisce consulenza legale sostanziale
+
+#### 📖 7. Parerista
+- **Ruolo:** Pareri legali formali strutturati
+- **Modello:** Nemotron-70B
+- **Temperatura:** 0.2
+- **Quando usarlo:** Pagina Pareri — quando serve una risposta motivata
+- **Output:** Quesito → Norma → Analisi → Conclusioni → Rischi
+- **Regole critiche:**
+  - Grado di certezza: "certa" / "probabile" / "possibile ma rischiosa"
+  - Indica sempre le fonti
+  - Non omette rischi connessi alla tesi sostenuta
+
+### Fallback di sicurezza
+
+Se il sistema di agenti non è disponibile (es. file YAML corrotti), l'applicazione **non si blocca**. Usa automaticamente i prompt "legacy" originali, salvaguardando la continuità del servizio.
+
+---
+
+## 13. Prezzi e Servizi Commerciali
+
+### Modello di business
+
+Studio Legale AI è offerto in modalità **on-premise**: il sistema viene installato fisicamente nello studio su hardware NVIDIA DGX SPARK. I dati non escono mai dall'ufficio.
+
+### Pacchetti disponibili
+
+| Pacchetto | Canone/mese | Setup | Destinatario |
+|-----------|-------------|-------|--------------|
+| **Base** | € 500 + IVA | € 990 | 1–3 avvocati |
+| **Professional** | € 1.000 + IVA | € 990 | 4–8 avvocati |
+| **Enterprise** | € 2.500 + IVA | € 1.990 | 10+ avvocati / Network |
+
+### Cosa include ogni pacchetto
+
+#### 🥉 Base — € 500/mese
+- 7 agenti AI standard
+- 50 documenti/mese
+- 20 ricerche avanzate/mese
+- Archivio fino a 1.000 documenti
+- Supporto email (24h SLA)
+
+#### 🥈 Professional — € 1.000/mese
+- 7 agenti + 1 agente custom
+- 200 documenti/mese
+- 100 ricerche avanzate/mese
+- Archivio illimitato
+- Supporto telefonico (8h SLA)
+- 2 sessioni di formazione
+
+#### 🥇 Enterprise — € 2.500/mese
+- 7 agenti + 3 agenti custom
+- Documenti illimitati
+- Ricerche avanzate illimitate
+- Archivio illimitato + API REST
+- Account Manager dedicato (4h SLA)
+- Cluster HA (2 DGX SPARK)
+
+### Hardware incluso
+
+L'hardware NVIDIA DGX SPARK è incluso nel canone in comodato d'uso. Specifiche:
+- GPU NVIDIA GB10 Grace Blackwell Superchip
+- 128 GB unified memory
+- 4 TB NVMe SSD
+- < 35 dB in operazione (adatto a ufficio)
+
+### ROI stimato
+
+| Metrica | Valore |
+|---------|--------|
+| Tempo risparmiato su redazione atti | 60–70% |
+| Tempo risparmiato su ricerche | 50–60% |
+| Riduzione errori formali | 80%+ |
+| **Payback stimato** | **1–2 mesi** (studio con 3+ avvocati) |
+
+### Contatti commerciali
+
+- **Demo:** commerciale@geneforge.ai
+- **Supporto tecnico:** supporto@geneforge.ai
+- **Telefono:** +39 02 1234 5678
+
+---
+
+*Studio Legale AI — Powered by GeneForge AI*
+
+*© 2026 — Tutti i diritti riservati*
+
+*Manuale redatto per l'Avv. Marco della Luna e lo Studio Legale AI*
+*Versione 2.0 — 30 Aprile 2026*
