@@ -1,7 +1,7 @@
 # Studio Legale AI — Manuale Utente
 
-**Versione:** 1.0  
-**Data:** 29 Aprile 2026  
+**Versione:** 2.1  
+**Data:** 2 Maggio 2026  
 **Progetto:** GeneForge AI — Studio Legale AI  
 **Destinatari:** Avv. Marco della Luna, collaboratori e segretarie dello studio  
 
@@ -270,6 +270,37 @@ Studio Legale AI può generare i seguenti documenti giuridici:
    - Se scegli "Nota di trasmissione" → interviene la **Segretaria Legale** (veloce, ~10s)
    - Se scegli qualsiasi altro atto → interviene il **Documentalista Legale** (~30-60s)
 7. Il documento apparirà nell’editor
+
+> ✅ **Nota sul formato:** dal 2 Maggio 2026, intestazione, procura ad litem e firma sono **pre-compilate dal sistema** in modo deterministico. L'AI genera **solo il corpo giuridico** del documento, garantendo coerenza formale e eliminando invenzioni su header/footer.
+
+### 🔍 Ricerca giuridica preliminare (opzionale ma consigliata)
+
+Per documenti che richiedono citazioni giurisprudenziali o dottrinali (Memoria difensiva, Parere scritto, Atto di citazione, Ricorso, Appello, Controricorso), è disponibile una **ricerca preliminare automatica**:
+
+1. Seleziona la **Tipologia** tra quelle indicate sopra
+2. Apparirà la checkbox: **🔍 Esegui ricerca giuridica preliminare**
+3. Attivala **prima** di cliccare "Genera Documento"
+4. Il sistema:
+   - Cerca su web le fonti più rilevanti sul tema
+   - Estrae titolo, URL e snippet dei top 5 risultati
+   - Passa queste fonti all'AI come contesto verificato
+   - Genera il documento basandosi su principi noti e fonti reali
+
+**Quando usarla:**
+| Documento | Ricerca preliminare |
+|-----------|---------------------|
+| Memoria difensiva | ✅ **Sempre** — riduce allucinazioni giurisprudenziali |
+| Parere scritto | ✅ **Sempre** — garantisce fonti aggiornate |
+| Atto di citazione | ✅ Consigliata — per motivazione giuridica solida |
+| Ricorso / Appello / Controricorso | ✅ Consigliata |
+| Lettera formale / Nota di trasmissione | ❌ Non necessaria |
+| Preventivo / Parcella | ❌ Non necessaria |
+
+> ⚠️ **Limite del modello:** Nemotron può ancora inventare numeri di sentenze nonostante la ricerca preliminare. La raccomandazione professionale è:
+> 1. Usare la ricerca preliminare per raccogliere fonti reali
+> 2. Sostituire le citazioni inventate dall'AI con quelle verificate
+> 3. Usare il placeholder `[CITAZIONE DA VERIFICARE]` dove manca una fonte certa
+> 4. Completare le citazioni manualmente dai database ufficiali (dejure.it, massimario.it, giustizia.it)
 
 ### 🏛️ Verifica citazioni della Cassazione
 
@@ -682,6 +713,15 @@ Il documento 2026/001 è salvato automaticamente in `database/documents/` e visi
 **D: Cos'è la temperatura di un agente?**
 > R: È un parametro che regola la "creatività" dell'AI. I nostri agenti legali usano temperature molto basse (0.1–0.3) per essere precisi e conservativi. L'Avvocato Generico, che risponde a domande rapide, ha temperatura 0.5 per essere più conversazionale.
 
+**D: A cosa serve la ricerca giuridica preliminare?**
+> R: È un'opzione che esegue una ricerca web automatica **prima** di generare il documento. Il sistema cerca fonti reali sul tema (norme, giurisprudenza, dottrina) e le passa all'AI come contesto. Questo riduce le "allucinazioni" (citazioni inventate) e fornisce all'avvocato un punto di partenza concreto per verificare e completare le fonti. È consigliata per Memorie, Pareri, Atti di citazione, Ricorsi, Appelli e Controricorsi.
+
+**D: L'AI inventa ancora sentenze anche con la ricerca preliminare?**
+> R: **Sì, può succedere.** Nemotron è un modello generativo: a volte "allucina" numeri di sentenze anche quando ha fonti reali nel contesto. La ricerca preliminare non elimina completamente il rischio, ma lo riduce significativamente fornendo all'AI principi e orientamenti verificati. L'avvocato deve sempre:
+> 1. Verificare ogni citazione specifica su database ufficiali
+> 2. Sostituire le citazioni inventate con quelle reali trovate nella ricerca
+> 3. Usare il placeholder `[CITAZIONE DA VERIFICARE]` dove manca una fonte certa
+
 **D: Posso usare un altro modello AI?**
 > R: Sì, se è compatibile con l’API OpenAI. Modifica l’endpoint in Impostazioni.
 
@@ -695,6 +735,7 @@ Il documento 2026/001 è salvato automaticamente in `database/documents/` e visi
 | "Ricerca EUR-Lex vuota" | Il server SPARQL è bloccato | Usa il risultato DuckDuckGo che appare sotto |
 | "Timeout generazione" | Modello sovraccarico | Aspetta 30 secondi e riprova |
 | "Citazioni non verificate" | DDG ha raggiunto il limite | Aspetta 2–3 minuti e rigenera il documento |
+| "Ricerca preliminare vuota" | DuckDuckGo non ha risultati | Riformula l'oggetto con termini più generici |
 | "Pagina bianca" | Browser datato | Aggiorna Chrome/Firefox all’ultima versione |
 | "Documento non si scarica" | Popup bloccati | Consenti i popup per localhost:8506 |
 
@@ -773,11 +814,14 @@ Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **7 agenti AI sp
 - **Modello:** Nemotron-70B
 - **Temperatura:** 0.2
 - **Quando usarlo:** Pagina Documenti — tutti gli atti tranne Nota di trasmissione
-- **Output:** Documento strutturato con intestazione, protocollo, firma
+- **Output:** Corpo giuridico del documento (intestazione, procura e firma sono pre-compilate dal codice)
 - **Regole critiche:**
-  - Non inventa dati cliente/protocollo
+  - Non inventa dati cliente/protocollo/nomi di giudici
   - Cita norma specifica per tipo di atto
-  - Formato pronto per la firma
+  - Usa correttamente il congiuntivo nelle subordinate
+  - Evita ripetizioni lessicali; registro formale e forense costante
+  - Revisione finale obbligatoria prima di consegnare
+  - Per atti processuali (Citazione, Memoria, Ricorso, Appello, Controricorso): include sezione Procura ad litem
 
 #### 📋 6. Segretaria Legale
 - **Ruolo:** Documenti amministrativi e promemoria
@@ -798,7 +842,9 @@ Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **7 agenti AI sp
 - **Output:** Quesito → Norma → Analisi → Conclusioni → Rischi
 - **Regole critiche:**
   - Grado di certezza: "certa" / "probabile" / "possibile ma rischiosa"
-  - Indica sempre le fonti
+  - Indica sempre le fonti; non inventa autori o sentenze
+  - Usa correttamente il congiuntivo nelle subordinate oggettive, finali, condizionali
+  - Revisione finale: verifica congruenza tra quesito, analisi e conclusioni
   - Non omette rischi connessi alla tesi sostenuta
 
 ### Fallback di sicurezza
@@ -876,4 +922,4 @@ L'hardware NVIDIA DGX SPARK è un prerequisito. Il cliente lo acquista dai distr
 *© 2026 — Tutti i diritti riservati*
 
 *Manuale redatto per l'Avv. Marco della Luna e lo Studio Legale AI*
-*Versione 2.0 — 30 Aprile 2026*
+*Versione 2.1 — 2 Maggio 2026*
