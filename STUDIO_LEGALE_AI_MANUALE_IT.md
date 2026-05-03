@@ -737,7 +737,7 @@ Il documento 2026/001 è salvato automaticamente in `database/documents/` e visi
 | "Citazioni non verificate" | DDG ha raggiunto il limite | Aspetta 2–3 minuti e rigenera il documento |
 | "Ricerca preliminare vuota" | DuckDuckGo non ha risultati | Riformula l'oggetto con termini più generici |
 | "Pagina bianca" | Browser datato | Aggiorna Chrome/Firefox all’ultima versione |
-| "Documento non si scarica" | Popup bloccati | Consenti i popup per localhost:8506 |
+| "Documento non si scarica" | Popup bloccati | Consenti i popup per localhost:8506 (o studio-legale.geneforge.eu se online) |
 
 ### Contatti e supporto
 

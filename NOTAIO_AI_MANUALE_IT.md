@@ -43,6 +43,12 @@ Apri il browser e digita:
 http://localhost:8507
 ```
 
+Se usi il tunnel Cloudflare (accesso online):
+
+```
+https://notaio-ai.geneforge.eu
+```
+
 Non serve password. L'applicazione è pronta all'uso.
 
 ---
@@ -64,7 +70,7 @@ Non serve password. L'applicazione è pronta all'uso.
    ```bash
    ./launch_notaio_ai.sh
    ```
-4. Apri il browser all'indirizzo indicato (`http://localhost:8507`)
+4. Apri il browser all'indirizzo indicato (`http://localhost:8507` o `https://notaio-ai.geneforge.eu` se online)
 
 ---
 
@@ -96,7 +102,7 @@ Inserimento dati → Verifica Catastale → Conformità → Stesura Atto → Con
 
 ### Passo 1 — Inserimento dati
 
-1. Apri Notaio AI su `http://localhost:8507`
+1. Apri Notaio AI su `http://localhost:8507` (o `https://notaio-ai.geneforge.eu` se online)
 2. Compila il form in 4 sezioni:
    - **Dati Venditore**: Nome, Cognome, CF, Nato a, Residente in
    - **Dati Acquirente**: Nome, Cognome, CF, Nato a, Residente in, Età, ISEE
