@@ -1,7 +1,7 @@
 # Notaio AI — Manuale Utente
 
-**Versione:** 1.1
-**Data:** 26 Aprile 2026
+**Versione:** 1.2
+**Data:** 4 Maggio 2026
 **Progetto:** GeneForge AI — Notaio AI
 **Destinatari:** Notai, collaboratori e segretarie degli Studi Notarili
 
@@ -24,6 +24,7 @@ Tutto gira su server locali. Nessun dato dei clienti lascia mai il tuo studio.
 - **Cronoprogramma scadenze** con termini perentori calcolati automaticamente
 - **Ricerca normativa** notarile, circolari CNN, giurisprudenza
 - **Supporto firma digitale** InfoCert, Aruba, Namirial
+- **Notaio Sintetico** — consulenza strategica in chat per ogni dubbio di procedura
 
 ### Vantaggi principali
 
@@ -34,6 +35,8 @@ Tutto gira su server locali. Nessun dato dei clienti lascia mai il tuo studio.
 | **Zero errori formali** | Intestazione e firma pre-compilate dal codice, non dall'AI |
 | **Conformità garantita** | Verifica automatica documenti, agevolazioni, scadenze |
 | **Multi-formato** | PDF per la stampa, DOCX per le modifiche, MD per l'archivio |
+| **Responsive** | Funziona su desktop, tablet e smartphone |
+| **Dark mode** | Interfaccia scura ottimizzata per lunghe sessioni di lavoro |
 
 ### Come accedere
 
@@ -182,9 +185,39 @@ Inserimento dati → Stesura Atto → Controllo → Scadenze
 
 ---
 
-## 6. Esempi Concreti
+## 6. Notaio Sintetico — Consulenza Strategica
 
-### 6.1 Prima Casa Under 36 — Compravendita
+### Cos'è
+
+Il **Notaio Sintetico** è un assistente AI in chat integrato nell'applicazione. Non sostituisce il Notaio, ma offre una **consulenza rapida** su:
+- Quali documenti servono per un determinato atto
+- Come procedere in casi particolari
+- Quali norme si applicano
+- Dubbi di procedura prima del rogito
+
+### Come si usa
+
+1. Compila il form con il tipo di atto che ti interessa
+2. Clicca su **"💬 Chiedi al Notaio Sintetico"** (nella colonna destra, sopra il pulsante "Genera Atto")
+3. Si apre una finestra a tutto schermo con la chat
+4. Scrivi la tua domanda e premi **Invia**
+
+> 🧘 **Meditazione in corso...** Mentre Nemotron elabora la risposta, vedrai questo indicatore. La risposta arriva in 30–60 secondi.
+
+### Esempi di domande
+
+- "Quali documenti servono per una procura in caso di compravendita?"
+- "L'acquirente under 36 ha diritto all'imposta di bollo agevolata?"
+- "Quanto tempo ho per registrare l'atto di costituzione SRL?"
+- "Serve l'assenso del coniuge per la donazione di un immobile?"
+
+> ⚠️ **Attenzione:** Il Notaio Sintetico fornisce indicazioni di massima. Per decisioni definitive, consulta sempre la normativa vigente e la giurisprudenza aggiornata.
+
+---
+
+## 7. Esempi Concreti
+
+### 7.1 Prima Casa Under 36 — Compravendita
 
 > **Caso:** Laura Verdi, 28 anni, ISEE €22.000, acquista la sua prima casa da Mario Rossi per €180.000.
 >
@@ -196,7 +229,7 @@ Inserimento dati → Stesura Atto → Controllo → Scadenze
 > 4. Il sistema genera 5 sezioni: Catasto, Conformità, Atto, Controllo, Scadenze
 > 5. Rivedi il documento e scarica in PDF/DOCX
 
-### 6.2 Costituzione SRL
+### 7.2 Costituzione SRL
 
 > **Caso:** Marco Rossi (60%) e Paolo Bianchi (40%) costituiscono la "Rossi & Bianchi SRL" con capitale €10.000.
 >
@@ -205,7 +238,7 @@ Inserimento dati → Stesura Atto → Controllo → Scadenze
 > 3. Clicca **"Genera Atto"**
 > 4. Il sistema genera 3 sezioni: Atto di Costituzione SRL, Controllo Documenti, Scadenze (iscrizione REA, PEC, ecc.)
 
-### 6.3 Testamento Olografo Pubblico
+### 7.3 Testamento Olografo Pubblico
 
 > **Caso:** Carlo Verdi, 70 anni, vuole lasciare i beni ai figli Marco e Anna in parti uguali.
 >
@@ -216,7 +249,7 @@ Inserimento dati → Stesura Atto → Controllo → Scadenze
 
 ---
 
-## 7. Verifica e Controllo Qualità
+## 8. Verifica e Controllo Qualità
 
 ### Placeholder e dati da verificare
 
@@ -237,7 +270,7 @@ Quando l'AI non ha accesso a una banca dati esterna, inserisce indicazioni di ve
 
 ---
 
-## 8. FAQ e Troubleshooting
+## 9. FAQ e Troubleshooting
 
 ### Domande frequenti
 
@@ -248,7 +281,7 @@ Quando l'AI non ha accesso a una banca dati esterna, inserisce indicazioni di ve
 > R: **No.** Gli agenti AI girano sul tuo server locale. Nessun dato lascia il computer, eccetto le ricerche normative dove viene trasmesso *solo il testo della query*, mai dati delle pratiche.
 
 **D: Posso usare il software senza connessione?**
-> R: Sì per la stesura atti, verifica catastale (con placeholder), controllo documenti e scadenze. **No** per la ricerca normativa e la verifica via web, che richiedono Internet.
+> R: Sì per la stesura atti, verifica catastale (con placeholder), controllo documenti, scadenze e Notaio Sintetico. **No** per la ricerca normativa e la verifica via web, che richiedono Internet.
 
 **D: Gli atti generati dall'AI hanno valore legale?**
 > R: Sono **bozze professionali** generate da agenti AI specializzati, ma devono sempre essere **revisionati e sottoscritti** dal Notaio prima del rogito.
@@ -268,6 +301,9 @@ Quando l'AI non ha accesso a una banca dati esterna, inserisce indicazioni di ve
 **D: Perché alcuni atti hanno 5 fasi e altri 3?**
 > R: Gli atti che riguardano un immobile (Compravendita, Mutuo, Divisione, Donazione) richiedono Verifica Catastale e Conformità. Gli altri (SRL, Testamento, Patto di famiglia) non le richiedono.
 
+**D: Il Notaio Sintetico sostituisce il parere del Notaio?**
+> R: **No.** È uno strumento di supporto per dubbi procedurali. Le decisioni giuridiche definitive spettano sempre al Notaio.
+
 ### Errori comuni e soluzioni
 
 | Errore | Causa | Soluzione |
@@ -277,10 +313,13 @@ Quando l'AI non ha accesso a una banca dati esterna, inserisce indicazioni di ve
 | "Placeholder non sostituiti" | Dati mancanti nel form | Compila tutti i campi del tipo di atto selezionato |
 | "Documento incompleto" | Campi obbligatori vuoti | Verifica che la card dedicata al tipo di atto sia compilata |
 | "Pagina bianca" | Browser datato | Aggiorna Chrome/Firefox |
+| "Testo scuro su scuro" | CSS non caricato | Ricarica la pagina con cache vuota (Ctrl+F5) |
+| "Dropdown bianco" | Tema chiaro di Quasar | Verifica che `ui.dark_mode().enable()` sia attivo |
+| "Bottone non si aggiorna" | Cache del browser | Chiudi e riapri il browser |
 
 ---
 
-## 9. Prezzi e Servizi Commerciali
+## 10. Prezzi e Servizi Commerciali
 
 ### Modello di business
 
@@ -344,7 +383,7 @@ L'hardware NVIDIA DGX SPARK è un prerequisito. Il cliente lo acquista dai distr
 
 ---
 
-## 10. Gli Agenti AI di Notaio AI — Dettaglio
+## 11. Gli Agenti AI di Notaio AI — Dettaglio
 
 ### Panoramica
 
@@ -409,4 +448,4 @@ Notaio AI utilizza **7 agenti AI specializzati**, ciascuno con una propria ident
 *Notaio AI — Powered by GeneForge AI*
 *© 2026 — Tutti i diritti riservati*
 *Manuale redatto per i Notai e gli Studi Notarili italiani*
-*Versione 1.1 — 26 Aprile 2026*
+*Versione 1.2 — 4 Maggio 2026*
