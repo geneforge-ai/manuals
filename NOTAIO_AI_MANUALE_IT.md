@@ -1,6 +1,6 @@
 # Notaio AI — Manuale Utente
 
-**Versione:** 1.2
+**Versione:** 1.3
 **Data:** 4 Maggio 2026
 **Progetto:** GeneForge AI — Notaio AI
 **Destinatari:** Notai, collaboratori e segretarie degli Studi Notarili
@@ -101,15 +101,39 @@ Il sistema **sceglie automaticamente** l'agente giusto in base al task.
 
 Notaio AI supporta **7 tipi di atto notarile**. Al centro della schermata principale trovi il selettore **⚖️ Tipo di Atto** — scegli quello che ti serve e il form si adatta automaticamente.
 
+### 🏠 Atti Immobiliari
+
 | # | Tipo di Atto | Form dedicate | Fasi workflow |
 |---|--------------|---------------|---------------|
 | 1 | **Compravendita immobiliare** | Venditore, Acquirente, Immobile, Economico | 5 fasi |
-| 2 | **Costituzione SRL** | Soci, Denominazione, Sede, Oggetto, Capitale, Amministratore, Statuto | 3 fasi |
-| 3 | **Testamento** | Testatore, Eredi, Legati, Esecutore, Disposizioni | 3 fasi |
-| 4 | **Patto di famiglia** | Contraenti, Bene, Regime, Durata, Successori | 3 fasi |
-| 5 | **Mutuo ipotecario** | Mutuatario, Istituto, Importo, Tasso, Durata, Immobile garanzia | 5 fasi |
-| 6 | **Divisione** | Coeredi, Bene, Quote, Modalità | 5 fasi |
-| 7 | **Donazione** | Donante, Donatario, Bene, Regime fiscale, Oneri | 5 fasi |
+| 2 | **Mutuo ipotecario** | Mutuatario, Istituto, Importo, Tasso, Durata, Immobile garanzia | 5 fasi |
+| 3 | **Cancellazione Ipoteca** | Debitore, Istituto, Immobile, Data estinzione, Importo | 5 fasi |
+| 4 | **Donazione** | Donante, Donatario, Bene, Regime fiscale, Oneri | 5 fasi |
+| 5 | **Divisione** | Coeredi, Bene, Quote, Modalità | 5 fasi |
+
+### 👨‍👩‍👧 Atti di Famiglia e Successione
+
+| # | Tipo di Atto | Form dedicate | Fasi workflow |
+|---|--------------|---------------|---------------|
+| 6 | **Testamento** | Testatore, Eredi, Legati, Esecutore, Disposizioni | 3 fasi |
+| 7 | **Patto di famiglia** | Contraenti, Bene, Regime, Durata, Successori | 3 fasi |
+| 8 | **Accettazione di Eredità** | Defunto, Erede, Bene, Modalità | 3 fasi |
+| 9 | **Rinuncia all'Eredità** | Defunto, Erede, Motivo | 3 fasi |
+| 10 | **Convenzioni Matrimoniali** | Coniugi, Regime, Beni | 3 fasi |
+
+### 🏢 Atti Societari e Commerciali
+
+| # | Tipo di Atto | Form dedicate | Fasi workflow |
+|---|--------------|---------------|---------------|
+| 11 | **Costituzione SRL** | Soci, Denominazione, Sede, Oggetto, Capitale, Amministratore, Statuto | 3 fasi |
+| 12 | **Verbale di Assemblea Straordinaria** | Società, Data, Delibere, Partecipanti | 3 fasi |
+
+### ⚖️ Atti di Procura e Giurisdizione
+
+| # | Tipo di Atto | Form dedicate | Fasi workflow |
+|---|--------------|---------------|---------------|
+| 13 | **Procura Speciale o Generale** | Mandante, Procuratore, Oggetto, Termine | 3 fasi |
+| 14 | **Atto di Notorietà** | Dichiarante, Fatto, Finalità | 3 fasi |
 
 > 💡 **Come funziona:** quando cambi tipo di atto, le card del form appaiono e scompaiono automaticamente. Compila solo i campi visibili.
 
@@ -136,16 +160,24 @@ Inserimento dati → Stesura Atto → Controllo → Scadenze
 ### Passo 1 — Selezione e inserimento dati
 
 1. Apri Notaio AI su `http://localhost:8507`
-2. Seleziona il **Tipo di Atto** dal menu a tendina in cima alla colonna sinistra
-3. Compila le card dedicate che compaiono:
+2. Seleziona prima la **Categoria** (Immobiliari, Famiglia, Societari, Procura)
+3. Poi seleziona il **Tipo di Atto** dal secondo menu — il form si adatta automaticamente
+4. Compila le card dedicate che compaiono:
    - **Compravendita**: Dati Venditore, Acquirente, Immobile, Economico
-   - **Costituzione SRL**: Dati Società (soci, denominazione, sede, oggetto, capitale, amministratore, statuto)
+   - **Mutuo ipotecario**: Dati Mutuo (mutuatario, istituto, importo, tasso, durata, immobile garanzia)
+   - **Cancellazione Ipoteca**: Debitore, Istituto, Immobile, Data estinzione, Importo
+   - **Donazione**: Dati Donazione (donante, donatario, bene, regime fiscale, oneri)
+   - **Divisione**: Dati Divisione (coeredi, bene, quote, modalità)
    - **Testamento**: Dati Testatore, Eredi, Legati, Esecutore, Disposizioni
    - **Patto di famiglia**: Dati Contraenti, Bene, Regime, Durata, Successori
-   - **Mutuo ipotecario**: Dati Mutuo (mutuatario, istituto, importo, tasso, durata, immobile garanzia)
-   - **Divisione**: Dati Divisione (coeredi, bene, quote, modalità)
-   - **Donazione**: Dati Donazione (donante, donatario, bene, regime fiscale, oneri)
-4. Compila sempre la card **💶 Dati Economici e Clausole** (condivisa per tutti i tipi)
+   - **Accettazione di Eredità**: Defunto, Erede, Bene, Modalità
+   - **Rinuncia all'Eredità**: Defunto, Erede, Motivo
+   - **Convenzioni Matrimoniali**: Coniugi, Regime, Beni
+   - **Costituzione SRL**: Dati Società (soci, denominazione, sede, oggetto, capitale, amministratore, statuto)
+   - **Verbale di Assemblea Straordinaria**: Società, Data, Delibere, Partecipanti
+   - **Procura Speciale o Generale**: Mandante, Procuratore, Oggetto, Termine
+   - **Atto di Notorietà**: Dichiarante, Fatto, Finalità
+5. Compila sempre la card **💶 Dati Economici e Clausole** (condivisa per tutti i tipi)
 
 > 💡 **Suggerimento:** Seleziona il cliente dall'anagrafica (se disponibile) per pre-compilare i dati.
 
@@ -154,14 +186,14 @@ Inserimento dati → Stesura Atto → Controllo → Scadenze
 1. Clicca su **"⚖️ Genera Atto: [Tipo selezionato]"**
 2. Il sistema esegue le fasi in sequenza:
 
-   **Per atti immobiliari (5 fasi):**
+   **Per atti immobiliari (5 fasi):** Compravendita, Mutuo, Cancellazione Ipoteca, Donazione, Divisione
    - **Fase 1/5: Verifica Catastale** (~15–20s)
    - **Fase 2/5: Verifica Conformità** (~50–70s)
    - **Fase 3/5: Stesura Atto** (~50–70s)
    - **Fase 4/5: Controllo Documenti** (~15–20s)
    - **Fase 5/5: Cronoprogramma Scadenze** (~15–20s)
 
-   **Per atti non immobiliari (3 fasi):**
+   **Per atti non immobiliari (3 fasi):** Testamento, Patto di famiglia, Accettazione di Eredità, Rinuncia all'Eredità, Convenzioni Matrimoniali, Costituzione SRL, Verbale di Assemblea, Procura, Atto di Notorietà
    - **Fase 1/3: Stesura Atto** (~50–70s)
    - **Fase 2/3: Controllo Documenti** (~15–20s)
    - **Fase 3/3: Cronoprogramma Scadenze** (~15–20s)
@@ -275,7 +307,11 @@ Quando l'AI non ha accesso a una banca dati esterna, inserisce indicazioni di ve
 ### Domande frequenti
 
 **D: Quanti tipi di atto sono supportati?**
-> R: **7 tipi**: Compravendita immobiliare, Costituzione SRL, Testamento, Patto di famiglia, Mutuo ipotecario, Divisione, Donazione.
+> R: **14 tipi** raggruppati in 4 categorie:
+> - 🏠 **Atti Immobiliari**: Compravendita, Mutuo, Cancellazione Ipoteca, Donazione, Divisione
+> - 👨‍👩‍👧 **Atti di Famiglia e Successione**: Testamento, Patto di famiglia, Accettazione di Eredità, Rinuncia all'Eredità, Convenzioni Matrimoniali
+> - 🏢 **Atti Societari**: Costituzione SRL, Verbale di Assemblea Straordinaria
+> - ⚖️ **Atti di Procura e Giurisdizione**: Procura Speciale o Generale, Atto di Notorietà
 
 **D: I dati dei clienti finiscono su Internet?**
 > R: **No.** Gli agenti AI girano sul tuo server locale. Nessun dato lascia il computer, eccetto le ricerche normative dove viene trasmesso *solo il testo della query*, mai dati delle pratiche.
@@ -448,4 +484,4 @@ Notaio AI utilizza **agenti AI specializzati**, ciascuno con una propria identit
 *Notaio AI — Powered by GeneForge AI*
 *© 2026 — Tutti i diritti riservati*
 *Manuale redatto per i Notai e gli Studi Notarili italiani*
-*Versione 1.2 — 4 Maggio 2026*
+*Versione 1.3 — 4 Maggio 2026*
