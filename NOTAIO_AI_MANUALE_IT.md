@@ -77,7 +77,7 @@ Non serve password. L'applicazione è pronta all'uso.
 
 ---
 
-## 3. Gli 7 Agenti Notarili
+## 3. Gli agenti notarili
 
 Quando generi un documento, non parli con un "generico AI". Parli con agenti specializzati:
 
@@ -336,14 +336,14 @@ Notaio AI è offerto in modalità **on-premise**: il sistema viene installato fi
 ### Cosa include ogni pacchetto
 
 #### 🥉 Base — € 500/mese
-- 7 agenti AI standard
+- Agenti AI standard
 - 50 documenti/mese
 - 20 ricerche avanzate/mese
 - Archivio fino a 1.000 documenti
 - Supporto email (24h SLA)
 
 #### 🥈 Professional — € 1.000/mese
-- 7 agenti + 1 agente custom
+- Agenti AI + 1 agente custom
 - 200 documenti/mese
 - 100 ricerche avanzate/mese
 - Archivio illimitato
@@ -351,7 +351,7 @@ Notaio AI è offerto in modalità **on-premise**: il sistema viene installato fi
 - 2 sessioni di formazione
 
 #### 🥇 Enterprise — € 2.500/mese
-- 7 agenti + 3 agenti custom
+- Agenti AI + 3 agenti custom
 - Documenti illimitati
 - Ricerche avanzate illimitate
 - Archivio illimitato + API REST
@@ -387,9 +387,9 @@ L'hardware NVIDIA DGX SPARK è un prerequisito. Il cliente lo acquista dai distr
 
 ### Panoramica
 
-Notaio AI utilizza **7 agenti AI specializzati**, ciascuno con una propria identità, competenze e regole di comportamento. Il sistema sceglie automaticamente l'agente giusto per ogni compito.
+Notaio AI utilizza **agenti AI specializzati**, ciascuno con una propria identità, competenze e regole di comportamento. Il sistema sceglie automaticamente l'agente giusto per ogni compito.
 
-### I 7 agenti
+### Gli agenti
 
 #### 📜 1. Attista
 - **Ruolo:** Stesura di atti notarili
