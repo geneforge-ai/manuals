@@ -1,8 +1,8 @@
 # Notaio AI — Manuale Utente
 
-**Versione:** 1.0  
-**Data:** 3 Maggio 2026  
-**Progetto:** GeneForge AI — Notaio AI  
+**Versione:** 1.1
+**Data:** 26 Aprile 2026
+**Progetto:** GeneForge AI — Notaio AI
 **Destinatari:** Notai, collaboratori e segretarie degli Studi Notarili
 
 ---
@@ -17,9 +17,9 @@ Tutto gira su server locali. Nessun dato dei clienti lascia mai il tuo studio.
 
 ### A cosa serve
 
-- **Stesura atti notarili** con agenti AI specializzati (compravendite, società, testamenti, mutui)
-- **Verifica catastale** con report strutturati e checklist
-- **Conformità urbanistica, edilizia e fiscale** con verifica agevolazioni
+- **Stesura atti notarili** con agenti AI specializzati per 7 tipi di atto
+- **Verifica catastale** con report strutturati e checklist (atti immobiliari)
+- **Conformità urbanistica, edilizia e fiscale** con verifica agevolazioni (atti immobiliari)
 - **Controllo documenti** e coerenza dati prima del rogito
 - **Cronoprogramma scadenze** con termini perentori calcolati automaticamente
 - **Ricerca normativa** notarile, circolari CNN, giurisprudenza
@@ -30,7 +30,7 @@ Tutto gira su server locali. Nessun dato dei clienti lascia mai il tuo studio.
 | Vantaggio | Descrizione |
 |-----------|-------------|
 | **Privacy totale** | I modelli AI girano localmente. Nessun dato in cloud |
-| **Risparmio di tempo** | Un atto di compravendita si genera in 2-3 minuti |
+| **Risparmio di tempo** | Un atto si genera in 2–3 minuti (5 fasi) o 1–2 minuti (3 fasi) |
 | **Zero errori formali** | Intestazione e firma pre-compilate dal codice, non dall'AI |
 | **Conformità garantita** | Verifica automatica documenti, agevolazioni, scadenze |
 | **Multi-formato** | PDF per la stampa, DOCX per le modifiche, MD per l'archivio |
@@ -92,44 +92,85 @@ Il sistema **sceglie automaticamente** l'agente giusto in base al task.
 
 ---
 
-## 4. Workflow Compravendita — Guida Passo-passo
+## 4. Selettore Tipo Atto e Form Dedicate
+
+### Panoramica
+
+Notaio AI supporta **7 tipi di atto notarile**. Al centro della schermata principale trovi il selettore **⚖️ Tipo di Atto** — scegli quello che ti serve e il form si adatta automaticamente.
+
+| # | Tipo di Atto | Form dedicate | Fasi workflow |
+|---|--------------|---------------|---------------|
+| 1 | **Compravendita immobiliare** | Venditore, Acquirente, Immobile, Economico | 5 fasi |
+| 2 | **Costituzione SRL** | Soci, Denominazione, Sede, Oggetto, Capitale, Amministratore, Statuto | 3 fasi |
+| 3 | **Testamento** | Testatore, Eredi, Legati, Esecutore, Disposizioni | 3 fasi |
+| 4 | **Patto di famiglia** | Contraenti, Bene, Regime, Durata, Successori | 3 fasi |
+| 5 | **Mutuo ipotecario** | Mutuatario, Istituto, Importo, Tasso, Durata, Immobile garanzia | 5 fasi |
+| 6 | **Divisione** | Coeredi, Bene, Quote, Modalità | 5 fasi |
+| 7 | **Donazione** | Donante, Donatario, Bene, Regime fiscale, Oneri | 5 fasi |
+
+> 💡 **Come funziona:** quando cambi tipo di atto, le card del form appaiono e scompaiono automaticamente. Compila solo i campi visibili.
+
+---
+
+## 5. Workflow per Tipo di Atto — Guida Passo-passo
 
 ### Panoramica del flusso
 
+**Atti immobiliari** (Compravendita, Mutuo, Divisione, Donazione):
+
 ```
 Inserimento dati → Verifica Catastale → Conformità → Stesura Atto → Controllo → Scadenze
+                              ↑_____________↑
+                        (solo per atti con immobile)
 ```
 
-### Passo 1 — Inserimento dati
+**Atti non immobiliari** (Costituzione SRL, Testamento, Patto di famiglia):
 
-1. Apri Notaio AI su `http://localhost:8507` (o `https://notaio-ai.geneforge.eu` se online)
-2. Compila il form in 4 sezioni:
-   - **Dati Venditore**: Nome, Cognome, CF, Nato a, Residente in
-   - **Dati Acquirente**: Nome, Cognome, CF, Nato a, Residente in, Età, ISEE
-   - **Dati Immobile**: Comune, Indirizzo, Foglio, Mappa, Sub, Categoria, Consistenza, Rendita
-   - **Dati Economici**: Prezzo, Onorario Notaio, Clausole particolari
+```
+Inserimento dati → Stesura Atto → Controllo → Scadenze
+```
+
+### Passo 1 — Selezione e inserimento dati
+
+1. Apri Notaio AI su `http://localhost:8507`
+2. Seleziona il **Tipo di Atto** dal menu a tendina in cima alla colonna sinistra
+3. Compila le card dedicate che compaiono:
+   - **Compravendita**: Dati Venditore, Acquirente, Immobile, Economico
+   - **Costituzione SRL**: Dati Società (soci, denominazione, sede, oggetto, capitale, amministratore, statuto)
+   - **Testamento**: Dati Testatore, Eredi, Legati, Esecutore, Disposizioni
+   - **Patto di famiglia**: Dati Contraenti, Bene, Regime, Durata, Successori
+   - **Mutuo ipotecario**: Dati Mutuo (mutuatario, istituto, importo, tasso, durata, immobile garanzia)
+   - **Divisione**: Dati Divisione (coeredi, bene, quote, modalità)
+   - **Donazione**: Dati Donazione (donante, donatario, bene, regime fiscale, oneri)
+4. Compila sempre la card **💶 Dati Economici e Clausole** (condivisa per tutti i tipi)
 
 > 💡 **Suggerimento:** Seleziona il cliente dall'anagrafica (se disponibile) per pre-compilare i dati.
 
 ### Passo 2 — Generazione
 
-1. Clicca su **"⚖️ Genera Atto di Compravendita"**
-2. Il sistema esegue 5 fasi in sequenza:
-   - **Fase 1/5: Verifica Catastale** (~15-20s)
-   - **Fase 2/5: Verifica Conformità** (~50-70s)
-   - **Fase 3/5: Stesura Atto** (~50-70s)
-   - **Fase 4/5: Controllo Documenti** (~15-20s)
-   - **Fase 5/5: Cronoprogramma Scadenze** (~15-20s)
+1. Clicca su **"⚖️ Genera Atto: [Tipo selezionato]"**
+2. Il sistema esegue le fasi in sequenza:
+
+   **Per atti immobiliari (5 fasi):**
+   - **Fase 1/5: Verifica Catastale** (~15–20s)
+   - **Fase 2/5: Verifica Conformità** (~50–70s)
+   - **Fase 3/5: Stesura Atto** (~50–70s)
+   - **Fase 4/5: Controllo Documenti** (~15–20s)
+   - **Fase 5/5: Cronoprogramma Scadenze** (~15–20s)
+
+   **Per atti non immobiliari (3 fasi):**
+   - **Fase 1/3: Stesura Atto** (~50–70s)
+   - **Fase 2/3: Controllo Documenti** (~15–20s)
+   - **Fase 3/3: Cronoprogramma Scadenze** (~15–20s)
 
 3. Il documento completo apparirà nell'area risultato
 
 ### Passo 3 — Revisione
 
-1. **Leggi il report catastale**: verifica che i dati siano coerenti con la visura reale
-2. **Leggi il report conformità**: controlla i documenti mancanti evidenziati (es. APE, agibilità)
-3. **Leggi l'atto**: verifica che il corpo giuridico sia corretto
-4. **Leggi il controllo**: assicurati che tutti i documenti obbligatori siano presenti
-5. **Leggi le scadenze**: verifica le date calcolate
+1. **Leggi i report preliminari** (catasto e conformità, se presenti): verifica coerenza con i dati reali
+2. **Leggi l'atto**: verifica che il corpo giuridico sia corretto per il tipo di atto selezionato
+3. **Leggi il controllo**: assicurati che tutti i documenti obbligatori siano presenti
+4. **Leggi le scadenze**: verifica le date calcolate
 
 > ⚠️ **Attenzione:** L'AI genera SOLO il corpo giuridico. Intestazione, procura e firma sono pre-compilate dal codice Python in modo deterministico.
 
@@ -141,26 +182,41 @@ Inserimento dati → Verifica Catastale → Conformità → Stesura Atto → Con
 
 ---
 
-## 5. Esempio concreto: Prima Casa Under 36
+## 6. Esempi Concreti
+
+### 6.1 Prima Casa Under 36 — Compravendita
 
 > **Caso:** Laura Verdi, 28 anni, ISEE €22.000, acquista la sua prima casa da Mario Rossi per €180.000.
 >
 > **Agevolazione:** art. 1 commi 67-71 L. 234/2021 (prima casa under 36)
 >
-> 1. Inserisci i dati nel form
-> 2. Clicca **"Genera Atto di Compravendita"**
-> 3. Il sistema genera:
->    - Report catastale con checklist
->    - Report conformità che evidenzia APE mancante e verifica l'ammissibilità under 36
->    - Corpo giuridico con normativa citata
->    - Checklist documenti
->    - Cronoprogramma scadenze
-> 4. Rivedi il documento
-> 5. Scarica in PDF o DOCX
+> 1. Seleziona **"Compravendita immobiliare"**
+> 2. Inserisci i dati nel form
+> 3. Clicca **"Genera Atto"**
+> 4. Il sistema genera 5 sezioni: Catasto, Conformità, Atto, Controllo, Scadenze
+> 5. Rivedi il documento e scarica in PDF/DOCX
+
+### 6.2 Costituzione SRL
+
+> **Caso:** Marco Rossi (60%) e Paolo Bianchi (40%) costituiscono la "Rossi & Bianchi SRL" con capitale €10.000.
+>
+> 1. Seleziona **"Costituzione SRL"**
+> 2. Compila: Soci, Denominazione, Sede, Oggetto, Capitale, Amministratore, Statuto
+> 3. Clicca **"Genera Atto"**
+> 4. Il sistema genera 3 sezioni: Atto di Costituzione SRL, Controllo Documenti, Scadenze (iscrizione REA, PEC, ecc.)
+
+### 6.3 Testamento Olografo Pubblico
+
+> **Caso:** Carlo Verdi, 70 anni, vuole lasciare i beni ai figli Marco e Anna in parti uguali.
+>
+> 1. Seleziona **"Testamento"**
+> 2. Compila: Testatore, Eredi, Legati, Esecutore, Disposizioni
+> 3. Clicca **"Genera Atto"**
+> 4. Il sistema genera il corpo giuridico del testamento con normativa artt. 587-602 c.c.
 
 ---
 
-## 6. Verifica e Controllo Qualità
+## 7. Verifica e Controllo Qualità
 
 ### Placeholder e dati da verificare
 
@@ -181,9 +237,12 @@ Quando l'AI non ha accesso a una banca dati esterna, inserisce indicazioni di ve
 
 ---
 
-## 7. FAQ e Troubleshooting
+## 8. FAQ e Troubleshooting
 
 ### Domande frequenti
+
+**D: Quanti tipi di atto sono supportati?**
+> R: **7 tipi**: Compravendita immobiliare, Costituzione SRL, Testamento, Patto di famiglia, Mutuo ipotecario, Divisione, Donazione.
 
 **D: I dati dei clienti finiscono su Internet?**
 > R: **No.** Gli agenti AI girano sul tuo server locale. Nessun dato lascia il computer, eccetto le ricerche normative dove viene trasmesso *solo il testo della query*, mai dati delle pratiche.
@@ -204,21 +263,24 @@ Quando l'AI non ha accesso a una banca dati esterna, inserisce indicazioni di ve
 > R: Sì. Scaricalo in DOCX, modificalo in Word/LibreOffice, e caricalo nuovamente se necessario.
 
 **D: Qual è il tempo medio di generazione?**
-> R: 2-3 minuti per un atto di compravendita completo (5 fasi). La stesura dell'atto da sola richiede 50-70 secondi.
+> R: **Atti immobiliari** (5 fasi): 2–3 minuti. **Atti non immobiliari** (3 fasi): 1–2 minuti. La stesura dell'atto da sola richiede 50–70 secondi.
+
+**D: Perché alcuni atti hanno 5 fasi e altri 3?**
+> R: Gli atti che riguardano un immobile (Compravendita, Mutuo, Divisione, Donazione) richiedono Verifica Catastale e Conformità. Gli altri (SRL, Testamento, Patto di famiglia) non le richiedono.
 
 ### Errori comuni e soluzioni
 
 | Errore | Causa | Soluzione |
 |--------|-------|-----------|
 | "LLM non risponde" | Il servizio AI è spento | Verifica: `curl http://localhost:8081/health` |
-| "Timeout generazione" | Nemtron sovraccarico | Aspetta 30 secondi e riprova |
-| "Placeholder non sostituiti" | Dati mancanti nel form | Compila tutti i campi obbligatori |
-| "Documento incompleto" | Campi obbligatori vuoti | Verifica Venditore, Acquirente, Comune, Prezzo |
+| "Timeout generazione" | Nemotron sovraccarico | Aspetta 30 secondi e riprova |
+| "Placeholder non sostituiti" | Dati mancanti nel form | Compila tutti i campi del tipo di atto selezionato |
+| "Documento incompleto" | Campi obbligatori vuoti | Verifica che la card dedicata al tipo di atto sia compilata |
 | "Pagina bianca" | Browser datato | Aggiorna Chrome/Firefox |
 
 ---
 
-## 8. Prezzi e Servizi Commerciali
+## 9. Prezzi e Servizi Commerciali
 
 ### Modello di business
 
@@ -282,7 +344,7 @@ L'hardware NVIDIA DGX SPARK è un prerequisito. Il cliente lo acquista dai distr
 
 ---
 
-## 9. Gli Agenti AI di Notaio AI — Dettaglio
+## 10. Gli Agenti AI di Notaio AI — Dettaglio
 
 ### Panoramica
 
@@ -296,13 +358,15 @@ Notaio AI utilizza **7 agenti AI specializzati**, ciascuno con una propria ident
 - **Temperatura:** 0.15 (molto conservativa)
 - **Output:** Corpo giuridico con premesse, dispositive, clausole
 - **Regole critiche:** Non inventa clausole, cita norma specifica, registro solenne
+- **Tipi supportati:** Compravendita, Costituzione SRL, Testamento, Patto di famiglia, Mutuo, Divisione, Donazione
 
 #### 🏠 2. Catasto
 - **Ruolo:** Verifica dati catastali
-- **Modello:** Nemotron-70B
+- **Modello:** Qwen-72B
 - **Temperatura:** 0.1 (massima precisione)
 - **Output:** Report con checklist e anomalie
 - **Regole critiche:** Non inventa dati catastali, usa placeholder per verifiche esterne
+- **Quando viene chiamato:** Solo per atti immobiliari (Compravendita, Mutuo, Divisione, Donazione)
 
 #### ✅ 3. Conformità
 - **Ruolo:** Conformità urbanistica, edilizia, fiscale
@@ -310,6 +374,7 @@ Notaio AI utilizza **7 agenti AI specializzati**, ciascuno con una propria ident
 - **Temperatura:** 0.15
 - **Output:** Report con documenti mancanti e agevolazioni
 - **Regole critiche:** Non dà parere positivo assoluto se manca documentazione
+- **Quando viene chiamato:** Solo per atti immobiliari
 
 #### 📋 4. Controllo
 - **Ruolo:** Controllo documenti e coerenza
@@ -341,7 +406,7 @@ Notaio AI utilizza **7 agenti AI specializzati**, ciascuno con una propria ident
 
 ---
 
-*Notaio AI — Powered by GeneForge AI*  
-*© 2026 — Tutti i diritti riservati*  
-*Manuale redatto per i Notai e gli Studi Notarili italiani*  
-*Versione 1.0 — 3 Maggio 2026*
+*Notaio AI — Powered by GeneForge AI*
+*© 2026 — Tutti i diritti riservati*
+*Manuale redatto per i Notai e gli Studi Notarili italiani*
+*Versione 1.1 — 26 Aprile 2026*
