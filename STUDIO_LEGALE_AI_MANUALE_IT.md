@@ -111,6 +111,6 @@ Per amministratori:
 
 ---
 
-**Domande o problemi?** Scrivi a supporto@geneforge.eu
+**Domande o problemi?** Scrivi a marco.saba@geneforge.eu
 
 *Studio Legale AI — Avv. Marco della Luna*
