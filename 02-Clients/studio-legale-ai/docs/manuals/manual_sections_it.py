@@ -1,0 +1,677 @@
+# -*- coding: utf-8 -*-
+"""All 18 Italian manual sections for Studio Legale AI."""
+
+def get_all_sections():
+    return [s01, s02, s03, s04, s05, s06, s07, s08, s09, s10, s11, s12, s13, s14, s15, s16, s17, s18]
+
+s01 = r'''
+<section id="indice" class="page-section">
+<h1 class="section-title">1. Indice</h1>
+<div class="toc"><ol>
+<li><a href="#indice">Indice</a></li>
+<li><a href="#introduzione">Introduzione</a></li>
+<li><a href="#conformita">Conformità normativa europea</a></li>
+<li><a href="#requisiti">Requisiti di sistema</a></li>
+<li><a href="#configurazione">Primo accesso e configurazione</a></li>
+<li><a href="#navigazione">Navigazione</a></li>
+<li><a href="#dashboard">Dashboard e Chat</a></li>
+<li><a href="#clienti-pratiche">Clienti e Pratiche</a></li>
+<li><a href="#documenti">Generazione documenti</a></li>
+<li><a href="#ricerca">Ricerca legale avanzata</a></li>
+<li><a href="#formulario">Formulario forense</a></li>
+<li><a href="#rag">RAG — I miei documenti</a></li>
+<li><a href="#pareri-contratti">Pareri e Contratti</a></li>
+<li><a href="#calendario">Calendario scadenze</a></li>
+<li><a href="#governance">Governance del titolare</a></li>
+<li><a href="#sicurezza">Sicurezza, backup e audit</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#riferimento">Riferimento rapido</a></li>
+</ol></div>
+<div class="tip"><strong>Come usare questo manuale</strong>Destinato ad avvocati, praticanti, segretarie e amministratori IT dello studio. Stampare in A4 o generare PDF: <code>./generate_manual_pdf.sh</code></div>
+<table><tr><th>Simbolo</th><th>Significato</th></tr>
+<tr><td>🔴</td><td>Scadenza critica (&lt;7 giorni)</td></tr>
+<tr><td>🟠</td><td>Avviso (7–30 giorni)</td></tr>
+<tr><td>🟢</td><td>Stato normale</td></tr>
+<tr><td>⚫</td><td>Scadenza superata</td></tr></table>
+<p>Questo documento descrive <strong>Studio Legale AI — GeneForge</strong>, versione <strong>Luglio 2026</strong>, URL: <a href="https://studio-legale.geneforge.eu">https://studio-legale.geneforge.eu</a></p>
+</section>'''
+
+s02 = r'''
+<section id="introduzione" class="page-section">
+<h1 class="section-title">2. Introduzione</h1>
+<h2>2.1 Cos'è Studio Legale AI?</h2>
+<p><strong>Studio Legale AI</strong> è una piattaforma di gestione e supporto alla pratica forense italiana, installata <strong>on-premise</strong> su hardware NVIDIA DGX Spark nello studio legale. I dati delle pratiche, dei clienti e degli atti <strong>non lasciano mai la rete locale</strong> dello studio.</p>
+<p>La piattaforma unisce gestione clienti/pratiche, generazione assistita di atti giuridici, ricerca normativa e giurisprudenziale, formulario forense, RAG su documenti caricati e governance AI con approvazione umana.</p>
+<div class="tip"><strong>Missione</strong>«L'AI non sostituisce l'avvocato — rende lo studio 10× più efficiente, con il professionista sempre al controllo.»</div>
+<h2>2.2 Pubblico di riferimento</h2>
+<ul>
+<li>Studi legali (1–30 avvocati)</li>
+<li>Avvocati civilisti, penalisti, tributaristi, amministrativisti, del lavoro</li>
+<li>Praticanti e collaboratori</li>
+<li>Segreterie legali</li>
+<li>Amministratori IT (DGX Spark, LAN)</li>
+</ul>
+<h2>2.3 Moduli principali</h2>
+<table>
+<tr><th>Modulo</th><th>Funzione</th><th>Percorso</th></tr>
+<tr><td>Dashboard</td><td>KPI, chat Avvocato Generico, accesso rapido</td><td><code>/</code></td></tr>
+<tr><td>Clienti</td><td>Anagrafica clienti e avvertenze</td><td><code>/clients</code></td></tr>
+<tr><td>Pratiche</td><td>Gestione casi e stati</td><td><code>/cases</code></td></tr>
+<tr><td>Documenti</td><td>Generazione 11 tipi di atto</td><td><code>/documents</code></td></tr>
+<tr><td>Ricerca</td><td>6 motori giuridici + AI</td><td><code>/research</code></td></tr>
+<tr><td>Pareri</td><td>Pareri strutturati (Parerista)</td><td><code>/opinions</code></td></tr>
+<tr><td>Contratti</td><td>Analisi contrattuale</td><td><code>/contracts</code></td></tr>
+<tr><td>Calendario</td><td>Udienze, termini, promemoria</td><td><code>/calendar</code></td></tr>
+<tr><td>Formulario</td><td>550+ formule forensi</td><td><code>/formulario</code></td></tr>
+<tr><td>I miei Documenti</td><td>RAG, upload PDF/DOCX</td><td><code>/documenti</code></td></tr>
+<tr><td>Governance</td><td>Consigliere del Titolare</td><td><code>/owner</code></td></tr>
+<tr><td>Impostazioni</td><td>SMTP, agenti, configurazione</td><td><code>/settings</code></td></tr>
+</table>
+<h2>2.4 Architettura</h2>
+<div class="flow">Browser → NiceGUI (8506) → Nemotron LLM (8081) → JSON DB + RAG + MinerU OCR
+Governance API → Boundary Framework → Human-in-the-loop</div>
+<h2>2.5 Differenziatore strategico</h2>
+<div class="important"><strong>On-premise, non cloud</strong>GeneForge Studio Legale AI è l'unica piattaforma AI forense progettata per girare interamente nello studio, senza inviare atti, fascicoli o dati anagrafici a server cloud di terzi. Questo semplifica radicalmente la conformità GDPR, tutela il segreto professionale e elimina il rischio di data breach su infrastrutture SaaS esterne.</div>
+<p><strong>Versione:</strong> Luglio 2026 · <a href="https://studio-legale.geneforge.eu">https://studio-legale.geneforge.eu</a></p>
+</section>'''
+
+s03 = r'''
+<section id="conformita" class="page-section">
+<h1 class="section-title">3. Conformità normativa europea</h1>
+<p>Questa sezione è fondamentale per studi legali che devono rispettare il <strong>GDPR</strong>, l'<strong>AI Act</strong>, il <strong>segreto professionale</strong> e gli obblighi deontologici dell'Ordine degli Avvocati.</p>
+<h2>3.1 GDPR — Regolamento UE 2016/679</h2>
+<table>
+<tr><th>Requisito</th><th>GeneForge on-premise</th><th>SaaS legale cloud</th></tr>
+<tr><td>Titolare del trattamento</td><td>🟢 Lo studio legale</td><td>🟡 Studio + fornitore cloud</td></tr>
+<tr><td>DPA art. 28 necessario</td><td>🟢 No (dati in-house)</td><td>🔴 Sì, obbligatorio</td></tr>
+<tr><td>Trasferimento extra-UE</td><td>🟢 Nessuno</td><td>🔴 Spesso USA (SCC richieste)</td></tr>
+<tr><td>Diritto all'oblio</td><td>🟢 Controllo diretto su <code>database/</code></td><td>🟡 Dipende dal fornitore</td></tr>
+<tr><td>Data breach notification</td><td>🟢 Solo LAN compromessa</td><td>🔴 Rischio breach fornitore</td></tr>
+</table>
+<div class="note"><strong>Art. 4 GDPR — Titolare</strong>Con installazione on-premise, lo studio legale è il <em>titolare del trattamento</em> dei dati dei propri clienti. GeneForge AI Labs fornisce il software e l'hardware come fornitore tecnologico; non accede ai dati se non su esplicita richiesta di assistenza autorizzata.</div>
+<h2>3.2 AI Act — Regolamento UE 2024/1689</h2>
+<p>Studio Legale AI implementa i principi dell'AI Act per sistemi ad alto impatto potenziale:</p>
+<ul>
+<li><strong>Supervisione umana (art. 14):</strong> ogni atto sensibile richiede revisione dell'avvocato prima dell'uso processuale</li>
+<li><strong>Trasparenza (art. 13):</strong> banner di avvertenza su Dashboard e Documenti; disclaimer su ogni output AI</li>
+<li><strong>Governance GATE:</strong> Boundary Framework in modalità report-only — informa senza bloccare in fase pilota</li>
+<li><strong>Registro attività:</strong> audit trail in <code>database/</code> e log governance API</li>
+<li><strong>Nessun training su dati cliente</strong> senza consenso esplicito scritto</li>
+</ul>
+<h2>3.3 Segreto professionale</h2>
+<p>I dati delle pratiche, le strategie difensive, le corrispondenze con i clienti e gli atti in bozza sono coperti dal <strong>segreto professionale</strong> (art. 200 c.p.p., Codice Deontologico Forense CNF).</p>
+<div class="important"><strong>Perché il cloud è un rischio</strong>Inviare fascicoli o atti a servizi AI cloud (ChatGPT, Copilot, SaaS legali) può costituire violazione del segreto professionale se il fornitore elabora i dati su server di terzi, anche con DPA. GeneForge elimina questo rischio: l'LLM gira localmente sulla DGX Spark nello studio.</div>
+<h2>3.4 Confronto on-premise vs SaaS</h2>
+<table>
+<tr><th>Aspetto</th><th>GeneForge on DGX Spark</th><th>SaaS legale generico</th></tr>
+<tr><td>Dati pratiche</td><td>🟢 In-house, mai in cloud</td><td>🔴 Sul server del fornitore</td></tr>
+<tr><td>Segreto professionale</td><td>🟢 Massima tutela</td><td>🔴 Rischio deontologico</td></tr>
+<tr><td>GDPR</td><td>🟢 Semplificato</td><td>🟡 DPA + SCC necessari</td></tr>
+<tr><td>AI Act oversight</td><td>🟢 Human-in-the-loop nativo</td><td>🟡 Variabile per fornitore</td></tr>
+<tr><td>Latenza</td><td>🟢 7–60s locale</td><td>🟡 10–120s via rete</td></tr>
+<tr><td>Funzionamento offline</td><td>🟢 Parziale (no ricerche web)</td><td>🔴 Impossibile</td></tr>
+<tr><td>Customizzazione</td><td>🟢 Totale (agenti + modelli)</td><td>🟡 Limitata</td></tr>
+</table>
+<h2>3.5 Misure tecniche di protezione</h2>
+<table>
+<tr><th>Misura</th><th>Implementazione</th></tr>
+<tr><td>Crittografia disco</td><td>LUKS AES-256 (raccomandato)</td></tr>
+<tr><td>Crittografia rete</td><td>TLS 1.3 per accesso LAN</td></tr>
+<tr><td>Autenticazione</td><td>Locale + MFA opzionale</td></tr>
+<tr><td>Audit log</td><td>Completo, immutabile, esportabile</td></tr>
+<tr><td>Air-gapped</td><td>Installazione possibile senza internet</td></tr>
+<tr><td>Backup</td><td>Locale su NAS — mai su cloud pubblico</td></tr>
+</table>
+<h2>3.6 Eccezioni — quando i dati escono dalla LAN</h2>
+<p>Solo in questi casi limitati e controllati:</p>
+<ul>
+<li><strong>Ricerche giuridiche web:</strong> viene trasmesso <em>solo il testo della query</em> (es. «art. 2043 c.c. risarcimento»), mai nomi clienti o contenuti di pratiche</li>
+<li><strong>Motori pubblici:</strong> Normattiva, EUR-Lex, Giustizia — fonti già pubbliche</li>
+<li><strong>Assistenza GeneForge:</strong> solo su autorizzazione scritta del titolare</li>
+</ul>
+<div class="warning"><strong>Responsabilità professionale</strong>Studio Legale AI produce bozze professionali. L'avvocato deve sempre revisionare, verificare le citazioni e firmare gli atti prima del deposito. L'AI non sostituisce il giudizio professionale.</div>
+</section>'''
+
+s04 = r'''
+<section id="requisiti" class="page-section">
+<h1 class="section-title">4. Requisiti di sistema</h1>
+<h2>4.1 Server — NVIDIA DGX Spark</h2>
+<table>
+<tr><th>Componente</th><th>Requisito</th></tr>
+<tr><td>Hardware</td><td>NVIDIA DGX Spark (Grace Blackwell GB10)</td></tr>
+<tr><td>RAM</td><td>128 GB unified memory (UMA CPU+GPU)</td></tr>
+<tr><td>Disco</td><td>≥500 GB liberi (1 TB consigliato)</td></tr>
+<tr><td>LLM</td><td>Nemotron 3 Nano 30B, Q4_K_M</td></tr>
+<tr><td>Rete</td><td>Gigabit Ethernet, LAN</td></tr>
+</table>
+<div class="note"><strong>Q4_K_M</strong>Quantizzazione stabile su GB10. Banner Dashboard: «Using Q4_K_M – Stable &amp; Reliable on DGX Spark».</div>
+<h2>4.2 PC client</h2>
+<table>
+<tr><th>Parametro</th><th>Valore</th></tr>
+<tr><td>Browser</td><td>Chrome 120+, Firefox 115+, Edge 120+</td></tr>
+<tr><td>Risoluzione</td><td>Min. 1280×720</td></tr>
+<tr><td>OS</td><td>Windows 10/11, macOS 12+, Linux</td></tr>
+</table>
+<h2>4.3 Software e porte</h2>
+<table>
+<tr><th>Servizio</th><th>Porta</th><th>Verifica</th></tr>
+<tr><td>llama-server</td><td>8081</td><td><code>curl http://localhost:8081/health</code></td></tr>
+<tr><td>Studio Legale AI</td><td>8506</td><td><code>http://localhost:8506</code></td></tr>
+<tr><td>MinerU (OCR)</td><td>—</td><td><code>MINERU_BIN</code> env var</td></tr>
+<tr><td>Control Plane (opz.)</td><td>8600</td><td><code>http://localhost:8600</code></td></tr>
+</table>
+<h2>4.4 Rete</h2>
+<ul>
+<li>Tutti i PC e la DGX nella stessa LAN</li>
+<li>Internet non necessario per AI locale (solo per ricerche giuridiche web)</li>
+<li>Porta 8506 — solo rete interna (non esporre su internet senza VPN)</li>
+</ul>
+<h2>4.5 Installazione</h2>
+<pre class="code">sudo systemctl start studio-legale-ai
+# oppure manualmente:
+cd web-ui && python studio_legale_app.py</pre>
+<ol class="steps">
+<li>Verificare health LLM (8081)</li>
+<li>Aprire <code>http://localhost:8506</code></li>
+<li>Configurare SMTP in Impostazioni</li>
+<li>Testare chat e generazione documento</li>
+</ol>
+<h2>4.6 Log</h2>
+<table>
+<tr><th>File</th><th>Descrizione</th></tr>
+<tr><td><code>/tmp/llama-server.log</code></td><td>Errori LLM</td></tr>
+<tr><td><code>journalctl -u studio-legale-ai</code></td><td>Log applicazione systemd</td></tr>
+<tr><td><code>database/chat_history.json</code></td><td>Storico chat</td></tr>
+</table>
+</section>'''
+
+s05 = r'''
+<section id="configurazione" class="page-section">
+<h1 class="section-title">5. Primo accesso e configurazione</h1>
+<p>All'apertura di <a href="https://studio-legale.geneforge.eu">https://studio-legale.geneforge.eu</a> (o <code>http://localhost:8506</code>) si accede alla Dashboard. Non è richiesta password in installazione pilota; in produzione si consiglia autenticazione locale.</p>
+<h2>5.1 Prima configurazione</h2>
+<ol class="steps">
+<li>Verificare che DGX Spark sia accesa e llama-server risponda su 8081</li>
+<li>Aprire Impostazioni (<code>/settings</code>)</li>
+<li>Configurare SMTP per invio email con allegati</li>
+<li>Inserire nome studio e avvocato titolare</li>
+<li>Caricare un documento di test in I miei Documenti</li>
+</ol>
+<h2>5.2 Configurazione SMTP</h2>
+<table>
+<tr><th>Campo</th><th>Esempio Gmail</th><th>Esempio Aruba</th></tr>
+<tr><td>Server SMTP</td><td><code>smtp.gmail.com</code></td><td><code>smtp.aruba.it</code></td></tr>
+<tr><td>Porta</td><td>587</td><td>587</td></tr>
+<tr><td>Username</td><td>tuaemail@gmail.com</td><td>studio@tuodominio.it</td></tr>
+<tr><td>Password</td><td>App Password</td><td>Password email</td></tr>
+</table>
+<div class="tip"><strong>Gmail</strong>Usare App Password, non la password normale. Crearla su myaccount.google.com/apppasswords</div>
+<p>Le credenziali sono salvate solo localmente in <code>database/settings.json</code> — mai su cloud.</p>
+<h2>5.3 Dopo la configurazione</h2>
+<ol class="steps">
+<li>Fare una domanda in chat: «Qual è il termine per appellare una sentenza civile?»</li>
+<li>Generare una lettera di messa in mora di prova</li>
+<li>Verificare il protocollo automatico (es. 2026/001)</li>
+<li>Esplorare il Formulario forense</li>
+</ol>
+</section>'''
+
+s06 = r'''
+<section id="navigazione" class="page-section">
+<h1 class="section-title">6. Navigazione</h1>
+<h2>6.1 Menu principale</h2>
+<p>La barra laterale contiene tutti i moduli. La sezione attiva è evidenziata.</p>
+<table>
+<tr><th>Voce menu</th><th>URL</th><th>Descrizione</th></tr>
+<tr><td>Dashboard</td><td><code>/</code></td><td>Home, KPI, chat</td></tr>
+<tr><td>Clienti</td><td><code>/clients</code></td><td>Anagrafica</td></tr>
+<tr><td>Pratiche</td><td><code>/cases</code></td><td>Gestione casi</td></tr>
+<tr><td>Documenti</td><td><code>/documents</code></td><td>Generazione atti</td></tr>
+<tr><td>Ricerca</td><td><code>/research</code></td><td>Motori giuridici</td></tr>
+<tr><td>Pareri</td><td><code>/opinions</code></td><td>Pareri strutturati</td></tr>
+<tr><td>Contratti</td><td><code>/contracts</code></td><td>Analisi contratti</td></tr>
+<tr><td>Calendario</td><td><code>/calendar</code></td><td>Scadenze</td></tr>
+<tr><td>Formulario</td><td><code>/formulario</code></td><td>550+ formule</td></tr>
+<tr><td>I miei Documenti</td><td><code>/documenti</code></td><td>RAG upload</td></tr>
+<tr><td>Impostazioni</td><td><code>/settings</code></td><td>Configurazione</td></tr>
+<tr><td>Governance</td><td><code>/owner</code></td><td>Consigliere Titolare</td></tr>
+<tr><td>Manuale</td><td><code>/manuale</code></td><td>Manuale utente integrato</td></tr>
+</table>
+<h2>6.2 Scorciatoie</h2>
+<table>
+<tr><th>Azione</th><th>Metodo</th></tr>
+<tr><td>Invio messaggio chat</td><td>Enter</td></tr>
+<tr><td>Nuova riga in chat</td><td>Shift + Enter</td></tr>
+<tr><td>Aggiorna pagina</td><td>F5 / Ctrl+R</td></tr>
+</table>
+<h2>6.3 Accesso da rete LAN</h2>
+<p>Da altro PC in LAN: <code>http://&lt;IP-DGX&gt;:8506</code>. Verificare che il firewall consenta la porta 8506.</p>
+</section>'''
+
+s07 = r'''
+<section id="dashboard" class="page-section">
+<h1 class="section-title">7. Dashboard e Chat</h1>
+<p>La Dashboard (<code>/</code>) è la home page con KPI operativi e la chat «Chiedi allo Studio».</p>
+<h2>7.1 KPI</h2>
+<div class="kpi-grid">
+<div class="kpi-card"><div class="lbl">Clienti</div><div class="val">👥 totale</div><p>Clienti in anagrafica</p></div>
+<div class="kpi-card"><div class="lbl">Pratiche aperte</div><div class="val">📁 attive</div><p>Casi in corso</p></div>
+<div class="kpi-card"><div class="lbl">Scadenze</div><div class="val">📋 7g/30g</div><p>Udienze e termini imminenti</p></div>
+<div class="kpi-card"><div class="lbl">Documenti</div><div class="val">📄 totale</div><p>Atti generati con protocollo</p></div>
+</div>
+<h2>7.2 Chat intelligente</h2>
+<p>Domande in linguaggio naturale su qualsiasi area del diritto. Il sistema attiva automaticamente tool specialistici:</p>
+<ul>
+<li>📊 Calcolo interessi / TFR / contributo unificato</li>
+<li>⏳ Verifica termini processuali / prescrizione</li>
+<li>💶 Calcolo sanzioni tributarie</li>
+</ul>
+<h2>7.3 Specialisti per area</h2>
+<table>
+<tr><th>Area</th><th>Agente</th><th>Parole chiave</th></tr>
+<tr><td>Civile</td><td>Specialista Civile</td><td>contratto, risarcimento, citazione, mora</td></tr>
+<tr><td>Penale</td><td>Specialista Penale</td><td>reato, denuncia, cautela, patteggiamento</td></tr>
+<tr><td>Tributario</td><td>Specialista Tributario</td><td>IVA, sanzioni, accertamento, ricorso</td></tr>
+<tr><td>Amministrativo</td><td>Specialista Amministrativo</td><td>TAR, appalto, accesso atti</td></tr>
+<tr><td>Lavoro</td><td>Specialista Lavoro</td><td>licenziamento, TFR, mobbing, contratto</td></tr>
+</table>
+<h2>7.4 Legal Review Mode</h2>
+<p>Toggle <strong>🔒 Legal Review Mode</strong>: temperatura LLM a 0.25, validazione legale automatica, output conservativo. Consigliato per atti da depositare in tribunale.</p>
+<h2>7.5 RAG in chat</h2>
+<p>Attivare <strong>📂 Usa i miei documenti come contesto</strong> per interrogare PDF/DOCX caricati. I documenti restano in locale — solo l'estratto testuale entra nel contesto LLM.</p>
+<h2>7.6 Feedback</h2>
+<p>Dopo ogni risposta: <strong>👍 Utile</strong> / <strong>👎 Non utile</strong> con commento opzionale (max 300 caratteri).</p>
+<h2>7.7 I 7 agenti AI</h2>
+
+<div class="agent-card">
+<h4>⚖️ Avvocato Generico</h4>
+<div class="spec">Primo punto di contatto — domande legali rapide</div>
+<p>Modello auto-router, temperatura 0.5. Non inventa sentenze. Dashboard e domande generali.</p>
+<div class="kw">ceo, status, aiuto, norma, termine</div>
+</div>
+
+<div class="agent-card">
+<h4>📜 Analista Contrattuale</h4>
+<div class="spec">Analisi approfondita contratti commerciali</div>
+<p>Nemotron, temp 0.2. Output: Executive Summary → Rischi → Mancanze → Modifiche. Pagina Contratti.</p>
+<div class="kw">contratto, clausola, rischio, accordo</div>
+</div>
+
+<div class="agent-card">
+<h4>🔍 Ricercatore Giuridico</h4>
+<div class="spec">Ricerche multi-motore normativa e giurisprudenza</div>
+<p>Nemotron, temp 0.3. Cita fonti precise. Distingue vigente/abrogata/in riforma.</p>
+<div class="kw">norma, giurisprudenza, dottrina, ricerca</div>
+</div>
+
+<div class="agent-card">
+<h4>🏛️ Ricercatore Cassazione</h4>
+<div class="spec">Giurisprudenza Corte di Cassazione — zero tolleranza errori</div>
+<p>Nemotron, temp 0.1 (minima). Se non certo → «non verificato». Verifica citazioni post-generazione.</p>
+<div class="kw">cassazione, sezioni unite, orientamento</div>
+</div>
+
+<div class="agent-card">
+<h4>📄 Documentalista Legale</h4>
+<div class="spec">11 tipi di atto giuridico formale</div>
+<p>Nemotron, temp 0.2. Intestazione/procura/firma pre-compilate dal codice. Solo corpo giuridico da AI.</p>
+<div class="kw">atto, memoria, citazione, ricorso, contratto</div>
+</div>
+
+<div class="agent-card">
+<h4>📋 Segretaria Legale</h4>
+<div class="spec">Documenti amministrativi e promemoria</div>
+<p>Qwen, temp 0.3. Note trasmissione, solleciti, promemoria scadenze. Tono graduato per urgenza.</p>
+<div class="kw">nota, promemoria, sollecito, trasmissione</div>
+</div>
+
+<div class="agent-card">
+<h4>📖 Parerista</h4>
+<div class="spec">Pareri legali formali strutturati</div>
+<p>Nemotron, temp 0.2. Quesito → Norma → Analisi → Conclusioni → Rischi. Grado certezza: certa/probabile/rischiosa.</p>
+<div class="kw">parere, quesito, consulenza, analisi</div>
+</div>
+</section>'''
+
+s08 = r'''
+<section id="clienti-pratiche" class="page-section">
+<h1 class="section-title">8. Clienti e Pratiche</h1>
+<h2>8.1 Gestione clienti (<code>/clients</code>)</h2>
+<ol class="steps">
+<li>Cliccare <strong>➕ Nuovo Cliente</strong></li>
+<li>Compilare: Nome, Email, Telefono, Indirizzo, P.IVA/CF, Tipo (Privato/Azienda)</li>
+<li>Aggiungere <strong>Avvertenze</strong> visibili in prima pagina (es. «Pagamento dilazionato»)</li>
+<li>Salvare</li>
+</ol>
+<h2>8.2 Avvertenze cliente</h2>
+<p>Note speciali sempre visibili: tono comunicazione, ritardi pagamento, preferenze contatto.</p>
+<h2>8.3 Gestione pratiche (<code>/cases</code>)</h2>
+<table>
+<tr><th>Campo</th><th>Obbligatorio</th></tr>
+<tr><td>Titolo</td><td>Sì</td></tr>
+<tr><td>Cliente</td><td>Sì</td></tr>
+<tr><td>Numero pratica</td><td>No (es. 2025/042)</td></tr>
+<tr><td>Tipo / Area giuridica</td><td>No</td></tr>
+<tr><td>Avvocato assegnato</td><td>Sì</td></tr>
+</table>
+<h2>8.4 Stati pratica</h2>
+<table>
+<tr><th>Stato</th><th>Significato</th></tr>
+<tr><td>Aperta</td><td>Pratica in corso</td></tr>
+<tr><td>In attesa</td><td>In attesa documenti o decisioni</td></tr>
+<tr><td>In scadenza</td><td>Scadenza imminente (&lt;30 giorni)</td></tr>
+<tr><td>Chiusa</td><td>Pratica conclusa</td></tr>
+</table>
+<h2>8.5 Espansione pratica</h2>
+<p>Clic <strong>🔽 Espandi</strong>: mostra scadenze collegate e documenti con numero protocollo.</p>
+</section>'''
+
+s09 = r'''
+<section id="documenti" class="page-section">
+<h1 class="section-title">9. Generazione documenti</h1>
+<p>Modulo <code>/documents</code> — generazione assistita di 11 tipologie di atto con protocollo automatico.</p>
+<h2>9.1 Tipologie disponibili</h2>
+<table>
+<tr><th>#</th><th>Tipologia</th><th>Agente</th></tr>
+<tr><td>1</td><td>Lettera formale</td><td>Documentalista</td></tr>
+<tr><td>2</td><td>Atto di citazione</td><td>Documentalista</td></tr>
+<tr><td>3</td><td>Lettera di messa in mora</td><td>Documentalista</td></tr>
+<tr><td>4</td><td>Preventivo</td><td>Documentalista</td></tr>
+<tr><td>5</td><td>Parcella</td><td>Documentalista</td></tr>
+<tr><td>6</td><td>Ricorso</td><td>Documentalista</td></tr>
+<tr><td>7</td><td>Contratto</td><td>Documentalista</td></tr>
+<tr><td>8</td><td>Memoria difensiva</td><td>Documentalista</td></tr>
+<tr><td>9</td><td>Parere scritto</td><td>Documentalista</td></tr>
+<tr><td>10</td><td>Nota di trasmissione</td><td>Segretaria</td></tr>
+<tr><td>11</td><td>Ricerca su tema giuridico</td><td>Documentalista</td></tr>
+</table>
+<h2>9.2 Procedura di generazione</h2>
+<ol class="steps">
+<li>Selezionare tipologia dal menu</li>
+<li>Compilare campi (variano per tipo)</li>
+<li>Selezionare Cliente e Pratica (consigliato)</li>
+<li>Opzionale: attivare <strong>🔍 Ricerca giuridica preliminare</strong></li>
+<li>Cliccare <strong>⚡ Genera Documento</strong></li>
+<li>Rivedere nell'editor, poi <strong>💾 Salva</strong></li>
+</ol>
+<h2>9.3 Ricerca preliminare</h2>
+<p>Per Memorie, Pareri, Atti di citazione, Ricorsi: cerca fonti web reali prima della generazione. Riduce allucinazioni giurisprudenziali.</p>
+<div class="warning"><strong>Citazioni</strong>L'AI può ancora inventare numeri di sentenza. Verificare sempre su dejure.it, massimario.it, giustizia.it. Usare <code>[CITAZIONE DA VERIFICARE]</code> dove incerto.</div>
+<h2>9.4 Legal Validator</h2>
+<p>Per atti processuali: controllo automatico vocatio in ius, avvertimenti Cartabia, art. 645/163/342 c.p.c., contributo unificato. Banner rosso se errori critici.</p>
+<h2>9.5 Protocollo automatico</h2>
+<p>Ogni documento salvato riceve numero: <code>2026/001</code>, <code>2026/002</code>... Archiviato in <code>database/documents/</code>.</p>
+<h2>9.6 Esportazione</h2>
+<ul>
+<li><strong>📄 Scarica PDF</strong> — stampa professionale</li>
+<li><strong>📄 Scarica DOCX</strong> — modifica in Word</li>
+<li><strong>📄 Scarica MD</strong> — archivio testuale</li>
+<li><strong>📧 Invia per Email</strong> — con allegati selezionabili</li>
+<li><strong>🏛️ Verifica Cassazione</strong> — report citazioni</li>
+</ul>
+<h2>9.7 Preventivo e Parcella</h2>
+<p>4 modalità: percentuale su valore, tariffa oraria, forfait, tariffa parametri forensi (D.M.). Calcoli eseguiti da Python — IVA 22% e ritenuta 20% automatiche.</p>
+</section>'''
+
+s10 = r'''
+<section id="ricerca" class="page-section">
+<h1 class="section-title">10. Ricerca legale avanzata</h1>
+<p>Modulo <code>/research</code> — 6 motori giuridici + agenti Ricercatore Giuridico e Cassazione.</p>
+<h2>10.1 Motori di ricerca</h2>
+<table>
+<tr><th>Motore</th><th>Fonte</th><th>Contenuto</th></tr>
+<tr><td>Normattiva</td><td>Normattiva.it</td><td>Leggi, decreti, regolamenti IT</td></tr>
+<tr><td>Giustizia Amministrativa</td><td>DDG search</td><td>Sentenze TAR e Consiglio di Stato</td></tr>
+<tr><td>CEDU</td><td>DDG search</td><td>Corte Europea Diritti Uomo</td></tr>
+<tr><td>EUR-Lex</td><td>EUR-Lex + DDG</td><td>Direttive, regolamenti UE</td></tr>
+<tr><td>CURIA</td><td>DDG search</td><td>Corte di Giustizia UE</td></tr>
+<tr><td>Dottrina</td><td>CrossRef + DDG</td><td>Articoli scientifici</td></tr>
+</table>
+<h2>10.2 Procedura</h2>
+<ol class="steps">
+<li>Scrivere il tema nella casella di ricerca</li>
+<li>Cliccare uno o più motori (es. Normattiva + Dottrina)</li>
+<li>Selezionare fonti con <strong>➕ Aggiungi</strong></li>
+<li>Cliccare <strong>📄 Genera Documento con queste fonti</strong></li>
+<li>Scegliere tipologia, cliente, pratica → Genera</li>
+</ol>
+<h2>10.3 Verifica Cassazione</h2>
+<p>Il Ricercatore Cassazione (temp 0.1) estrae citazioni «Cass., Sez. X, n. ...» e verifica esistenza. Accuratezza ~85% — verifica manuale sempre consigliata.</p>
+<div class="note"><strong>Dati trasmessi</strong>Le ricerche web inviano solo il testo della query, mai dati di pratiche o nomi clienti. Conforme al principio di minimizzazione GDPR.</div>
+</section>'''
+
+s11 = r'''
+<section id="formulario" class="page-section">
+<h1 class="section-title">11. Formulario forense</h1>
+<p>Modulo <code>/formulario</code> — oltre <strong>550 formule</strong> pronte per la compilazione guidata.</p>
+<h2>11.1 Aree specialistiche</h2>
+<table>
+<tr><th>Tab</th><th>Area</th><th>Contenuto</th></tr>
+<tr><td>Tutte</td><td>📋 Generale</td><td>Tutte le formule</td></tr>
+<tr><td>Civile</td><td>⚖️</td><td>Contratti, locazioni, famiglia, successioni, esecuzione</td></tr>
+<tr><td>Penale</td><td>🔒</td><td>Denunce, difese, cautelari, patteggiamento, appello</td></tr>
+<tr><td>Tributario</td><td>💰</td><td>Dichiarazioni, sanzioni, contenzioso, rateizzazioni</td></tr>
+<tr><td>Amministrativo</td><td>🏛️</td><td>Ricorsi TAR, appalti, accesso atti, danno erariale</td></tr>
+<tr><td>Lavoro</td><td>💼</td><td>Contratti, licenziamento, TFR, mobbing, sicurezza</td></tr>
+</table>
+<h2>11.2 Utilizzo</h2>
+<ol class="steps">
+<li>Cercare per parola chiave (es. «esposto», «diffida», «memoria»)</li>
+<li>Cliccare <strong>📝 Compila</strong></li>
+<li>Compilare i campi personalizzabili</li>
+<li>Cliccare <strong>Genera</strong> per ottenere il documento</li>
+</ol>
+<p>Le formule sono elaborate localmente — nessun invio a cloud.</p>
+</section>'''
+
+s12 = r'''
+<section id="rag" class="page-section">
+<h1 class="section-title">12. RAG — I miei documenti</h1>
+<p>Modulo <code>/documenti</code> — Retrieval Augmented Generation su documenti dello studio.</p>
+<h2>12.1 Formati supportati</h2>
+<table>
+<tr><th>Formato</th><th>Metodo</th><th>Note</th></tr>
+<tr><td>.pdf (testo)</td><td>PyPDF2</td><td>Estrazione rapida</td></tr>
+<tr><td>.pdf (scansionato)</td><td>MinerU OCR</td><td>Fino a 10 min per file grandi</td></tr>
+<tr><td>.docx</td><td>python-docx</td><td>Word</td></tr>
+<tr><td>.txt</td><td>UTF-8</td><td>Testo piano</td></tr>
+</table>
+<h2>12.2 Caricamento</h2>
+<ol class="steps">
+<li>Andare su <strong>I miei Documenti</strong></li>
+<li>Trascinare o cliccare per caricare (max 20 MB)</li>
+<li>Attendere indicizzazione automatica</li>
+</ol>
+<h2>12.3 Interrogazione in chat</h2>
+<ol class="steps">
+<li>Tornare in Dashboard/chat</li>
+<li>Attivare <strong>📂 Usa i miei documenti come contesto</strong></li>
+<li>Fare domanda sul documento</li>
+<li>Verificare box <strong>📂 Documenti usati</strong> con riferimenti</li>
+</ol>
+<div class="important"><strong>Privacy RAG</strong>I documenti caricati restano in <code>database/</code> sul server locale. L'indicizzazione vettoriale avviene on-premise. Nessun upload su servizi cloud di embedding.</div>
+<h2>12.4 MinerU</h2>
+<p>Status pagina: 🟢 MinerU disponibile / 🔴 non disponibile. Configurare <code>MINERU_BIN</code> se necessario.</p>
+</section>'''
+
+s13 = r'''
+<section id="pareri-contratti" class="page-section">
+<h1 class="section-title">13. Pareri e Contratti</h1>
+<h2>13.1 Pareri (<code>/opinions</code>)</h2>
+<p>Modulo dedicato al <strong>Parerista</strong> — pareri legali formali strutturati:</p>
+<div class="flow">Quesito → Inquadramento normativo → Analisi → Conclusioni → Rischi</div>
+<p>Grado di certezza: <em>certa</em> / <em>probabile</em> / <em>possibile ma rischiosa</em>. Integrazione CIC (Chain-of-Thought legale) per pareri complessi.</p>
+<h2>13.2 Contratti (<code>/contracts</code>)</h2>
+<p>Modulo <strong>Analista Contrattuale</strong>:</p>
+<ul>
+<li>Executive Summary</li>
+<li>Rischi per cliente e controparte (alto/medio/basso)</li>
+<li>Clausole mancanti o ambigue</li>
+<li>Modifiche suggerite</li>
+</ul>
+<p>Caricare contratto in PDF/DOCX o incollare testo. L'analisi avviene interamente in locale.</p>
+</section>'''
+
+s14 = r'''
+<section id="calendario" class="page-section">
+<h1 class="section-title">14. Calendario scadenze</h1>
+<p>Modulo <code>/calendar</code> — udienze, termini processuali, appuntamenti.</p>
+<h2>14.1 Tipi di scadenza</h2>
+<table>
+<tr><th>Tipo</th><th>Uso</th></tr>
+<tr><td>Udienza</td><td>Appuntamento in tribunale</td></tr>
+<tr><td>Termine</td><td>Scadenza per presentare atti</td></tr>
+<tr><td>Scadenza</td><td>Data limite generica</td></tr>
+<tr><td>Appuntamento</td><td>Incontro con cliente</td></tr>
+</table>
+<h2>14.2 Aggiungere scadenza</h2>
+<ol class="steps">
+<li>Cliccare <strong>➕ Nuova Scadenza</strong></li>
+<li>Compilare: Titolo, Data, Tipo, Pratica collegata</li>
+<li>Salvare</li>
+</ol>
+<h2>14.3 Segretaria Legale — promemoria</h2>
+<p>Pulsante <strong>📋</strong> su ogni scadenza: genera promemoria o sollecito con tono graduato (educato → fermo → deciso) in base ai giorni rimanenti.</p>
+<h2>14.4 Completamento</h2>
+<p>Checkbox ✅ per segnare scadenza svolta. Filtri per tipo, pratica, stato.</p>
+</section>'''
+
+s15 = r'''
+<section id="governance" class="page-section">
+<h1 class="section-title">15. Governance del titolare</h1>
+<p>Modulo <code>/owner</code> — <strong>Consigliere del Titolare</strong> per controllo strategico e conformità AI.</p>
+<h2>15.1 Accesso</h2>
+<ul>
+<li>Browser: <code>http://localhost:8506/owner</code></li>
+<li>Control Plane: <code>http://localhost:8600</code> → Governance</li>
+</ul>
+<h2>15.2 KPI Governance</h2>
+<table>
+<tr><th>KPI</th><th>Significato</th></tr>
+<tr><td>📋 Regole attive</td><td>Regole Boundary Framework configurate</td></tr>
+<tr><td>🚫 Bloccate (24h)</td><td>Azioni bloccate nelle ultime 24 ore</td></tr>
+<tr><td>⚖️ Qualità atti</td><td>Indicatore sintetico qualità atti generati</td></tr>
+<tr><td>🔔 Alert attivi</td><td>Alert proattivi correnti</td></tr>
+</table>
+<h2>15.3 Chat Consigliere</h2>
+<p>Esempi di domande:</p>
+<ul>
+<li>«Qual è lo stato del clone?»</li>
+<li>«Ci sono rischi o alert?»</li>
+<li>«Mostrami il report di conformità»</li>
+<li>«Modifica la soglia di autonomia per i contratti»</li>
+</ul>
+<h2>15.4 Conferma a due fasi</h2>
+<div class="flow">Richiesta modifica policy → Analisi impatto (simulazione) → Conferma esplicita → Audit trail</div>
+<p>Le azioni vietate dal Boundary Framework vengono rifiutate automaticamente, anche se confermate.</p>
+<h2>15.5 API Governance</h2>
+<p>Endpoint REST: <code>/api/governance/evaluate</code>, <code>/api/governance/compliance-report</code>, <code>/api/owner/chat</code>. Header: <code>X-API-Key</code>.</p>
+</section>'''
+
+s16 = r'''
+<section id="sicurezza" class="page-section">
+<h1 class="section-title">16. Sicurezza, backup e audit</h1>
+<h2>16.1 Sovranità dei dati</h2>
+<table>
+<tr><th>Garanzia</th><th>Implementazione</th></tr>
+<tr><td>100% On-Premise</td><td>Dati non lasciano la LAN</td></tr>
+<tr><td>Zero cloud AI</td><td>LLM locale su DGX Spark</td></tr>
+<tr><td>Storage locale</td><td>JSON DB + file su server studio</td></tr>
+<tr><td>Air-gapped</td><td>Installazione senza internet possibile</td></tr>
+</table>
+<h2>16.2 Backup</h2>
+<ol class="steps">
+<li>Copiare cartella <code>database/</code> su disco esterno o NAS locale</li>
+<li>Contiene: clienti, pratiche, documenti, impostazioni, chat, feedback</li>
+<li>Frequenza consigliata: giornaliera automatica + settimanale verificata</li>
+<li><strong>Mai</strong> su cloud pubblico (Dropbox, Google Drive) senza cifratura end-to-end</li>
+</ol>
+<h2>16.3 Audit trail</h2>
+<table>
+<tr><th>Dato</th><th>Posizione</th><th>Retention</th></tr>
+<tr><td>Chat</td><td>database/chat_history.json</td><td>Fino a cancellazione manuale</td></tr>
+<tr><td>Documenti</td><td>database/documents/</td><td>10 anni (consigliato)</td></tr>
+<tr><td>Governance</td><td>API logs</td><td>Permanente</td></tr>
+<tr><td>Feedback</td><td>database/feedback.json</td><td>12 mesi</td></tr>
+</table>
+<h2>16.4 Conservazione documenti</h2>
+<table>
+<tr><th>Tipo</th><th>Termine</th><th>Formato</th></tr>
+<tr><td>Atti e fascicoli</td><td>10 anni</td><td>Digitale + cartaceo</td></tr>
+<tr><td>Corrispondenza cliente</td><td>10 anni</td><td>Digitale</td></tr>
+<tr><td>Pareri e consulenze</td><td>10 anni</td><td>Digitale</td></tr>
+</table>
+</section>'''
+
+s17 = r'''
+<section id="troubleshooting" class="page-section">
+<h1 class="section-title">17. Troubleshooting</h1>
+<h2>17.1 Problemi comuni</h2>
+<table>
+<tr><th>Sintomo</th><th>Causa</th><th>Soluzione</th></tr>
+<tr><td>Pagina bianca</td><td>App non avviata</td><td><code>sudo systemctl start studio-legale-ai</code></td></tr>
+<tr><td>Chat non risponde</td><td>LLM spento</td><td><code>curl localhost:8081/health</code></td></tr>
+<tr><td>Timeout generazione</td><td>LLM sovraccarico</td><td>Attendere 30s e riprovare</td></tr>
+<tr><td>SMTP errore</td><td>Credenziali errate</td><td>App Password Gmail; verificare porta 587</td></tr>
+<tr><td>MinerU 🔴</td><td>Non installato</td><td>Configurare MINERU_BIN</td></tr>
+<tr><td>Citazioni inventate</td><td>Allucinazione LLM</td><td>Verifica Cassazione + ricerca preliminare</td></tr>
+<tr><td>PDF non scarica</td><td>Popup bloccati</td><td>Consentire popup per :8506</td></tr>
+</table>
+<h2>17.2 Comandi diagnostici</h2>
+<pre class="code"># LLM health
+curl http://localhost:8081/health
+
+# Servizio Studio Legale
+sudo systemctl status studio-legale-ai
+
+# Log applicazione
+journalctl -u studio-legale-ai -n 50
+
+# Log LLM
+tail -50 /tmp/llama-server.log
+
+# MinerU
+which mineru || echo $MINERU_BIN</pre>
+<h2>17.3 Admin</h2>
+<table>
+<tr><th>Pagina</th><th>URL</th></tr>
+<tr><td>Dashboard Log</td><td><code>/admin/logs</code></td></tr>
+<tr><td>Feedback raccolti</td><td><code>/admin/feedback</code></td></tr>
+</table>
+</section>'''
+
+s18 = r'''
+<section id="riferimento" class="page-section">
+<h1 class="section-title">18. Riferimento rapido</h1>
+<h2>18.1 URL</h2>
+<table>
+<tr><th>Risorsa</th><th>URL</th></tr>
+<tr><td>Studio Legale AI</td><td><a href="https://studio-legale.geneforge.eu">https://studio-legale.geneforge.eu</a></td></tr>
+<tr><td>Locale</td><td><code>http://localhost:8506</code></td></tr>
+<tr><td>Governance</td><td><code>http://localhost:8506/owner</code></td></tr>
+<tr><td>Manuale integrato</td><td><code>http://localhost:8506/manuale</code></td></tr>
+<tr><td>GitHub Manuals</td><td><a href="https://github.com/geneforge-ai/manuals">github.com/geneforge-ai/manuals</a></td></tr>
+</table>
+<h2>18.2 FAQ essenziali</h2>
+<table>
+<tr><th>Domanda</th><th>Risposta</th></tr>
+<tr><td>I dati finiscono in cloud?</td><td><strong>No</strong> — 100% on-premise nella LAN dello studio</td></tr>
+<tr><td>È conforme GDPR?</td><td><strong>Sì</strong> — lo studio è titolare, nessun DPA cloud per dati principali</td></tr>
+<tr><td>Rispetta il segreto professionale?</td><td><strong>Sì</strong> — LLM locale, nessun invio fascicoli a terzi</td></tr>
+<tr><td>Gli atti AI sono validi legalmente?</td><td>Sono <strong>bozze</strong> — revisione e firma avvocato obbligatorie</td></tr>
+<tr><td>Funziona senza internet?</td><td>Sì per gestione, documenti, chat. No per ricerche web</td></tr>
+<tr><td>Quanti documenti al mese?</td><td>Base: 50 · Professional: 200 · Enterprise: illimitati</td></tr>
+<tr><td>Gestisce il diritto dell'Unione Europea?</td><td><strong>Sì</strong> — dal 6 luglio 2026 è attiva l'area Diritto Europeo con 60 moduli, 4 tipologie documento UE, motori EUR-Lex/CURIA/CEDU e tool CJEU</td></tr>
+</table>
+<h2>18.3 Avvio rapido (4 passi)</h2>
+<ol class="steps">
+<li>Configurare SMTP in Impostazioni</li>
+<li>Caricare un PDF in I miei Documenti</li>
+<li>Chiedere in chat: «Qual è il termine per appellare?»</li>
+<li>Generare una lettera di messa in mora di prova</li>
+</ol>
+<h2>18.4 Contatti</h2>
+<p><strong>GeneForge AI Labs EOOD</strong> · marco.saba@geneforge.eu · <a href="https://studio-legale.geneforge.eu">studio-legale.geneforge.eu</a></p>
+<p><strong>Cliente pilota:</strong> Avv. Marco della Luna · marco.saba@geneforge.eu</p>
+<div class="tip"><strong>Versione documento</strong>Luglio 2026 · Studio Legale AI — GeneForge · Manuale Operativo · On-premise conforme GDPR e AI Act</div>
+</section>'''
