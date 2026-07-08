@@ -80,16 +80,16 @@ Nel mercato italiano dell’AI legale, **Studio Legale AI** si posiziona come **
 
 ## 4. Tabella comparativa — mercato italiano
 
-| Soluzione | Modello | Focus principale | Prezzo/mese | Punti di forza | Limiti principali |
-|---|---|---|---|---|---|
-| **Studio Legale AI** | **On-premise (DGX Spark)** | Full-stack legale italiano/UE: 9 agenti, 610+ moduli, ricerca multi-motore, RAG, gestione pratiche | Base €500 · Pro €1.000 · Ent €2.500 (flat, non per utente) | Zero dati in cloud; verticalità italiana + europea; costo flat; formulario e atti UE integrati | Brand emergente; nessuna integrazione Word/DMS; nessuna banca dati editoriale esclusiva |
-| **Lexroom** | Cloud Italia | Ricerca, analisi, redazione atti | ~€80/utente | Fonti italiane verificate, add-in Word | Cloud, no formulario, no gestione studio |
-| **Simpliciter** | Cloud Italia | Ricerca e redazione assistita | Da €19 a €39 | Prezzo basso, fonti verificate | Cloud, funzionalità limitate, no gestione studio |
-| **Aptus.AI** | Cloud Italia | Normativa, compliance, contract | Pro €199 · Ent €1.040 | Compliance e aggiornamenti | Cloud, no formulario, no on-premise |
-| **Lisia** | Cloud Italia | Giurisprudenza amministrativa | €59 (€890/anno) | Specializzato TAR/CdS | Ambito ristretto, cloud |
-| **AvvoGPT** | Cloud Italia | Assistente generico | €24 | Prezzo minimo | Generico, cloud, rischio allucinazioni |
-| **AvvoDesk** | Cloud Italia | Gestionale studio legale | Su richiesta | PEC/PCT, fatture, pratiche, udienze | Cloud, AI limitata, no on-premise |
-| **De Jure / ItalgiureWeb / Dike** | Cloud | Banche dati editoriali | Da €300 a €3.000+/anno | Fonti affidabili, massime ufficiali | No AI native, costo aggiuntivo, cloud |
+| Soluzione | Modello | Focus principale | Ricerca e formulari UE | Prezzo/mese | Punti di forza | Limiti principali |
+|---|---|---|---|---|---|---|
+| **Studio Legale AI** | **On-premise (DGX Spark)** | Full-stack legale italiano/UE: 9 agenti, 610+ moduli, ricerca multi-motore, RAG, gestione pratiche | **Completo**: 60 moduli UE, 4 tipologie documento UE, ricerca EUR-Lex/CURIA/CEDU, Tool CJEU | Base €500 · Pro €1.000 · Ent €2.500 (flat, non per utente) | Zero dati in cloud; verticalità italiana + europea; costo flat; formulario e atti UE integrati | Brand emergente; nessuna integrazione Word/DMS; nessuna banca dati editoriale esclusiva |
+| **Lexroom** | Cloud Italia | Ricerca, analisi, redazione atti | Nessuno | ~€80/utente | Fonti italiane verificate, add-in Word | Cloud, no formulario, no gestione studio |
+| **Simpliciter** | Cloud Italia | Ricerca e redazione assistita | Nessuno | Da €19 a €39 | Prezzo basso, fonti verificate | Cloud, funzionalità limitate, no gestione studio |
+| **Aptus.AI** | Cloud Italia | Normativa, compliance, contract | Nessuno | Pro €199 · Ent €1.040 | Compliance e aggiornamenti | Cloud, no formulario, no on-premise |
+| **Lisia** | Cloud Italia | Giurisprudenza amministrativa | Nessuno | €59 (€890/anno) | Specializzato TAR/CdS | Ambito ristretto, cloud |
+| **AvvoGPT** | Cloud Italia | Assistente generico | Nessuno | €24 | Prezzo minimo | Generico, cloud, rischio allucinazioni |
+| **AvvoDesk** | Cloud Italia | Gestionale studio legale | Nessuno | Su richiesta | PEC/PCT, fatture, pratiche, udienze | Cloud, AI limitata, no on-premise |
+| **De Jure / ItalgiureWeb / Dike** | Cloud | Banche dati editoriali | Limitato a normativa/fonti generali | Da €300 a €3.000+/anno | Fonti affidabili, massime ufficiali | No AI native, costo aggiuntivo, cloud |
 
 ---
 
@@ -98,8 +98,8 @@ Nel mercato italiano dell’AI legale, **Studio Legale AI** si posiziona come **
 1. **Unica piattaforma legale on-premise completa in Italia**
    Nessun altro competitor offre un pacchetto integrato di AI, formulario, RAG, gestione pratiche e calendario scadenze che gira fisicamente nello studio. Questo è un differenziatore decisivo per studi sensibili a privacy e segreto professionale.
 
-2. **Diritto Europeo integrato**
-   Nessun competitor italiano offre 60 moduli UE, 4 tipologie documento UE (art. 263, 267, 258 TFUE, pareri), ricerca EUR-Lex/CURIA/CEDU e tool CJEU in un’unica piattaforma.
+2. **Diritto Europeo nativo e processuale**
+   Unico competitor italiano a offrire un modulo completo di diritto UE integrato: 60 moduli per ricorsi ex art. 263 TFUE, rinvii pregiudiziali ex art. 267 TFUE, reclami infrazione ex art. 258 TFUE e procedure CEDU, con ricerca dedicata su EUR-Lex, CURIA e CEDU, tool rapidi per validazione cause e scadenze procedurali, e Validatore UE separato che non interferisce con i controlli italiani. Nessun competitor cloud italiano offre oggi questo livello di specializzazione processuale europea.
 
 3. **Costo flat non per utente**
    A differenza di Lexroom, Harvey, CoCounsel o Leya, il canone non scala linearmente con i lawyer. Per uno studio con 5–10 utenti il costo mensile per utente diventa molto competitivo.
@@ -108,7 +108,7 @@ Nel mercato italiano dell’AI legale, **Studio Legale AI** si posiziona come **
    GDPR, AI Act (Legge 132/2025) e segreto professionale sono garantiti by design, non solo da clausole contrattuali. Questo semplifica gli adempimenti e riduce i rischi deontologici.
 
 5. **Stack unificato**
-   Ricerca + drafting + RAG locale + calendario scadenze + gestione clienti/pratiche + esportazione PDF/DOCX/MD + email. In Italia queste funzioni sono normalmente disperse tra più strumenti.
+   Ricerca + drafting + RAG locale + calendario scadenze + gestione clienti/pratiche + esportazione PDF/DOCX/MD + email, ora esteso anche al diritto europeo processuale. In Italia queste funzioni sono normalmente disperse tra più strumenti separati.
 
 6. **Agenti specializzati per il diritto italiano**
    9 agenti con prompt e strumenti dedicati a civile, penale, tributario, amministrativo, lavoro, europeo, cassazione, pareri, atti processuali e governance del titolare.
@@ -132,9 +132,9 @@ Nel mercato italiano dell’AI legale, **Studio Legale AI** si posiziona come **
 
 ## 7. Considerazioni sul prezzo nel mercato italiano
 
-Il mercato italiano è molto sensibile al prezzo: i competitor cloud partono da **€19–€80/mese**. Studio Legale AI parte da **€500/mese**, che sembra un premium elevato. Tuttavia:
+Il mercato italiano è molto sensibile al prezzo: i competitor cloud partono da **€19–€80/mese**. Studio Legale AI parte da **€500/mese**, un investimento che riflette il valore di un’infrastruttura completa, locale e senza costi nascosti per API o abbonamenti multipli. Il modello è vantaggioso per studi strutturati perché:
 
-- Il modello è **flat**, non per utente: con 5 utenti costa ~€100/utente/mese, con 10 utenti ~€50/utente/mese.
+- Il canone è **flat**, non per utente: con 5 utenti costa ~€100/utente/mese, con 10 utenti ~€50/utente/mese.
 - Include **hardware on-premise** (DGX Spark) e nessun costo aggiuntivo per LLM/API.
 - Elimina l’abbonamento a strumenti separati: gestionale, AI, formulario, RAG, ricerca.
 - Offre **sovranità dei dati** che i competitor cloud non possono garantire neanche con DPA e SCC.
@@ -167,7 +167,7 @@ Il mercato italiano è molto sensibile al prezzo: i competitor cloud partono da 
 
 ## 9. Conclusione
 
-Nel mercato italiano, **Studio Legale AI ha un posizionamento unico** come piattaforma on-premise full-stack per studi legali. Il vantaggio principale non è la singola funzionalità, ma la **combinazione di sovranità dati, verticalità italiana + europea e stack unificato**. I competitor cloud italiani sono più economici ma frammentati e limitati nella privacy; i gestionali italiani coprono l’amministrazione ma non l’AI avanzata; le banche dati editoriali hanno fonti affidabili ma nessuna AI nativa.
+Nel mercato italiano, **Studio Legale AI ha un posizionamento unico** come piattaforma on-premise full-stack per studi legali. Il vantaggio principale non è la singola funzionalità, ma la **combinazione di sovranità dati, verticalità italiana + europea e stack unificato** — un unico ambiente che include ora anche il diritto europeo processuale, senza bisogno di tool esterni. I competitor cloud italiani sono più economici ma frammentati e limitati nella privacy; i gestionali italiani coprono l’amministrazione ma non l’AI avanzata; le banche dati editoriali hanno fonti affidabili ma nessuna AI nativa.
 
 Per consolidare il vantaggio competitivo, i prossimi investimenti dovrebbero concentrarsi su **integrazioni (Word, PEC/PCT, DMS)**, **fonti editoriali italiane** e **reference di mercato**.
 
