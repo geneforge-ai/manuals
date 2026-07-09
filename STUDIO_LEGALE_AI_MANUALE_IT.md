@@ -663,6 +663,34 @@ Ogni agente ha una **temperatura** ottimizzata per il suo compito. Non è consig
 
 Per la produzione di atti giuridici, il sistema usa temperature basse (0.1–0.3) per massimizzare la precisione.
 
+### 🔗 Integrazioni Gestionali
+
+Studio Legale AI può integrarsi con i **gestionali e i sistemi di document management** già in uso nello studio. I connettori sono predisponibili e si attivano su richiesta, mantenendo le credenziali solo localmente.
+
+Gestionali e DMS supportati:
+
+| Gestionale / DMS | Tipo | Dati richiesti | Funzioni previste |
+|------------------|------|----------------|-------------------|
+| **AvvoDesk** | PMS italiano | API key, tenant ID | Import clienti, pratiche, scadenhe |
+| **LexDoctor** | PMS italiano | API key, studio ID | Import clienti, pratiche, scadenhe |
+| **Legal360** | PMS italiano | API key, client ID | Import clienti, pratiche, scadenhe |
+| **iManage Work** | DMS enterprise | Server URL, API token | Import/esporta documenti e cartelle |
+| **NetDocuments** | DMS cloud | nd URL, API token | Import/esporta documenti e cartelle |
+| **Clio Manage** | PMS internazionale | Client ID, client secret, redirect URI | Import clienti, pratiche, scadenhe, time entries |
+
+#### Come configurare un connettore
+
+1. Vai su **Impostazioni**
+2. Scorri fino alla sezione **🔗 Integrazioni Gestionali**
+3. Espandi il gestionale che ti interessa
+4. Attiva l'integrazione e inserisci i dati richiesti
+5. Clicca **💾 Salva**
+6. Clicca **🧪 Test connessione** per verificare la configurazione
+
+> 💡 **Suggerimento:** in attesa dell'attivazione automatica puoi scaricare il **template CSV clienti** per importare manualmente l'anagrafica.
+
+> 🔐 **Sicurezza:** le credenziali dei gestionali sono salvate solo sul tuo computer, nel file `database/settings.json`, e non vengono mai trasmesse a GeneForge o a terzi.
+
 ---
 
 ## 10. Flusso di Lavoro Consigliato
