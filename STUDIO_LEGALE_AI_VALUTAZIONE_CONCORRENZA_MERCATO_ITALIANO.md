@@ -126,7 +126,7 @@ Nel mercato italiano dell’AI legale, **Studio Legale AI** si posiziona come **
 | **PEC e depositi telematici** | AvvoDesk e i gestionali italiani integrano PCT civile, UNEP, PEC e notifiche. Per competere serve un modulo di deposito telematico integrato. | Alta · *placeholder implementati* |
 | **Banche dati editoriali italiane** | Accesso diretto a ItalgiureWeb via Cassa Forense è ora integrato. Resta da attivare De Jure, One Legale, Dike, Eurex, Juris Data tramite API o partnership. | Media-Alta |
 | **Integrazione con gestionali esistenti** | Connettori per AvvoDesk, LexDoctor, Legal360 o DMS come iManage/NetDocuments per non costringere lo studio a migrare tutto. | Alta · *placeholder implementati* |
-| **Parametri forensi e calcoli italiani** | Già presenti per parcelle, ma va rafforzato il supporto a contributo unificato, interessi legali/mora, tabelle parametriche DM, spese di giustizia. | Media |
+| **Parametri forensi e calcoli italiani** | **Risolto.** Calcolatore Forense rilasciato con contributo unificato civile/amministrativo, interessi legali/moratori/storici, onorario indicativo secondo parametri D.M. 55/2014, spese di giustizia e rivalutazione monetaria ISTAT. | ✅ Risolta |
 | **Brand e reference italiane** | I competitor cloud hanno già utenti e visibilità. Servono case study e testimonianze di studi italiani. | Media-Alta |
 | **Piano di ingresso per piccoli studi** | €500/mese + setup possono allontanare studi individuali. Valutare una versione "Starter" cloud-on-premise ibrida o pilota a canone ridotto. | Media |
 | **Formazione e onboarding** | Gli studi italiani adottano lentamente. Serve un percorso di formazione strutturato e supporto tecnico in italiano. | Media |
