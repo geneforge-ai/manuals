@@ -1,7 +1,7 @@
 # Studio Legale AI — Manuale Utente
 
-**Versione:** 2.1  
-**Data:** 2 Maggio 2026  
+**Versione:** 2.3  
+**Data:** 9 Luglio 2026  
 **Progetto:** GeneForge AI — Studio Legale AI  
 **Destinatari:** Avv. Marco della Luna, collaboratori e segretarie dello studio  
 
@@ -78,8 +78,9 @@ Sulla sinistra (o in alto, a seconda dello schermo) trovi il menu principale:
 3. **Pratiche** — Gestione casi
 4. **Documenti** — Generazione con Documentalista e Segretaria
 5. **Ricerca** — Ricerca con Ricercatore Giuridico e Cassazione
-6. **Calendario** — Scadenze e promemoria
-7. **Impostazioni** — Configurazione
+6. **Calcolatore** — Calcoli forensi rapidi
+7. **Calendario** — Scadenze e promemoria
+8. **Impostazioni** — Configurazione
 
 > 💡 **Suggerimento:** Clicca sempre su **Dashboard** quando vuoi tornare alla home.
 
@@ -580,7 +581,130 @@ Per evitare **citazioni inventate** (allucinazioni):
 
 ---
 
-## 8. Calendario Scadenze
+## 8. Calcolatore Forense
+
+### A cosa serve
+
+Il **Calcolatore Forense** è uno strumento rapido per i calcoli giuridici più ricorrenti nella pratica legale italiana. Si trova nel menu principale cliccando su **🧮 Calcolatore** oppure all’indirizzo `/calculator`.
+
+> ⚠️ **Disclaimer:** tutti gli importi prodotti dal Calcolatore Forense sono **indicativi** e basati sui parametri normativi di riferimento. L’avvocato deve sempre verificarli rispetto alla normativa vigente alla data del fatto e alle eventuali circolari o aggiornamenti ministeriali.
+
+### I quattro strumenti disponibili
+
+| Strumento | Cosa calcola | Riferimento normativo |
+|-----------|--------------|----------------------|
+| **Contributo unificato** | Importo da versare per il processo civile, amministrativo o di Cassazione | D.M. 55/2014 e D.P.R. 115/2002 |
+| **Interessi** | Interessi legali, moratori o storici su un capitale | D.Lgs. 231/2002; tassi legali annuali |
+| **Onorario indicativo** | Stima degli onorari secondo i parametri forensi | D.M. 55/2014 |
+| **Spese di giustizia** | Notifiche, perizie, consulenze tecniche, diritto di segreteria | Parametri indicativi |
+
+---
+
+### Contributo unificato
+
+1. Inserisci il **valore della causa** o della controversia
+2. Scegli l’**area**: civile o amministrativo
+3. Scegli il **grado**: primo, appello o cassazione
+4. (Opzionale) Spunta **Giudice di pace** per applicare la riduzione del 50%
+5. Clicca **Calcola Contributo**
+
+Il sistema mostra:
+- Importo del contributo unificato
+- Note esplicative (es. riduzione appello, giudice di pace)
+- Riferimento normativo
+
+> ✅ Per il **gratuito patrocinio** il contributo unificato civile risulta zero, con relativa indicazione normativa.
+
+#### Esempio
+> **Caso:** Valore causa € 15.000, primo grado civile.
+> - **Contributo unificato:** € 193,00
+> - Se fosse **appello:** € 96,50 (50%)
+> - Se fosse **giudice di pace:** € 96,50 (50%)
+
+---
+
+### Interessi
+
+1. Inserisci il **capitale**
+2. Inserisci la **data inizio** e la **data fine** (formato `YYYY-MM-DD`)
+3. Scegli il **tipo**:
+   - **Legale** — tasso legale attuale (2,5% dal 2024)
+   - **Moratorio** — tasso indicativo BCE + 8% (12,5%)
+   - **Legale storico** — tasso legale medio ponderato sul periodo scelto
+4. Clicca **Calcola Interessi**
+
+Il risultato mostra:
+- Giorni di decorrenza
+- Tasso applicato
+- Interessi maturati
+- Totale capitale + interessi
+
+> ⚠️ Per gli interessi **moratori** verificare sempre il tasso effettivo alla data di riferimento, poiché dipende dal tasso BCE.
+
+#### Esempio
+> **Caso:** Capitale € 5.000 dal 1° gennaio 2024 al 9 luglio 2026, interessi legali.
+> - **Giorni:** 920
+> - **Tasso:** 2,5%
+> - **Interessi:** circa € 315,00
+> - **Totale:** circa € 5.315,00
+
+---
+
+### Onorario indicativo (D.M. 55/2014)
+
+1. Inserisci il **valore della causa**
+2. Scegli la **fase**: stragiudiziale, primo grado, appello, cassazione, esecuzione
+3. Inserisci il **coefficiente di complessità** (default 1.0)
+4. Scegli l’**IVA** (0%, 4%, 10%, 22%)
+5. Clicca **Calcola Onorario**
+
+Il sistema restituisce:
+- Onorario imponibile
+- Importo IVA
+- Ritenuta d’acconto (20%)
+- Totale fattura
+- Netto per il professionista
+
+> ⚠️ Il calcolo è una **stima orientativa**: l’onorario effettivo dipende dalla complessità, dal numero di atti, dall’urgenza e dagli accordi con il cliente.
+
+#### Esempio
+> **Caso:** Valore causa € 25.000, primo grado, coefficiente 1.0, IVA 22%.
+> - **Onorario imponibile:** circa € 3.750,00
+> - **IVA:** circa € 825,00
+> - **Totale fattura:** circa € 4.575,00
+
+---
+
+### Spese di giustizia
+
+1. Inserisci il numero di **notifiche**
+2. Inserisci il numero di **perizie**
+3. Inserisci il numero di **consulenze tecniche (CTU)**
+4. Aggiungi eventuali **diritti di segreteria** e **altre spese**
+5. Clicca **Calcola Spese**
+
+Il sistema mostra il **totale delle spese** con il dettaglio per voce.
+
+> ⚠️ I costi unitari sono indicativi. I costi reali variano in base all’ufficio, alla complessità della perizia e alle tariffe del CTU.
+
+#### Esempio
+> **Caso:** 2 notifiche, 1 perizia, 1 CTU, diritto di segreteria € 50.
+> - **Notifiche:** € 54,00
+> - **Perizia:** € 500,00
+> - **CTU:** € 800,00
+> - **Totale:** € 1.404,00
+
+---
+
+### Rivalutazione monetaria (indici ISTAT)
+
+Il modulo `forensic_calculator` include anche la funzione di **rivalutazione monetaria** tramite coefficienti ISTAT FOI indicativi, utile per il calcolo del danno erariale o per rivalutazioni patrimoniali.
+
+> 💡 La funzione è accessibile agli sviluppatori tramite `rivalutazione_monetaria(importo, anno_base, anno_target)`.
+
+---
+
+## 9. Calendario Scadenze
 
 ### Promemoria automatici con la Segretaria Legale
 
@@ -641,7 +765,7 @@ Quando guardi una pratica espansa (in pagina **Pratiche**), vedrai automaticamen
 
 ---
 
-## 9. Impostazioni
+## 10. Impostazioni
 
 ### Configurazione SMTP (Email)
 
@@ -781,7 +905,7 @@ Provider e portali supportati:
 
 ---
 
-## 10. Flusso di Lavoro Consigliato
+## 11. Flusso di Lavoro Consigliato
 
 ### Esempio pratico completo
 
@@ -834,7 +958,7 @@ Il documento 2026/001 è salvato automaticamente in `database/documents/` e visi
 
 ---
 
-## 11. FAQ e Troubleshooting
+## 12. FAQ e Troubleshooting
 
 ### Domande frequenti
 
@@ -906,7 +1030,7 @@ Per segnalazioni, richieste di funzionalità o assistenza:
 
 ---
 
-## 12. Gli Agenti AI di Studio Legale AI
+## 13. Gli Agenti AI di Studio Legale AI
 
 ### Panoramica
 
