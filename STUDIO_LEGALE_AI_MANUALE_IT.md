@@ -32,7 +32,7 @@ Tutto gira su server locali. Nessun dato dei clienti lascia mai il tuo computer.
 | **Risparmio di tempo** | Un atto di citazione si genera in 2–3 minuti |
 | **Protocollo automatico** | I documenti si numerano da soli (es. 2026/001) |
 | **Verifica citazioni** | L’AI controlla che le sentenze della Cassazione esistano davvero |
-| **Multi-formato** | PDF per la stampa, DOCX per le modifiche, MD per l’archivio |
+| **Multi-formato** | PDF per la stampa, DOCX per Microsoft Word, MD per l’archivio |
 
 ### Come accedere
 
@@ -401,8 +401,26 @@ Dopo la generazione:
 
 1. Clicca su **"📄 Scarica DOCX"**
 2. Il browser scarica un file Word editabile
-3. Puoi aprirlo in Microsoft Word o LibreOffice
-4. Il formato è professionale, con font Times New Roman 12pt
+3. Puoi aprirlo in **Microsoft Word** o LibreOffice
+4. Il formato è professionale, con:
+   - Font **Times New Roman 12pt**
+   - **Intestazione** su ogni pagina con nome studio e avvocato
+   - **Piè di pagina** con tipologia documento, numero di protocollo (se presente) e numero pagina
+   - **Stili Word nativi** (Titolo 1, Titolo 2, Titolo 3, elenchi puntati/numerati)
+   - **Indice automatico** generato dagli heading del documento
+   - **Tabelle** formattate con intestazione in evidenza
+   - **Firma** in calce
+   - **Metadati** del documento (titolo, autore, oggetto)
+
+#### Flusso consigliato con Microsoft Word
+
+1. Genera il documento in Studio Legale AI
+2. Scarica la versione **DOCX**
+3. Apri il file in Word e apporta le modifiche necessarie
+4. Salva il file modificato
+5. Se vuoi archiviare la versione finale nello studio, caricala tramite **I miei Documenti** oppure allegala a una nuova email dal sistema
+
+> 💡 **Suggerimento:** Word riconosce automaticamente gli stili applicati, quindi puoi aggiornare l'indice con un clic su <strong>Riferimenti → Aggiorna indice</strong>.
 
 ### Come scaricare in Markdown
 
