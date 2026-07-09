@@ -6,7 +6,7 @@
 
 ## 1. Sintesi esecutiva
 
-Nel mercato italiano dell’AI legale, **Studio Legale AI** si posiziona come **unica piattaforma full-stack interamente on-premise** progettata per studi legali italiani. La maggior parte dei competitor opera in cloud, anche quando enfatizza la conformità GDPR, e nessuno offre in un unico pacchetto: 9 agenti specializzati, formulario italiano + europeo, ricerca multi-motore su fonti italiane/UE, RAG locale e gestione integrata di clienti/pratiche.
+Nel mercato italiano dell’AI legale, **Studio Legale AI** si posiziona come **unica piattaforma full-stack interamente on-premise** progettata per studi legali italiani. La maggior parte dei competitor opera in cloud, anche quando enfatizza la conformità GDPR, e nessuno offre in un unico pacchetto: **10 agenti specializzati**, formulario italiano + europeo, ricerca multi-motore su fonti italiane/UE, RAG locale e gestione integrata di clienti/pratiche.
 
 **Verdetto:** forte vantaggio differenziale su **privacy reale, sovranità dei dati, verticalità italiana ed europea e modello di prezzo flat**. I principali gap riguardano le **integrazioni con strumenti già usati dagli avvocati** (Word, gestionali, PEC/PCT) e l’**accesso a banche dati editoriali italiane** esclusive.
 
@@ -82,7 +82,7 @@ Nel mercato italiano dell’AI legale, **Studio Legale AI** si posiziona come **
 
 | Soluzione | Modello | Focus principale | Ricerca e formulari UE | Prezzo/mese | Punti di forza | Limiti principali |
 |---|---|---|---|---|---|---|
-| **Studio Legale AI** | **On-premise (DGX Spark)** | Full-stack legale italiano/UE: 9 agenti, 610+ moduli, ricerca multi-motore, RAG, gestione pratiche | **Completo**: 60 moduli UE, 4 tipologie documento UE, ricerca EUR-Lex/CURIA/CEDU, Tool CJEU | Base €500 · Pro €1.000 · Ent €2.500 (flat, non per utente) | Zero dati in cloud; verticalità italiana + europea; costo flat; formulario e atti UE integrati | Brand emergente; nessuna integrazione Word/DMS; nessuna banca dati editoriale esclusiva |
+| **Studio Legale AI** | **On-premise (DGX Spark)** | Full-stack legale italiano/UE: 10 agenti, 610+ moduli, ricerca multi-motore, RAG, gestione pratiche | **Completo**: 60 moduli UE, 4 tipologie documento UE, ricerca EUR-Lex/CURIA/CEDU, Tool CJEU | Base €500 · Pro €1.000 · Ent €2.500 (flat, non per utente) | Zero dati in cloud; verticalità italiana + europea; costo flat; formulario e atti UE integrati; DOCX professionale per Word; connettori gestionali e PEC/e-filing in predisposizione | Integrazioni gestionali/e-filing ancora placeholder; nessuna banca dati editoriale esclusiva; brand emergente |
 | **Lexroom** | Cloud Italia | Ricerca, analisi, redazione atti | Nessuno | ~€80/utente | Fonti italiane verificate, add-in Word | Cloud, no formulario, no gestione studio |
 | **Simpliciter** | Cloud Italia | Ricerca e redazione assistita | Nessuno | Da €19 a €39 | Prezzo basso, fonti verificate | Cloud, funzionalità limitate, no gestione studio |
 | **Aptus.AI** | Cloud Italia | Normativa, compliance, contract | Nessuno | Pro €199 · Ent €1.040 | Compliance e aggiornamenti | Cloud, no formulario, no on-premise |
@@ -113,8 +113,8 @@ Nel mercato italiano dell’AI legale, **Studio Legale AI** si posiziona come **
 6. **Banche dati italiane integrate**
    ItalgiureWeb (Cassa Forense) è il primo connettore attivo: ricerca su Cassazione, Consiglio di Stato, TAR, Corte Costituzionale, Commissioni Tributarie e normativa UE. Se l'automazione fallisce, il sistema offre link rapidi a ItalgiureWeb e SentenzeWeb. Placeholder già pronti per De Jure, One Legale, Dike, Eurex e Juris Data.
 
-7. **Agenti specializzati per il diritto italiano**
-   9 agenti con prompt e strumenti dedicati a civile, penale, tributario, amministrativo, lavoro, europeo, cassazione, pareri, atti processuali e governance del titolare.
+7. **Agenti specializzati per il diritto italiano e europeo**
+   **10 agenti** con prompt e strumenti dedicati a civile, penale, tributario, amministrativo, lavoro, europeo, cassazione, pareri, atti processuali e governance del titolare.
 
 ---
 
@@ -123,10 +123,10 @@ Nel mercato italiano dell’AI legale, **Studio Legale AI** si posiziona come **
 | Area | Descrizione | Priorità |
 |---|---|---|
 | **Integrazione Word/Outlook** | Gli avvocati italiani lavorano principalmente in Word. Manca un add-in per redigere atti direttamente nel loro ambiente. | Alta |
-| **PEC e depositi telematici** | AvvoDesk e i gestionali italiani integrano PCT civile, UNEP, PEC e notifiche. Per competere serve un modulo di deposito telematico integrato. | Alta |
+| **PEC e depositi telematici** | AvvoDesk e i gestionali italiani integrano PCT civile, UNEP, PEC e notifiche. Per competere serve un modulo di deposito telematico integrato. | Alta · *placeholder implementati* |
 | **Banche dati editoriali italiane** | Accesso diretto a ItalgiureWeb via Cassa Forense è ora integrato. Resta da attivare De Jure, One Legale, Dike, Eurex, Juris Data tramite API o partnership. | Media-Alta |
-| **Integrazione con gestionali esistenti** | Connettori per AvvoDesk, LexDoctor, Legal360 o DMS come iManage/NetDocuments per non costringere lo studio a migrare tutto. | Alta |
-| **Parametri forensi e calcoli italiani** | Già presenti per parcelle, ma va rafforzato il supporto a contributo unificato, interessi legali/mora, tabelle parametriche DM, spese di giustizia. | Media |
+| **Integrazione con gestionali esistenti** | Connettori per AvvoDesk, LexDoctor, Legal360 o DMS come iManage/NetDocuments per non costringere lo studio a migrare tutto. | Alta · *placeholder implementati* |
+| **Parametri forensi e calcoli italiani** | **Risolto.** Calcolatore Forense rilasciato con contributo unificato civile/amministrativo, interessi legali/moratori/storici, onorario indicativo secondo parametri D.M. 55/2014, spese di giustizia e rivalutazione monetaria ISTAT. | ✅ Risolta |
 | **Brand e reference italiane** | I competitor cloud hanno già utenti e visibilità. Servono case study e testimonianze di studi italiani. | Media-Alta |
 | **Piano di ingresso per piccoli studi** | €500/mese + setup possono allontanare studi individuali. Valutare una versione "Starter" cloud-on-premise ibrida o pilota a canone ridotto. | Media |
 | **Formazione e onboarding** | Gli studi italiani adottano lentamente. Serve un percorso di formazione strutturato e supporto tecnico in italiano. | Media |
