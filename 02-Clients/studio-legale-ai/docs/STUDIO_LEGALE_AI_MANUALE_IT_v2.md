@@ -1,7 +1,7 @@
 # Studio Legale AI — Manuale Utente
 
-**Versione:** 2.2  
-**Data:** 6 Luglio 2026  
+**Versione:** 2.1  
+**Data:** 2 Maggio 2026  
 **Progetto:** GeneForge AI — Studio Legale AI  
 **Destinatari:** Avv. Marco della Luna, collaboratori e segretarie dello studio  
 
@@ -383,46 +383,6 @@ Dopo la generazione:
    ```
 4. Il file viene archiviato nella cartella `database/documents/`
 
-### 📋 Formulario Forense
-
-Il modulo **Formulario** raccoglie modelli giuridici pronti all’uso, organizzati per area:
-
-| Area | Moduli pronti | Moduli in arrivo |
-|------|---------------|------------------|
-| **Diritto Civile** | 150+ | in continuo aggiornamento |
-| **Diritto Penale** | 100 | in continuo aggiornamento |
-| **Diritto Tributario** | 90 | in continuo aggiornamento |
-| **Diritto Amministrativo** | 80 | in continuo aggiornamento |
-| **Diritto del Lavoro** | 80 | in continuo aggiornamento |
-| **Diritto Europeo** | 60 | 0 |
-
-Ogni modulo include:
-- **Finalità** e categoria giuridica
-- **Formula base** con placeholder personalizzabili
-- **Campi da compilare** generati automaticamente
-- **Note** di uso pratico
-
-> 🇪🇺 I moduli di Diritto Europeo coprono ricorsi CJEU, reclami di infrazione ex art. 258 TFUE, rinvii pregiudiziali ex art. 267 TFUE, accesso agli atti UE, procedure CEDU, concorrenza, ambiente, protezione dati e molte altre ipotesi.
-
-### 🇪🇺 Tool CJEU / UE rapidi
-
-Nella pagina **Formulario** è disponibile una card "Tool CJEU / UE" che permette di:
-
-- **Validare il numero di causa** CJEU (es. `C-123/14`, `T-456/17`).
-- **Verificare il termine processuale** per ricorso di annullamento, appello, misure cautelari, accesso agli atti, osservazioni pregiudiziali.
-- **Calcolare la scadenza** a partire dalla data evento e dalla tipologia di procedura.
-
-### 📄 Tipologie documento UE
-
-Nella pagina **Documenti** sono disponibili quattro tipologie dedicate al diritto europeo:
-
-| Tipologia | Quando usarla |
-|-----------|---------------|
-| **Ricorso UE (art. 263 TFUE)** | Impugnare un atto dell'Unione Europea dinanzi alla CJEU |
-| **Osservazioni pregiudiziali UE (art. 267 TFUE)** | Rispondere a un rinvio pregiudiziale del giudice nazionale |
-| **Reclamo infrazione UE (art. 258 TFUE)** | Segnalare alla Commissione una violazione del diritto UE da uno Stato membro |
-| **Parere UE** | Consulenza strutturata su normativa, giurisprudenza e effetto diretto UE |
-
 ---
 
 ## 6. Esportazione e Invio
@@ -499,7 +459,7 @@ Il **Ricercatore Cassazione** è il più "rigoroso" del sistema. La sua temperat
 
 ---
 
-### I 6 motori di ricerca
+### I 7 motori di ricerca
 
 Oltre agli agenti AI, puoi cercare contemporaneamente su più fonti giuridiche:
 
@@ -511,8 +471,36 @@ Oltre agli agenti AI, puoi cercare contemporaneamente su più fonti giuridiche:
 | **EUR-Lex** | Direttive, regolamenti, decisioni UE | EUR-Lex + DDG |
 | **CURIA** | Sentenze Corte di Giustizia UE | DDG search |
 | **Dottrina** | Articoli scientifici e riviste | CrossRef + DDG |
+| **Banche Dati Italiane** | Giurisprudenza italiana da banche dati a pagamento | ItalgiureWeb / De Jure / One Legale / Dike / Eurex / Juris Data |
 
-> 🇪🇺 **Diritto Europeo:** selezionando l'area giuridica "Diritto Europeo" nella pagina **Ricerca** o **Pareri**, il sistema attiva automaticamente il contesto UE (TFUE, CEDU, giurisprudenza CJEU) e recupera risultati reali da **EUR-Lex**, **CURIA** e **CEDU** da iniettare come fonti nel prompt dell'AI.
+### 🇮🇹 Banche Dati Italiane
+
+Il motore **Banche Dati Italiane** permette di accedere alle principali banche dati giuridiche a pagamento del mercato italiano direttamente dall'interfaccia di Studio Legale AI.
+
+**ItalgiureWeb** è il primo connettore attivo: utilizza le credenziali **Cassa Forense** dell'avvocato per cercare su Cassazione, Consiglio di Stato, TAR, Corte Costituzionale, Commissioni Tributarie e normativa comunitaria. Se l'automazione del login non dovesse funzionare (ad esempio per modifiche al portale), il sistema mostra automaticamente i **link rapidi** a ItalgiureWeb e a SentenzeWeb, senza perdere la query inserita.
+
+Per le altre banche dati — **De Jure** (Giuffrè), **One Legale** (Wolters Kluwer), **Dike**, **Eurex**, **Juris Data** — Studio Legale AI predispone i campi di configurazione in Impostazioni e genera link di ricerca esterni precompilati, in attesa dell'attivazione di un'integrazione diretta con l'editore.
+
+#### Configurazione
+
+1. Vai su **Impostazioni**
+2. Scorri fino alla sezione **🇮🇹 Banche Dati Italiane**
+3. Abilita **ItalgiureWeb** e inserisci:
+   - **Username / Codice meccanografico**
+   - **Password / PIN**
+4. (Opzionale) Inserisci le **API key** per De Jure, One Legale, Dike se disponibili
+5. Clicca **💾 Salva**
+6. Clicca **🧪 Test ItalgiureWeb** per verificare la connessione
+
+> 🔐 **Sicurezza:** le credenziali sono salvate solo localmente in `database/settings.json`, come per la configurazione SMTP. Nessuna password lascia lo studio.
+
+#### Come fare una ricerca
+
+1. Vai su **Ricerca** nel menu
+2. Scrivi il tema nella casella di ricerca
+3. Scorri fino alla sezione **🇮🇹 Banche Dati Italiane**
+4. Clicca **🔍 Cerca su ItalgiureWeb**
+5. Se il connettore è configurato, vedrai i risultati; altrimenti appariranno i link rapidi per tutte le banche dati supportate
 
 ### Come fare una ricerca
 
@@ -670,8 +658,6 @@ Nelle impostazioni puoi anche visualizzare la configurazione degli agenti:
 - **Documentalista Legale** — Modello: Nemotron, Temp: 0.2
 - **Segretaria Legale** — Modello: Qwen, Temp: 0.3
 - **Parerista** — Modello: Nemotron, Temp: 0.2
-- **Redattore Atti Processuali** — Modello: Nemotron, Temp: 0.25
-- **Consigliere del Titolare** — Modello: Nemotron, Temp: 0.4
 
 Ogni agente ha una **temperatura** ottimizzata per il suo compito. Non è consigliabile modificarle senza motivo.
 
@@ -769,9 +755,6 @@ Il documento 2026/001 è salvato automaticamente in `database/documents/` e visi
 **D: Posso usare un altro modello AI?**
 > R: Sì, se è compatibile con l’API OpenAI. Modifica l’endpoint in Impostazioni.
 
-**D: Il sistema gestisce anche il diritto dell’Unione Europea?**
-> R: **Sì.** Dal 6 luglio 2026 è attiva l’area **Diritto Europeo**. È disponibile un formulario dedicato con 60 moduli pronti, un prompt specialistico, il supporto alle fonti EUR-Lex e CURIA/CJEU, tool CJEU rapidi, quattro tipologie documento UE e un tipo di pratica "Europeo".
-
 ### Errori comuni e soluzioni
 
 | Errore | Causa | Soluzione |
@@ -780,9 +763,10 @@ Il documento 2026/001 è salvato automaticamente in `database/documents/` e visi
 | "Configurazione SMTP incompleta" | Non hai salvato l’email | Vai su Impostazioni e compila i campi SMTP |
 | "Errore invio email" | Password errata o server bloccato | Per Gmail usa App Password; per Aruba verifica la porta |
 | "Ricerca EUR-Lex vuota" | Il server SPARQL è bloccato | Usa il risultato DuckDuckGo che appare sotto |
-| "Ricerca CURIA vuota" | Ricerca troppo specifica o server CJEU lento | Riprova con il numero di causa o termini inglesi (es. "preliminary ruling") |
 | "Timeout generazione" | Modello sovraccarico | Aspetta 30 secondi e riprova |
 | "Citazioni non verificate" | DDG ha raggiunto il limite | Aspetta 2–3 minuti e rigenera il documento |
+| "ItalgiureWeb non configurato" | Mancano le credenziali Cassa Forense | Vai su Impostazioni → 🇮🇹 Banche Dati Italiane |
+| "Connessione ItalgiureWeb fallita" | Il portale ha modificato il login o le credenziali sono errate | Usa il link rapido a ItalgiureWeb o SentenzeWeb |
 | "Ricerca preliminare vuota" | DuckDuckGo non ha risultati | Riformula l'oggetto con termini più generici |
 | "Pagina bianca" | Browser datato | Aggiorna Chrome/Firefox all’ultima versione |
 | "Documento non si scarica" | Popup bloccati | Consenti i popup per localhost:8506 (o studio-legale.geneforge.eu se online) |
@@ -810,9 +794,9 @@ Per segnalazioni, richieste di funzionalità o assistenza:
 
 ### Panoramica
 
-Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **9 agenti AI specializzati**, ciascuno con una propria identità, competenze e regole di comportamento. Il sistema sceglie automaticamente l'agente giusto per ogni compito.
+Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **7 agenti AI specializzati**, ciascuno con una propria identità, competenze e regole di comportamento. Il sistema sceglie automaticamente l'agente giusto per ogni compito.
 
-### I 9 agenti
+### I 7 agenti
 
 #### ⚖️ 1. Avvocato Generico
 - **Ruolo:** Primo punto di contatto per domande legali rapide
@@ -895,28 +879,6 @@ Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **9 agenti AI sp
   - Revisione finale: verifica congruenza tra quesito, analisi e conclusioni
   - Non omette rischi connessi alla tesi sostenuta
 
-#### ⚖️ 8. Redattore Atti Processuali
-- **Ruolo:** Generazione conservativa di atti processuali civili, penali e amministrativi
-- **Modello:** Nemotron-70B
-- **Temperatura:** 0.25
-- **Quando usarlo:** Pagina Documenti — atti di citazione, memorie, ricorsi, appelli, controricorsi
-- **Output:** Atto processuale completo di intestazione, procura ad litem, motivazione e conclusioni
-- **Regole critiche:**
-  - Non inventa fatti, date o norme
-  - Include sempre vocatio in ius e avvertimenti Cartabia dove richiesto
-  - Verifica il riferimento normativo corretto (es. art. 645 c.p.c. per opposizione a decreto ingiuntivo)
-
-#### 🎓 9. Consigliere del Titolare
-- **Ruolo:** Supporto strategico e di governance per il titolare dello studio
-- **Modello:** Nemotron-70B
-- **Temperatura:** 0.4
-- **Quando usarlo:** Domande di management dello studio, verifica di coerenza strategica, valutazione di rischi complessivi
-- **Output:** Analisi sintetica con opzioni e raccomandazione motivata
-- **Regole critiche:**
-  - Non sostituisce il titolare nelle decisioni
-  - Evita consulenza legale diretta al cliente
-  - Mantiene un tono consulenziale e riservato
-
 ### Fallback di sicurezza
 
 Se il sistema di agenti non è disponibile (es. file YAML corrotti), l'applicazione **non si blocca**. Usa automaticamente i prompt "legacy" originali, salvaguardando la continuità del servizio.
@@ -940,14 +902,14 @@ Studio Legale AI è offerto in modalità **on-premise**: il sistema viene instal
 ### Cosa include ogni pacchetto
 
 #### 🥉 Base — € 500/mese
-- 9 agenti AI standard
+- 7 agenti AI standard
 - 50 documenti/mese
 - 20 ricerche avanzate/mese
 - Archivio fino a 1.000 documenti
 - Supporto email (24h SLA)
 
 #### 🥈 Professional — € 1.000/mese
-- 9 agenti + 1 agente custom
+- 7 agenti + 1 agente custom
 - 200 documenti/mese
 - 100 ricerche avanzate/mese
 - Archivio illimitato
@@ -955,7 +917,7 @@ Studio Legale AI è offerto in modalità **on-premise**: il sistema viene instal
 - 2 sessioni di formazione
 
 #### 🥇 Enterprise — € 2.500/mese
-- 9 agenti + 3 agenti custom
+- 7 agenti + 3 agenti custom
 - Documenti illimitati
 - Ricerche avanzate illimitate
 - Archivio illimitato + API REST
@@ -981,8 +943,8 @@ L'hardware NVIDIA DGX SPARK è un prerequisito. Il cliente lo acquista dai distr
 
 ### Contatti commerciali
 
-- **Demo:** marco.saba@geneforge.eu
-- **Supporto tecnico:** marco.saba@geneforge.eu
+- **Demo:** info@geneforge.eu
+- **Supporto tecnico:** info@geneforge.eu
 - **Telefono:** +39 370 353 8535
 
 ---
@@ -992,4 +954,4 @@ L'hardware NVIDIA DGX SPARK è un prerequisito. Il cliente lo acquista dai distr
 *© 2026 — Tutti i diritti riservati*
 
 *Manuale redatto per l'Avv. Marco della Luna e lo Studio Legale AI*
-*Versione 2.2 — 6 Luglio 2026*
+*Versione 2.1 — 2 Maggio 2026*

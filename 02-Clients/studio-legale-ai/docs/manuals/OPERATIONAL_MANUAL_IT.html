@@ -492,6 +492,7 @@ cd web-ui && python studio_legale_app.py</pre>
 <tr><td>EUR-Lex</td><td>EUR-Lex + DDG</td><td>Direttive, regolamenti UE</td></tr>
 <tr><td>CURIA</td><td>DDG search</td><td>Corte di Giustizia UE</td></tr>
 <tr><td>Dottrina</td><td>CrossRef + DDG</td><td>Articoli scientifici</td></tr>
+<tr><td>Banche Dati IT</td><td>ItalgiureWeb / editori</td><td>Cassazione, Consiglio di Stato, TAR, Corte Cost.</td></tr>
 </table>
 <h2>10.2 Procedura</h2>
 <ol class="steps">
@@ -503,6 +504,18 @@ cd web-ui && python studio_legale_app.py</pre>
 </ol>
 <h2>10.3 Verifica Cassazione</h2>
 <p>Il Ricercatore Cassazione (temp 0.1) estrae citazioni «Cass., Sez. X, n. ...» e verifica esistenza. Accuratezza ~85% — verifica manuale sempre consigliata.</p>
+<h2>10.4 Banche Dati Italiane</h2>
+<p>Modulo che integra le principali banche dati giuridiche italiane a pagamento. <strong>ItalgiureWeb</strong> è il primo connettore attivo: usa le credenziali Cassa Forense per cercare su Cassazione, Consiglio di Stato, TAR, Corte Costituzionale, Commissioni Tributarie e normativa UE.</p>
+<table>
+<tr><th>Banca dati</th><th>Stato</th><th>Accesso</th></tr>
+<tr><td>ItalgiureWeb</td><td>🟢 Automatizzato</td><td>Credenziali Cassa Forense</td></tr>
+<tr><td>De Jure</td><td>🟡 Placeholder</td><td>API key su richiesta</td></tr>
+<tr><td>One Legale (WKI)</td><td>🟡 Placeholder</td><td>API key su richiesta</td></tr>
+<tr><td>Dike</td><td>🟡 Placeholder</td><td>API key su richiesta</td></tr>
+<tr><td>Eurex</td><td>🟡 Placeholder</td><td>API key su richiesta</td></tr>
+<tr><td>Juris Data</td><td>🟡 Placeholder</td><td>API key su richiesta</td></tr>
+</table>
+<div class="note"><strong>Fallback automatico</strong>Se il login automatizzato non dovesse funzionare, il sistema mostra i link rapidi a ItalgiureWeb e SentenzeWeb con la query precompilata. Le credenziali restano sempre nello studio.</div>
 <div class="note"><strong>Dati trasmessi</strong>Le ricerche web inviano solo il testo della query, mai dati di pratiche o nomi clienti. Conforme al principio di minimizzazione GDPR.</div>
 </section>
 <section id="formulario" class="page-section">
