@@ -709,6 +709,76 @@ Gestionali e DMS supportati:
 
 > 🔐 **Sicurezza:** le credenziali dei gestionali sono salvate solo sul tuo computer, nel file `database/settings.json`, e non vengono mai trasmesse a GeneForge o a terzi.
 
+### 📧 PEC Professionale
+
+Studio Legale AI integra la **Posta Elettronica Certificata** per inviare e ricevere comunicazioni legali direttamente dalla piattaforma. Le credenziali PEC restano salvate solo in locale.
+
+Provider supportati:
+
+| Provider | Server predefinito | Protocollo |
+|---|---|---|
+| **Aruba PEC** | `smtp.pec.aruba.it` / `imap.pec.aruba.it` | SMTP/IMAP SSL |
+| **Legalmail** | `smtp.legalmail.it` / `imap.legalmail.it` | SMTP/IMAP SSL |
+| **PosteCert** | `smtp.postecert.it` / `imap.postecert.it` | SMTP/IMAP SSL |
+| **PEC.it** | `smtp.pec.it` / `imap.pec.it` | SMTP/IMAP SSL |
+| **Provider generico** | Personalizzabile | SMTP/IMAP SSL/TLS |
+
+#### Funzionalità
+
+- **Invio PEC** con destinatario, oggetto, corpo e allegati (PDF/DOCX).
+- **Ricezione PEC** tramite IMAP con riconoscimento ricevute di accettazione/consegna.
+- **Associazione automatica** alla pratica tramite numero pratica nell'oggetto.
+- **Archivio locale** dei messaggi in ingresso e in uscita.
+
+#### Come configurare la PEC
+
+1. Vai su **Impostazioni**
+2. Scorri fino alla sezione **📧 PEC Professionale**
+3. Seleziona il provider o inserisci i server manualmente
+4. Inserisci:
+   - **Indirizzo PEC**
+   - **Username**
+   - **Password**
+   - **Server SMTP/IMAP** e relative porte
+5. Clicca **💾 Salva**
+6. Clicca **🧪 Test PEC** per verificare la connessione
+
+> ⚠️ **Importante:** per l'invio effettivo è necessario che il provider PEC abiliti l'accesso SMTP. Alcuni provider richiedono password specifiche per applicazioni o l'abilitazione dell'accesso meno sicuro.
+
+### ⚖️ Deposito Telematico / E-filing
+
+Studio Legale AI predispone i connettori per i principali portali di **deposito telematico** italiani. L'integrazione automatica richiede firma digitale/smart card e/o API del provider; il sistema genera il pacchetto di deposito e apre il link al portale corretto.
+
+Provider e portali supportati:
+
+| Provider / Portale | Categoria | Requisiti | Stato |
+|---|---|---|---|
+| **PCT** — Processo Civile Telematico | Ministero Giustizia | Smart card, software PCT, PIN | 🟡 Placeholder |
+| **UNEP** — Cassazione / Consiglio di Stato / TAR | Giurisdizioni superiori | Credenziali UNEP, smart card, PIN | 🟡 Placeholder |
+| **ReGIndE** | Registro indice elettronico | Credenziali, smart card | 🟡 Placeholder |
+| **Polisweb** | Commerciale | API key, username | 🟡 Placeholder |
+| **TrialOnline** | Commerciale | API key, username | 🟡 Placeholder |
+| **eDepart** | Commerciale | API key, username | 🟡 Placeholder |
+| **Altalex Studio Legale** | Commerciale | API key, client ID | 🟡 Placeholder |
+
+#### Funzionalità
+
+- **Generazione pacchetto di deposito** con metadati della pratica.
+- **Link rapido** al portale corretto con dati precompilati quando possibile.
+- **Tracciamento manuale** dello stato del deposito (bozza → pronto → depositato → esito).
+- **Template CSV** per tenere traccia dei depositi in attesa di integrazione automatica.
+
+#### Come configurare un provider e-filing
+
+1. Vai su **Impostazioni**
+2. Scorri fino alla sezione **⚖️ Deposito Telematico / E-filing**
+3. Espandi il provider che ti interessa
+4. Attiva il provider e inserisci i dati richiesti
+5. Clicca **💾 Salva**
+6. Clicca **🧪 Test provider** per verificare la configurazione
+
+> 🔐 **Sicurezza:** le credenziali e i documenti relativi ai depositi telematici restano nello studio. La firma digitale viene richiesta all'esterno o tramite smart card locale; Studio Legale AI non gestisce chiavi private.
+
 ---
 
 ## 10. Flusso di Lavoro Consigliato
