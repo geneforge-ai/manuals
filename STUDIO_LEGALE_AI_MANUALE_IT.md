@@ -471,8 +471,8 @@ La sezione **Ricerca** è gestita da due agenti specializzati:
 
 | Agente | Modello | Temperatura | Specializzazione |
 |--------|---------|-------------|------------------|
-| **Ricercatore Giuridico** | Nemotron-70B | 0.3 | Normativa, giurisprudenza, dottrina |
-| **Ricercatore Cassazione** | Nemotron-70B | 0.1 | Solo Corte di Cassazione — zero tolleranza per errori |
+| **Ricercatore Giuridico** | Nemotron 3.5 Lightning 30B | 0.3 | Normativa, giurisprudenza, dottrina |
+| **Ricercatore Cassazione** | Nemotron 3.5 Lightning 30B | 0.1 | Solo Corte di Cassazione — zero tolleranza per errori |
 
 Il **Ricercatore Cassazione** è il più "rigoroso" del sistema. La sua temperatura è 0.1 (la minima possibile) perché non può permettersi di inventare sentenze. Se non è certo di una pronuncia, dichiara esplicitamente: *"Non verificato"*.
 
@@ -963,7 +963,7 @@ Il documento 2026/001 è salvato automaticamente in `database/documents/` e visi
 ### Domande frequenti
 
 **D: I dati dei clienti finiscono su Internet?**
-> R: **No.** Gli agenti AI girano sul tuo server locale. Nessun dato lascia il computer, eccetto le ricerche avanzate (Nemotron API) dove viene trasmesso *solo il testo della query*, mai dati delle pratiche. Le ricerche sui motori giuridici (Normattiva, EUR-Lex, ecc.) sono pubbliche.
+> R: **No.** Tutti i modelli AI (Nemotron 3.5 Lightning 30B, Qwen2.5-7B, Qwen3-32B) girano sul tuo server locale via llama.cpp: nessun dato lascia il computer. Le uniche connessioni esterne sono le ricerche sui motori giuridici pubblici (Normattiva, EUR-Lex, ecc.), che trasmettono *solo il testo della query*, mai dati delle pratiche.
 
 **D: Posso usare il software senza connessione?**
 > R: Sì per la gestione clienti, pratiche, documenti e calendario. **No** per la ricerca giuridica e la verifica citazioni, che richiedono Internet.
@@ -1050,7 +1050,7 @@ Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **7 agenti AI sp
 
 #### 📜 2. Analista Contrattuale
 - **Ruolo:** Analisi approfondita di contratti
-- **Modello:** Nemotron-70B
+- **Modello:** Nemotron 3.5 Lightning 30B
 - **Temperatura:** 0.2
 - **Quando usarlo:** Pagina Contratti — verifica di accordi commerciali
 - **Output:** Executive Summary → Rischi → Mancanze → Modifiche suggerite
@@ -1061,7 +1061,7 @@ Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **7 agenti AI sp
 
 #### 🔍 3. Ricercatore Giuridico
 - **Ruolo:** Ricerche multi-motore su normativa e giurisprudenza
-- **Modello:** Nemotron-70B
+- **Modello:** Nemotron 3.5 Lightning 30B
 - **Temperatura:** 0.3
 - **Quando usarlo:** Pagina Ricerca — tema generico
 - **Output:** Normativa vigente + giurisprudenza + dottrina
@@ -1072,7 +1072,7 @@ Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **7 agenti AI sp
 
 #### 🏛️ 4. Ricercatore Cassazione
 - **Ruolo:** Giurisprudenza della Corte di Cassazione
-- **Modello:** Nemotron-70B
+- **Modello:** Nemotron 3.5 Lightning 30B
 - **Temperatura:** 0.1 (la più bassa del sistema)
 - **Quando usarlo:** Quando la tesi dipende criticamente dalla Cassazione
 - **Output:** Orientamenti maggioritari/minoritari, grado consolidamento
@@ -1083,7 +1083,7 @@ Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **7 agenti AI sp
 
 #### 📄 5. Documentalista Legale
 - **Ruolo:** Generazione di 11 tipi di atto giuridico
-- **Modello:** Nemotron-70B
+- **Modello:** Nemotron 3.5 Lightning 30B
 - **Temperatura:** 0.2
 - **Quando usarlo:** Pagina Documenti — tutti gli atti tranne Nota di trasmissione
 - **Output:** Corpo giuridico del documento (intestazione, procura e firma sono pre-compilate dal codice)
@@ -1097,7 +1097,7 @@ Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **7 agenti AI sp
 
 #### 📋 6. Segretaria Legale
 - **Ruolo:** Documenti amministrativi e promemoria
-- **Modello:** Qwen-72B
+- **Modello:** Qwen2.5-7B
 - **Temperatura:** 0.3
 - **Quando usarlo:** Note di trasmissione, promemoria scadenze, solleciti
 - **Output:** Documento amministrativo professionale
@@ -1108,7 +1108,7 @@ Studio Legale AI non usa un "unico chatbot" per tutto. Utilizza **7 agenti AI sp
 
 #### 📖 7. Parerista
 - **Ruolo:** Pareri legali formali strutturati
-- **Modello:** Nemotron-70B
+- **Modello:** Nemotron 3.5 Lightning 30B
 - **Temperatura:** 0.2
 - **Quando usarlo:** Pagina Pareri — quando serve una risposta motivata
 - **Output:** Quesito → Norma → Analisi → Conclusioni → Rischi
@@ -1125,7 +1125,31 @@ Se il sistema di agenti non è disponibile (es. file YAML corrotti), l'applicazi
 
 ---
 
-## 13. Prezzi e Servizi Commerciali
+## 14. Consulenza Strategica (pagina /strategy)
+
+La pagina **🧠 Strategia** è dedicata alle domande complesse: strategie difensive, valutazione di scenari, ottimizzazione delle soluzioni da prospettare ai clienti.
+
+### Come funziona
+
+- Usa un modello dedicato, **Qwen3-32B** (porta 8083), con **ragionamento visibile in diretta**: mentre il modello elabora, il pannello "Ragionamento del modello" mostra la catena logica passo-passo, poi si chiude automaticamente quando inizia la risposta finale.
+- L'analisi può richiedere da 30 secondi ad alcuni minuti: il timer mostra il tempo trascorso e il pulsante **Interrompi** annulla l'elaborazione.
+
+### Due modalità
+
+| Modalità | Uso |
+|----------|-----|
+| **Consulenza strategica** | Scenari, rischi, tempistiche, raccomandazione finale attuabile |
+| **Modalità contenzioso** | Analisi forense a 8 punti per cause contro attori istituzionali/industriali: catena della conoscenza, onere probatorio, conflitti di interesse di periti e CTU, dati grezzi da richiedere, timeline delle riammissioni |
+
+### Note d'uso
+
+- La risposta è sempre nella lingua della domanda (italiano o bulgaro); il ragionamento interno può apparire in inglese — è normale.
+- La Modalità contenzioso lavora **solo sui fatti e sugli atti forniti**: elenca cosa procurarsi e dove cercarlo, senza pronunciarsi sul merito scientifico.
+- Il ragionamento mostrato è uno strumento di trasparenza interna: non va copiato negli atti.
+
+---
+
+## 15. Prezzi e Servizi Commerciali
 
 ### Modello di business
 
