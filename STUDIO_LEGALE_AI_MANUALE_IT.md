@@ -1,7 +1,7 @@
 # Studio Legale AI — Manuale Utente
 
-**Versione:** 2.3  
-**Data:** 9 Luglio 2026  
+**Versione:** 2.4  
+**Data:** 15 Agosto 2026  
 **Progetto:** GeneForge AI — Studio Legale AI  
 **Destinatari:** Avv. Marco della Luna, collaboratori e segretarie dello studio  
 
@@ -1218,4 +1218,4 @@ L'hardware NVIDIA DGX SPARK è un prerequisito. Il cliente lo acquista dai distr
 *© 2026 — Tutti i diritti riservati*
 
 *Manuale redatto per l'Avv. Marco della Luna e lo Studio Legale AI*
-*Versione 2.1 — 2 Maggio 2026*
+*Versione 2.4 — 15 Agosto 2026*
